@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>HAPM preview image</title>
+<style>
+  * { box-sizing:border-box; margin:0; }
+  body { width:1200px; height:630px; background:#fff; font-family:system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color:#16181d;
+         padding:34px 48px; display:flex; flex-direction:column; }
+  .hd { display:flex; align-items:baseline; gap:16px; border-bottom:3px solid #16181d; padding-bottom:10px; }
+  .brand { font-size:46px; font-weight:800; color:#B5577A; letter-spacing:-.5px; }
+  .sub { font-size:21px; color:#5f636b; }
+  .when { margin-left:auto; font-size:19px; background:#F7E4EA; border:1px solid #E8C3CF; padding:4px 12px; }
+  table { border-collapse:collapse; width:100%; margin-top:14px; font-variant-numeric:tabular-nums; }
+  th { font-size:16px; color:#5f636b; font-weight:600; text-align:center; padding:2px 8px 6px; }
+  td { font-size:21px; padding:4.5px 10px; border-bottom:1px solid #e6e7ea; text-align:center; }
+  td.n { text-align:left; font-weight:700; } th.n { text-align:left; } td.r { color:#5f636b; width:44px; }
+  td.v { font-weight:600; width:150px; } td.v small { font-size:14px; color:#3d4148; font-weight:500; margin-left:6px; }
+  .ft { margin-top:auto; display:flex; justify-content:space-between; font-size:17px; color:#5f636b; }
+  .ft b { color:#B5577A; }
+</style>
+</head>
+<body>
+<div class="hd"><span class="brand">HAPM</span><span class="sub">Held-out adjusted plus-minus</span><span class="when" id="when"></span></div>
+<table><thead><tr><th></th><th class="n">Player</th><th>Team</th><th id="vh">HAPM</th><th>Off</th><th>Def</th></tr></thead><tbody id="rows"></tbody></table>
+<div class="ft"><span><b>lumahoops.github.io/hapm</b> &middot; every NBA season since 1997-98</span><span>LUMA Basketball Research</span></div>
+<script>
+const LO = [238, 172, 172], MID = [234, 235, 238], HI = [190, 228, 176];
+const heat = p => { const t = Math.min(1, Math.abs(p - 50) / 50), e = p >= 50 ? HI : LO; return `rgb(${MID.map((m, i) => Math.round(m + (e[i] - m) * t)).join(",")})`; };
+const sg = x => (x > 0 ? "+" : x < 0 ? "\u2212" : "") + Math.abs(x).toFixed(2);
+const pct = (s, x) => { let n = 0; for (const y of s) if (y < x) n++; return 100 * n / s.length; };
+(async () => {
+  const idx = await (await fetch("data/index.json")).json(), cur = idx.current;
+  const d = await (await fetch(`data/${cur.season}.json`)).json(), v = idx.default_variant;
+  const pool = d.rows.filter(r => r.p >= d.qualified_poss && r.v[v]);
+  const S = [0, 1, 2].map(j => pool.map(r => r.v[v][j]));
+  const top = pool.sort((a, b) => b.v[v][2] - a.v[v][2]).slice(0, 10);
+  document.getElementById("when").textContent = `${cur.season} to date \u00b7 ${cur.games} games \u00b7 ${d.qualified_poss}+ poss`;
+  document.getElementById("vh").textContent = `HAPM ${v}`;
+  document.getElementById("rows").innerHTML = top.map((r, i) => `<tr><td class="r">${i + 1}</td><td class="n">${r.n}</td><td>${r.t}</td>` +
+    [2, 0, 1].map(j => { const x = r.v[v][j], p = pct(S[j], x); return `<td class="v" style="background:${heat(p)}">${sg(x)}<small>${Math.round(p)}%</small></td>`; }).join("") + "</tr>").join("");
+  document.body.dataset.ready = "1";
+})();
+</script>
+</body>
+</html>
