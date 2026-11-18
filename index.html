@@ -28,6 +28,13 @@
   .steps .s b { color:var(--rose); display:block; font-size:12px; }
   .steps .a { align-self:center; padding:0 8px; color:var(--mute); font-size:16px; }
   .how h3 { font-size:12px; margin:14px 0 2px; } .how .lead { color:var(--mute); font-size:11.5px; margin:0 0 6px; }
+  details.why { padding-top:6px; }
+  .wy { display:flex; gap:32px; flex-wrap:wrap; align-items:flex-start; margin:8px 0 4px; }
+  .wt { margin:0; font-size:11.5px; } .wt th { background:var(--head); } .wt td:first-child, .wt th:first-child { text-align:left; }
+  .wt td { padding:2px 9px; } .wt td.b { font-weight:700; background:#eef7ea; }
+  .fn { color:var(--mute); font-size:10.5px; max-width:420px; margin:5px 0 0; line-height:1.4; }
+  .wn { max-width:330px; border-left:3px solid var(--rose); padding:2px 0 2px 12px; font-size:11.5px; line-height:1.45; }
+  .wn h3 { margin-top:0; } .wn p { margin:0 0 6px; }
   .dg { display:flex; gap:40px; flex-wrap:wrap; align-items:flex-start; }
   .dcol { max-width:620px; }
   .stint { font-size:11.5px; } .srow { display:flex; align-items:center; gap:5px; margin:3px 0; }
@@ -105,7 +112,7 @@
 <div class="top">
   <span class="brand">HAPM</span><span class="sub">Held-Out Adjusted Plus-Minus</span>
   <span class="tip" tabindex="0">?<span class="box">
-    <b>HAPM</b> measures how many points per 100 possessions a player's stints produced above expectation. The other nine
+    <b>HAPM</b> measures how many points per 100 possessions a player's stints produced above or below expectation. The other nine
     players in each of his stints are rated without any of his possessions. Their ratings give the margin the stint would
     produce with an average player in his place, and his HAPM is the actual margin minus that. Players with few possessions
     are pulled toward a typical value for their playing time.<br><br>
@@ -120,7 +127,7 @@
     <div class="a">&rarr;</div>
     <div class="s"><b>2. Estimate each stint</b>Those ratings give the expected margin for each of his stints, with an average player in his place.</div>
     <div class="a">&rarr;</div>
-    <div class="s"><b>3. Actual minus expected</b>The chosen player's HAPM is what his stints produced above that estimate, per 100 possessions.</div>
+    <div class="s"><b>3. Actual minus expected</b>The chosen player's HAPM is what his stints produced above or below that estimate, per 100 possessions.</div>
   </div>
   <div class="dg">
   <div class="dcol">
@@ -161,6 +168,42 @@
   <p class="lead">Each version uses a different number of seasons of the player's own stints, with newer seasons counting more. The 3 means the other nine are rated with their three previous seasons.</p>
   <div id="vgrid"></div>
 </details>
+<details class="how why"><summary><span class="ar">&#9656;</span> Why HAPM</summary>
+  <div class="wy">
+  <div>
+    <h3>When a player sits</h3>
+    <p class="lead">What the team actually lost, divided by what each metric forecast. 1 is the right size; above 1, the metric underrates the player.</p>
+    <table class="wt">
+      <tr><th>Who sits</th><th>HAPM 2/3</th><th>RAPM 4-year</th><th>RAPM 1-year</th></tr>
+      <tr><td>Top player by possessions</td><td class="b">.90</td><td>1.85</td><td>3.67</td></tr>
+      <tr><td>Second</td><td class="b">.87</td><td>1.73</td><td>3.78</td></tr>
+      <tr><td>Third to fifth</td><td class="b">.98</td><td>1.95</td><td>3.78</td></tr>
+      <tr><td>Sixth to eighth</td><td class="b">1.45</td><td>2.56</td><td>7.51</td></tr>
+    </table>
+    <p class="fn">Every team-game from 2013-14 to 2025-26, compared within team and half-season, with home court and opponent strength held fixed. Each forecast uses values from the other half of the season. Closest to 1 in bold.</p>
+  </div>
+  <div>
+    <h3>Next season</h3>
+    <p class="lead">How well one season's values predict the next season.</p>
+    <table class="wt">
+      <tr><th>Next season</th><th>HAPM 2/3</th><th>RAPM 4-year</th><th>RAPM 1-year</th></tr>
+      <tr><td>Game margins (R&sup2;)</td><td class="b">.158</td><td>.149</td><td>.129</td></tr>
+      <tr><td>Team ranking (rank correlation)</td><td class="b">.744</td><td>.742</td><td>.692</td></tr>
+      <tr><td>Five-man units (R&sup2;)</td><td>.109</td><td class="b">.116</td><td>.109</td></tr>
+      <tr><td>Five-man units never seen together (R&sup2;)</td><td>.096</td><td class="b">.102</td><td>.095</td></tr>
+    </table>
+    <p class="fn">4-year RAPM uses four seasons of each player; HAPM 2/3 uses two. Best value in each row in bold. Season pairs from 2013-14 to 2025-26.</p>
+  </div>
+  <div class="wn">
+    <h3>Why HAPM differs from RAPM</h3>
+    <p>RAPM fits every player at once. Players who share the floor split the credit, so each value comes out too small.</p>
+    <p>HAPM rates the other nine without the player, so his value is not split with anyone.</p>
+    <p>Team context barely moves HAPM. Stronger teammates raise a player's 1-year RAPM by .23 per standard deviation of
+      their strength and change his HAPM by &minus;.02. Counting the players who replace him as well, team context moves HAPM
+      about 80% less than 1-year RAPM (.07 against .33).</p>
+  </div>
+  </div>
+</details>
 <div class="bar">
   <label>Seasons <select id="from"></select></label><label>to <select id="to"></select></label>
   <label>Version <select id="variant"></select></label>
@@ -176,7 +219,7 @@
 <div class="wrap"><div class="status" id="status"></div><table id="main"><thead id="th"></thead><tbody id="rows"></tbody></table>
 <details class="guide"><summary><span class="ar">&#9656;</span> What the columns show</summary>
 <table><thead><tr><th>Column</th><th>Meaning</th><th>Column</th><th>Meaning</th></tr></thead><tbody>
-<tr><td class="t">HAPM</td><td>Points per 100 possessions his stints produced above what the other nine were expected to produce with an average player in his place. 0 is the average rated player; rotation players average about +1.3.</td>
+<tr><td class="t">HAPM</td><td>Points per 100 possessions his stints produced above or below what the other nine were expected to produce with an average player in his place. 0 is the average rated player; rotation players average about +1.3.</td>
     <td class="t">Off, Def</td><td>HAPM at each end of the floor.</td></tr>
 <tr><td class="t">Percentile</td><td>The small number in each cell. It ranks him among all players with the minimum possessions, across positions and teams. Cells run from red (low) through gray to green (high).</td>
     <td class="t">Poss</td><td>Possessions he played in the seasons selected.</td></tr>
@@ -304,7 +347,7 @@ function valueCols(ox) {
   const SEL = [H, SVg, { id:"sel", label:"Selection" }], CONV = [H, SVg, { id:"conv", label:"Conversion" }];
   const GEN = [H, PVg, { id:"gen", label:"Generation" }], RET = [H, PVg, { id:"ret", label:"Retention" }];
   const cols = [
-    {k:"net",t:"HAPM",v:1,main:1,path:[H],h:"Points per 100 possessions above what the other nine were expected to produce with an average player in his place"},
+    {k:"net",t:"HAPM",v:1,main:1,path:[H],h:"Points per 100 possessions above or below what the other nine were expected to produce with an average player in his place"},
   ];
   if (S.open.od) cols.push({k:"o",t:"Off",v:1,lv:1,nb:1,path:[H],h:"HAPM on offense"}, {k:"d",t:"Def",v:1,lv:1,nb:1,path:[H],h:"HAPM on defense"});
   const zones = (pre, keys, side, kind, path) => Z ? [...keys].map(z => ({k:`${pre}_${z}`, t:ZN[z], v:1, lv:4, path, h:`${side} ${kind} impact ${ZL[z]}`})) : [];
