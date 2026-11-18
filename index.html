@@ -100,6 +100,8 @@
   td.l3 .x { font-weight:500; font-size:11.5px; } td.l4 { min-width:40px; } td.l4 .x { font-weight:500; font-size:11px; } td.l4 .p { font-size:9.5px; }
   tr.agg td { border-top:2px solid var(--ink); font-weight:700; }
   .yt { color:var(--mute); font-weight:400; font-size:10.5px; margin-left:3px; }
+  tr.flt td { background:#fbfbfc; padding:1px 2px; } tr.flt input { width:38px; font-size:10.5px; padding:1px 2px; border:1px solid #c9ccd2; }
+  tr.flt input::placeholder { color:#a3a6ad; } tr.flt input.set { border-color:var(--rose); background:var(--rose-tint); }
   .status { margin:0 auto 6px; color:var(--mute); font-size:11.5px; text-align:center; }
   details.guide { max-width:1180px; margin:22px auto 0; } details.guide[open] > summary { margin-bottom:6px; }
   .guide table { width:100%; font-size:11.5px; }
@@ -226,6 +228,7 @@
   <input type="search" id="q" placeholder="Search player">
   <span class="seg" id="view"><button data-v="p" class="on">Players</button><button data-v="t">Teams</button></span>
   <label>Columns <span class="chips" id="open"><button data-g="od">Off / Def</button><button data-g="sv">Shot value</button><button data-g="zn">Zones</button><button data-g="pv">Possession value</button></span></label>
+  <span class="chips"><button id="fbtn" title="Show minimum / maximum boxes under each column">Filters</button><button id="fclr" title="Clear all column filters" style="display:none">Clear filters</button></span>
   <a class="btn" id="csv" href="#">CSV</a>
 </div>
 <div class="wrap"><div class="status" id="status"></div><table id="main"><thead id="th"></thead><tbody id="rows"></tbody></table>
@@ -247,12 +250,14 @@
     <td class="t">1997-98</td><td>The first season has no earlier seasons to rate the other nine, so its values are less certain.</td></tr>
 <tr><td class="t">Games through</td><td>The current season's values include every game up to the number shown.</td>
     <td class="t">Columns</td><td>The buttons show or hide each group. The table opens with HAPM, Off and Def.</td></tr>
+<tr><td class="t">Filters</td><td>Minimum (&ge;) and maximum (&le;) boxes under each column, in points per 100 possessions (Poss in possessions). Rank and percentiles still count every player.</td>
+    <td></td><td></td></tr>
 </tbody></table></details>
 <div class="credit">LUMA Basketball Research &middot; <a href="https://github.com/lumahoops/NBA/tree/main/hapm">Data on GitHub</a> (CC BY 4.0) &middot; &copy; 2026 Court Share LLC</div>
 </div>
 <div id="pop"></div>
 <script>
-const S = { meta:null, cache:{}, variant:"2/3", sort:"net", dir:-1, view:"p", open:{ od:true, sv:false, zn:false, pv:false } };
+const S = { meta:null, cache:{}, variant:"2/3", sort:"net", dir:-1, view:"p", open:{ od:true, sv:false, zn:false, pv:false }, showF:false, filt:{} };
 const $ = id => document.getElementById(id);
 const sg = x => x == null ? "" : (x > 0 ? "+" : x < 0 ? "\u2212" : "") + Math.abs(x).toFixed(2);
 const GRP = { G:["PG", "SG", "G"], W:["SF", "F"], B:["PF", "C", "F"] };     // ESPN lists some rookies only as G / F / C
@@ -299,6 +304,7 @@ async function init() {
   if (H.v && S.meta.variants.includes(H.v)) S.variant = H.v;
   if (H.view === "t") { S.view = "t"; setSeg("view", "v", "t"); }
   if (H.cols != null) { const on = H.cols.split(","); for (const g in S.open) S.open[g] = on.includes(g); }
+  if (H.flt) { for (const t of H.flt.split(",")) { const [k, a, b] = t.split(":"); S.filt[k] = [a ?? "", b ?? ""]; } S.showF = true; }
   if (H.pos) $("pos").value = H.pos; S.hashTeam = H.team || ""; S.hashMp = H.mp;
   for (const v of S.meta.variants) $("variant").add(new Option("HAPM " + v, v)); $("variant").value = S.variant;
   const c = S.meta.current; $("stamp").textContent = `${c.season}: games through #${c.through_game}`;
@@ -309,6 +315,8 @@ async function init() {
   $("mp").oninput = () => { S.mpUser = true; render(); };
   [...$("view").children].forEach(b => b.onclick = () => setView(b.dataset.v));
   [...$("open").children].forEach(b => b.onclick = () => toggle(b.dataset.g));
+  $("fbtn").onclick = () => { S.showF = !S.showF; render(); };
+  $("fclr").onclick = () => { S.filt = {}; render(); };
   $("vgrid").innerHTML = vGrid();
   await load(true);
 }
@@ -395,7 +403,14 @@ function header(cols) {
     const g = c.path[r]; let j = i; while (j < cols.length && cols[j].path.length > r && cols[j].path[r].id === g.id) j++;
     rows[r] += gth(g, j - i, r); i = j;
   }
-  $("th").innerHTML = rows.map(x => `<tr>${x}</tr>`).join("");
+  let fr = "";
+  if (S.showF) fr = `<tr class="flt">` + cols.map(c => (c.v || c.k === "p")
+    ? `<td><input data-k="${c.k}" data-i="0" placeholder="\u2265" value="${(S.filt[c.k] || [])[0] ?? ""}"> <input data-k="${c.k}" data-i="1" placeholder="\u2264" value="${(S.filt[c.k] || [])[1] ?? ""}"></td>`
+    : "<td></td>").join("") + "</tr>";
+  $("th").innerHTML = rows.map(x => `<tr>${x}</tr>`).join("") + fr;
+  document.querySelectorAll("#th tr.flt input").forEach(el => { el.classList.toggle("set", el.value !== "");
+    el.oninput = () => { const k = el.dataset.k, f = S.filt[k] || (S.filt[k] = ["", ""]); f[+el.dataset.i] = el.value.trim();
+      if (!f[0] && !f[1]) delete S.filt[k]; el.classList.toggle("set", el.value !== ""); S.keepHead = true; render(); S.keepHead = false; }; });
   document.querySelectorAll("#th th.c").forEach(t => t.onclick = () => { const k = t.dataset.k;
     S.dir = S.sort === k ? -S.dir : (["n", "t", "pos", "rank", "best"].includes(k) ? 1 : -1); S.sort = k; render(); });
 }
@@ -416,10 +431,17 @@ function teamAvgs(pool, cols, single) {   // possession-weighted average per tea
     for (const c of cols) if (c.v) o[c.k] = e.s[c.k] / e.w; return o; });
 }
 
+function passF(r) {                 // column filters: values in points (Poss in possessions); blank = no limit
+  for (const [k, [a, b]] of Object.entries(S.filt)) { const x = r[k];
+    if (a !== "" && !isNaN(+a) && !(x != null && x >= +a)) return false;
+    if (b !== "" && !isNaN(+b) && !(x != null && x <= +b)) return false; }
+  return true;
+}
 function render() {
   syncChips();
+  $("fbtn").classList.toggle("on", S.showF); $("fclr").style.display = Object.keys(S.filt).length ? "" : "none";
   const st = { from:$("from").value, to:$("to").value, v:S.variant, view:S.view, pos:$("pos").value, team:$("team").value, mp:$("mp").value,
-    cols:Object.keys(S.open).filter(g => S.open[g]).join(",") };
+    cols:Object.keys(S.open).filter(g => S.open[g]).join(","), flt:Object.entries(S.filt).map(([k, [a, b]]) => `${k}:${a}:${b}`).join(",") };
   history.replaceState(null, "", "#" + new URLSearchParams(Object.entries(st).filter(([k, x]) => x || k === "cols")).toString());
   const { ox, rows } = players(), mp = +$("mp").value || 0, pos = $("pos").value, tm = $("team").value, q = $("q").value.toLowerCase();
   const posOk = r => !pos || (GRP[pos] ? GRP[pos].includes(r.pos) : r.pos === pos);
@@ -430,12 +452,12 @@ function render() {
   const rangeTxt = S.range.length === 1 ? S.range[0] : `${S.range[0]} to ${S.range[S.range.length - 1]}`;
   const posTxt = pos ? ` \u00b7 ${$("pos").selectedOptions[0].text}` : "";
   if (S.view === "t") return renderTeams(pool.filter(posOk), vc, rangeTxt + posTxt);
-  let show = pool.filter(r => posOk(r) && (!tm || r.t.split("/").includes(tm)) && (!q || r.n.toLowerCase().includes(q)));
+  let show = pool.filter(r => posOk(r) && (!tm || r.t.split("/").includes(tm)) && (!q || r.n.toLowerCase().includes(q)) && passF(r));
   const rk = new Map(pool.slice().sort((a, b) => b.net - a.net).map((r, i) => [r.i, i + 1]));
   show.forEach(r => r.rank = rk.get(r.i)); sortRows(show);
   const OVW = [{ id:"ovw", label:"Overview" }];
   const cols = [ {k:"rank",t:"Rk",path:OVW}, {k:"n",t:"Player",l:1,path:OVW}, {k:"pos",t:"Pos",path:OVW}, {k:"t",t:"Team",l:1,path:OVW}, {k:"p",t:"Poss",path:OVW}, ...vc ];
-  header(cols);
+  if (!S.keepHead) header(cols);
   let html = show.map(r => "<tr>" + cols.map(c => cell(c, r, P)).join("") + "</tr>").join("");
   if (tm && show.length) {            // team line, with percentiles among all teams under the same filters
     const all = teamAvgs(pool.filter(posOk), vc, false), Q = {};
@@ -449,12 +471,13 @@ function render() {
 }
 
 function renderTeams(pool, vc, label) {   // team strength = possession-weighted average of its players
-  const rows = teamAvgs(pool, vc, true), Q = {};
-  for (const c of vc) Q[c.k] = rows.map(r => r[c.k]).filter(x => x != null).sort((a, b) => a - b);
-  rows.slice().sort((a, b) => b.net - a.net).forEach((r, i) => r.rank = i + 1); sortRows(rows);
+  const all = teamAvgs(pool, vc, true), Q = {};
+  for (const c of vc) Q[c.k] = all.map(r => r[c.k]).filter(x => x != null).sort((a, b) => a - b);
+  all.slice().sort((a, b) => b.net - a.net).forEach((r, i) => r.rank = i + 1);
+  const rows = all.filter(passF); sortRows(rows);
   const TG = [{ id:"tm", label:"Team", tip:"Values are the possession-weighted average of the team's players with the minimum possessions. Players traded during the selected seasons are left out. HAPM values do not add up to a team's margin." }];
   const cols = [ {k:"rank",t:"Rk",path:TG}, {k:"t",t:"Team",l:1,path:TG}, {k:"n",t:"Players",path:TG}, {k:"p",t:"Poss",path:TG}, {k:"best",t:"Best player",l:1,path:TG}, ...vc ];
-  header(cols);
+  if (!S.keepHead) header(cols);
   $("rows").innerHTML = rows.map(r => `<tr style="cursor:pointer" onclick="openTeam('${r.t}')" title="Show ${r.t}'s players">` + cols.map(c => c.v ? cell(c, r, Q) : `<td class="o ${c.l ? "l" : ""}">${c.k === "p" ? Math.round(r.p).toLocaleString() : r[c.k]}</td>`).join("") + "</tr>").join("");
   $("status").innerHTML = `${label} \u00b7 HAPM ${S.variant} \u00b7 ${rows.length} teams \u00b7 possession-weighted average of each team's players \u00b7 click a team to see its players`;
 }
