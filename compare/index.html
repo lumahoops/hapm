@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare NBA Players by HAPM | Held-Out Adjusted Plus-Minus</title>
+<meta name="description" content="Compare up to four NBA players by HAPM (held-out adjusted plus-minus): offense, defense, shot value, possession value and zones, by career, best season or latest season, with HAPM by season.">
+<link rel="canonical" href="https://lumahoops.github.io/hapm/compare/">
+<link rel="icon" type="image/svg+xml" href="https://lumahoops.github.io/hapm/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LUMA Basketball Research">
+<meta property="og:title" content="Compare NBA Players by HAPM | Held-Out Adjusted Plus-Minus">
+<meta property="og:description" content="Compare up to four NBA players by HAPM (held-out adjusted plus-minus): offense, defense, shot value, possession value and zones, by career, best season or latest season, with HAPM by season.">
+<meta property="og:url" content="https://lumahoops.github.io/hapm/compare/">
+<meta property="og:image" content="https://lumahoops.github.io/hapm/og.png?v=20261118">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Compare NBA Players by HAPM | Held-Out Adjusted Plus-Minus">
+<meta name="twitter:description" content="Compare up to four NBA players by HAPM (held-out adjusted plus-minus): offense, defense, shot value, possession value and zones, by career, best season or latest season, with HAPM by season.">
+<meta name="twitter:image" content="https://lumahoops.github.io/hapm/og.png?v=20261118">
+<style>
+  :root { --rose:#B5577A; --rose-tint:#F7E4EA; --rose-line:#E8C3CF; --ink:#16181d; --mute:#5f636b; --line:#d9dbe0; --head:#f3f4f6; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#fff; color:var(--ink); font:12.5px/1.35 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  a { color:var(--rose); }
+  .top { display:flex; align-items:baseline; gap:12px; padding:10px 16px 8px; border-bottom:2px solid var(--ink); }
+  .brand { font-size:20px; font-weight:800; color:var(--rose); text-decoration:none; } .sub { color:var(--mute); font-size:11px; }
+  .wrap { padding:14px 16px 30px; max-width:1500px; margin:0 auto; }
+  h1 { font-size:22px; margin:0 0 8px; }
+  .ctl { display:grid; grid-template-columns:auto 1fr; gap:6px 12px; align-items:center; padding:8px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-bottom:10px; }
+  .ctl > b { color:var(--mute); font-weight:600; font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; }
+  .ctl > div { display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center; }
+  select, input { font:inherit; padding:3px 5px; border:1px solid #b9bcc3; background:#fff; color:var(--ink); } input#add { width:230px; }
+  .seg { display:inline-flex; border:1px solid #b9bcc3; vertical-align:middle; }
+  .seg button { font:inherit; border:0; background:#fff; padding:3px 9px; cursor:pointer; color:var(--ink); }
+  .seg button + button { border-left:1px solid #b9bcc3; } .seg button.on { background:var(--rose); color:#fff; }
+  .lnk { border:0; background:none; color:var(--rose); cursor:pointer; font:inherit; text-decoration:underline; padding:0; }
+  .chip { display:inline-block; border:1px solid currentColor; padding:1px 7px; cursor:pointer; font-weight:600; }
+  .pre a { margin-right:10px; cursor:pointer; }
+  #rowedit { display:none; border:1px solid var(--line); padding:8px 10px; margin-bottom:10px; columns:4 170px; font-size:12px; }
+  #rowedit label { display:block; break-inside:avoid; } #rowedit .gh { font-weight:700; margin-top:4px; }
+  .two { display:flex; gap:28px; flex-wrap:wrap; align-items:flex-start; }
+  table { border-collapse:collapse; font-variant-numeric:tabular-nums; font-size:12px; }
+  th, td { border:1px solid var(--line); padding:2px 8px; text-align:center; white-space:nowrap; }
+  thead th { background:var(--head); font-size:12.5px; } th.pn { min-width:130px; } th select { font-size:11px; padding:1px 3px; max-width:150px; }
+  td.k { text-align:left; } td.k.l2 { padding-left:18px; } td.k.l3 { padding-left:30px; color:var(--mute); }
+  tr.g td { background:#eceef1; font-weight:700; text-align:left; }
+  td.v { line-height:1.05; } td.v .x { display:block; font-weight:600; } td.v .p { display:block; font-size:10px; }
+  .note { color:var(--mute); font-size:11px; margin:6px 0 0; max-width:560px; }
+  .lg { font-size:11px; color:var(--mute); margin-top:4px; } .lg i { display:inline-block; width:14px; height:3px; vertical-align:middle; margin:0 4px 0 10px; }
+  .cc { display:flex; gap:10px; align-items:center; margin-bottom:6px; flex-wrap:wrap; }
+</style>
+</head>
+<body data-root="../">
+<div class="top"><a class="brand" id="home" href="">HAPM</a><span class="sub">Held-Out Adjusted Plus-Minus</span></div>
+<div class="wrap">
+  <h1>Compare players</h1>
+  <div class="ctl">
+    <b>Players</b><div><input id="add" list="names" placeholder="Add a player (up to 4)"><datalist id="names"></datalist><span id="chips"></span>
+      <span class="pre" id="pre">Try: <a data-p="203999,1641705">Joki&#263; vs Wembanyama</a><a data-p="1628983,1629029">Gilgeous-Alexander vs Don&#269;i&#263;</a><a data-p="2544,201142">LeBron vs Durant</a><a data-p="201939,959">Curry vs Nash</a></span></div>
+    <b>Seasons</b><div><span class="seg" id="mode"><button data-m="career">Career</button><button data-m="best">Best season</button><button data-m="latest">Latest season</button><button data-m="age">Same age</button><button data-m="range">Range</button></span>
+      <span id="ageBox">Age <select id="age"></select></span><span id="rangeBox"><select id="from"></select> to <select id="to"></select></span>
+      <span class="note" style="margin:0">Each column's season can also be set in its header.</span></div>
+    <b>Version</b><div><select id="variant"></select></div>
+    <b>Rows</b><div><span class="seg" id="preset"><button data-r="sum">Summary</button><button data-r="sv">Shot value</button><button data-r="pv">Possession value</button><button data-r="zones">Zones</button><button data-r="all">All</button></span>
+      <button class="lnk" id="editRows">Edit rows</button></div>
+    <b>Color</b><div><span class="seg" id="color"><button data-c="pct">Percentile</button><button data-c="win">Winner only</button><button data-c="lose">Loser only</button><button data-c="none">None</button></span></div>
+  </div>
+  <div id="rowedit"></div>
+  <div class="two"><div><div id="table"></div><p class="note" id="note"></p></div>
+    <div><div class="cc"><label>Chart <select id="cm"></select></label><span class="seg" id="xax"><button data-x="season">Season</button><button data-x="age">Age</button><button data-x="year">Year of career</button></span></div>
+      <div id="chart"></div><div class="lg" id="legend"></div></div></div>
+</div>
+<script>
+const ROOT = document.body.dataset.root || "";
+const S = { p:[], variant:"2/3", mode:"career", age:27, from:"", to:"", col:{}, rows:"sum", custom:null, color:"pct", cm:"net", x:"season", cache:{} };
+const $ = id => document.getElementById(id);
+const sg = x => x == null || isNaN(x) ? "" : (x > 0 ? "+" : x < 0 ? "\u2212" : "") + Math.abs(x).toFixed(2);
+const LO = [238, 172, 172], MID = [234, 235, 238], HI = [190, 228, 176];
+const heat = p => { if (p == null) return ""; const t = Math.min(1, Math.abs(p - 50) / 50), e = p >= 50 ? HI : LO; return `rgb(${MID.map((m, i) => Math.round(m + (e[i] - m) * t)).join(",")})`; };
+const COL = ["#B5577A", "#2f6f9f", "#c08a1e", "#4b8a52"];
+const TK = ["sv", "sel", "selo", "seld", "conv", "convo", "convd", "pv", "gen", "oreb", "dtov", "ret", "otov", "dreb",
+  "so_r", "so_m", "so_t", "so_f", "sd_r", "sd_m", "sd_t", "sd_f", "co_r", "co_m", "co_t", "co_f", "cd_r", "cd_o"], KEYS = ["net", "o", "d", ...TK];
+const ROWS = [[null, "HAPM", "sum"], ["net", "HAPM", 1], ["o", "Offense", 2], ["d", "Defense", 2],
+  [null, "Shot value", "sv"], ["sv", "SV", 1], ["sel", "Selection", 2], ["selo", "O Sel", 3], ["seld", "D Sel", 3], ["conv", "Conversion", 2], ["convo", "O Conv", 3], ["convd", "D Conv", 3],
+  [null, "Possession value", "pv"], ["pv", "PV", 1], ["gen", "Generation", 2], ["oreb", "O Reb", 3], ["dtov", "D TOV", 3], ["ret", "Retention", 2], ["otov", "O TOV", 3], ["dreb", "D Reb", 3],
+  [null, "Zones", "zones"], ["so_r", "O Sel rim", 3], ["so_m", "O Sel mid", 3], ["so_t", "O Sel 3", 3], ["so_f", "O Sel FT", 3], ["sd_r", "D Sel rim", 3], ["sd_m", "D Sel mid", 3], ["sd_t", "D Sel 3", 3], ["sd_f", "D Sel FT", 3],
+  ["co_r", "O Conv rim", 3], ["co_m", "O Conv mid", 3], ["co_t", "O Conv 3", 3], ["co_f", "O Conv FT", 3], ["cd_r", "D Conv rim", 3], ["cd_o", "D Conv other", 3]];
+const GROUP = {}; { let g = null; for (const [k, , x] of ROWS) { if (!k) g = x; else GROUP[k] = g; } }
+const PRESET = { sum:["net", "o", "d"], sv:["net", "sv", "sel", "selo", "seld", "conv", "convo", "convd"], pv:["net", "pv", "gen", "oreb", "dtov", "ret", "otov", "dreb"],
+  zones:["sv", ...TK.slice(14)], all:KEYS };
+const shown = () => new Set(S.custom || PRESET[S.rows]);
+async function player(pid) { if (!S.cache[pid]) S.cache[pid] = await (await fetch(`${ROOT}data/players/${pid}.json`)).json(); return S.cache[pid]; }
+function val(r, k) { const v = S.variant;
+  if (k === "net" || k === "o" || k === "d") { const x = r.v[v]; return x ? x[{ o:0, d:1, net:2 }[k]] : null; }
+  const c = r.c && r.c[v]; return c ? c[TK.indexOf(k)] : null; }
+function cpct(k, x) { const q = S.CQ.q[S.variant][KEYS.indexOf(k)]; if (x == null || !q) return null; let i = 0; while (i < 100 && q[i + 1] <= x) i++; return i; }
+// which seasons a column uses: its own header choice, else the global mode
+function pick(P) {
+  const rows = P.seasons.filter(r => r.v[S.variant]), own = S.col[P.i] || "", m = own || S.mode;
+  if (m === "career") return { rows, lab:`Career, ${rows[0].s.slice(0, 4)} to ${rows[rows.length - 1].s.slice(5)}` };
+  if (m === "latest") return { rows:rows.slice(-1), lab:rows[rows.length - 1].s };
+  if (m === "best") { const b = rows.reduce((b, r) => (val(r, "net") > val(b, "net") ? r : b), rows[0]); return { rows:[b], lab:`Best: ${b.s}` }; }
+  if (m === "age") { const r = rows.filter(r => r.a === +S.age); return { rows:r, lab:r.length ? `Age ${S.age}: ${r.map(x => x.s).join(", ")}` : `No season at age ${S.age}` }; }
+  if (m === "range") { const r = rows.filter(r => r.s >= S.from && r.s <= S.to); return { rows:r, lab:`${S.from} to ${S.to}` }; }
+  const r = rows.filter(r => r.s === m); return { rows:r, lab:m };
+}
+function column(P) {
+  const { rows, lab } = pick(P), out = { lab, poss:rows.reduce((a, r) => a + r.p, 0), v:{}, q:{} };
+  for (const k of KEYS) { let a = 0, w = 0; for (const r of rows) { const x = val(r, k); if (x != null) { a += x * r.p; w += r.p; } }
+    out.v[k] = w ? a / w : null;
+    out.q[k] = rows.length === 1 ? ((rows[0].q && rows[0].q[S.variant] || [])[KEYS.indexOf(k)] ?? null) : cpct(k, out.v[k]); }
+  out.multi = rows.length > 1; return out;
+}
+function cellColor(k, x, p, xs) {
+  if (S.color === "none" || x == null) return "";
+  if (S.color === "pct") return heat(p);
+  const ok = xs.filter(y => y != null); if (ok.length < 2) return "";
+  if (S.color === "win" && x === Math.max(...ok)) return "rgb(190,228,176)";
+  if (S.color === "lose" && x === Math.min(...ok)) return "rgb(238,172,172)";
+  return "";
+}
+async function render() {
+  [...$("mode").children].forEach(b => b.classList.toggle("on", b.dataset.m === S.mode));
+  [...$("preset").children].forEach(b => b.classList.toggle("on", !S.custom && b.dataset.r === S.rows));
+  [...$("color").children].forEach(b => b.classList.toggle("on", b.dataset.c === S.color));
+  [...$("xax").children].forEach(b => b.classList.toggle("on", b.dataset.x === S.x));
+  $("ageBox").style.display = S.mode === "age" ? "" : "none"; $("rangeBox").style.display = S.mode === "range" ? "" : "none";
+  const Ps = await Promise.all(S.p.map(player)), C = Ps.map(column), on = shown();
+  $("chips").innerHTML = Ps.map((P, i) => `<span class="chip" style="color:${COL[i]}" data-rm="${P.i}" title="Remove">${P.n} \u00d7</span>`).join(" ");
+  document.querySelectorAll("[data-rm]").forEach(el => el.onclick = () => { S.p = S.p.filter(p => p !== +el.dataset.rm); delete S.col[el.dataset.rm]; render(); });
+  history.replaceState(null, "", "#" + new URLSearchParams(Object.entries({ p:S.p.join(","), v:S.variant, s:S.mode, age:S.mode === "age" ? S.age : "",
+    f:S.mode === "range" ? S.from : "", t:S.mode === "range" ? S.to : "", col:Object.entries(S.col).map(([a, b]) => `${a}:${b}`).join(","),
+    r:S.custom ? "" : S.rows, rows:S.custom ? [...S.custom].join(",") : "", c:S.color, cm:S.cm, x:S.x }).filter(([, x]) => x)).toString());
+  if (!Ps.length) { $("table").innerHTML = '<p class="note">Add players above, or try a matchup.</p>'; $("chart").innerHTML = ""; $("legend").innerHTML = ""; $("note").textContent = ""; return; }
+  const opt = P => [["", "Same as all"], ["career", "Career"], ["best", "Best season"], ["latest", "Latest season"], ...P.seasons.filter(r => r.v[S.variant]).map(r => [r.s, `${r.s}${r.a ? " (age " + r.a + ")" : ""}`]).reverse()]
+    .map(([v, l]) => `<option value="${v}"${(S.col[P.i] || "") === v ? " selected" : ""}>${l}</option>`).join("");
+  let h = `<table><thead><tr><th></th>${Ps.map((P, i) => `<th class="pn"><a href="${ROOT}player/${P.slug}/" style="color:${COL[i]}">${P.n}</a></th>`).join("")}</tr>` +
+    `<tr><th></th>${Ps.map(P => `<th><select data-col="${P.i}">${opt(P)}</select></th>`).join("")}</tr>` +
+    `<tr><th></th>${C.map(c => `<th style="font-weight:400;color:#5f636b">${c.lab}<br>${c.poss.toLocaleString()} poss</th>`).join("")}</tr></thead><tbody>`;
+  let g = null;
+  for (const [k, lab, lv] of ROWS) {
+    if (!k) { g = lab; continue; }
+    if (!on.has(k)) continue;
+    if (g) { h += `<tr class="g"><td colspan="${Ps.length + 1}">${g}</td></tr>`; g = null; }
+    const xs = C.map(c => c.v[k]);
+    h += `<tr><td class="k l${lv}">${lab}</td>` + C.map(c => { const x = c.v[k], p = c.q[k];
+      return `<td class="v" style="background:${cellColor(k, x, p, xs)}"><span class="x">${sg(x)}</span><span class="p">${S.color === "pct" && p != null ? p + "%" : ""}</span></td>`; }).join("") + "</tr>";
+  }
+  $("table").innerHTML = h + "</tbody></table>";
+  document.querySelectorAll("select[data-col]").forEach(el => el.onchange = () => { if (el.value) S.col[el.dataset.col] = el.value; else delete S.col[el.dataset.col]; render(); });
+  $("note").textContent = "A column that covers several seasons shows their possession-weighted average; its percentile ranks it among career averages of players with " +
+    `${S.CQ.min_poss.toLocaleString()}+ career possessions. A single season's percentile ranks it within that season. Points per 100 possessions.`;
+  chart(Ps);
+}
+function chart(Ps) {   // the chosen metric by season, age or year of career; one line per player
+  const W = 560, H = 240, L = 34, R = 10, T = 10, B = 28, v = S.variant, k = S.cm;
+  const pts = Ps.map(P => P.seasons.filter(r => r.v[v]).map((r, i) => ({ x:S.x === "age" ? r.a : S.x === "year" ? i + 1 : +r.s.slice(0, 4), y:val(r, k), s:r.s })).filter(o => o.x != null && o.y != null));
+  const xs = pts.flat().map(o => o.x), ys = pts.flat().map(o => o.y);
+  if (!xs.length) { $("chart").innerHTML = ""; return; }
+  const x0 = Math.min(...xs), x1 = Math.max(...xs); let lo = Math.min(0, ...ys), hi = Math.max(0, ...ys); const pad = (hi - lo) * .08 || 1; lo -= pad; hi += pad;
+  const X = t => L + (W - L - R) * (x1 === x0 ? .5 : (t - x0) / (x1 - x0)), Y = t => T + (H - T - B) * (hi - t) / (hi - lo);
+  const st = (hi - lo) > 16 ? 5 : (hi - lo) > 6 ? 2 : 1; let g = "";
+  for (let t = Math.ceil(lo / st) * st; t <= hi; t += st) g += `<line x1="${L}" x2="${W - R}" y1="${Y(t)}" y2="${Y(t)}" stroke="${t === 0 ? "#8a8d94" : "#eceef1"}"/><text x="${L - 5}" y="${Y(t) + 3}" text-anchor="end" font-size="10" fill="#5f636b">${t > 0 ? "+" + t : t}</text>`;
+  const xstep = Math.max(1, Math.ceil((x1 - x0) / 9));
+  for (let t = x0; t <= x1; t += xstep) g += `<text x="${X(t)}" y="${H - 10}" text-anchor="middle" font-size="10" fill="#5f636b">${S.x === "season" ? `${String(t).slice(2)}-${String(t + 1).slice(2)}` : t}</text>`;
+  g += `<text x="${(L + W - R) / 2}" y="${H}" text-anchor="middle" font-size="10" fill="#5f636b">${{ season:"Season", age:"Age", year:"Year of career" }[S.x]}</text>`;
+  pts.forEach((ps, i) => { g += `<polyline points="${ps.map(o => `${X(o.x).toFixed(1)},${Y(o.y).toFixed(1)}`).join(" ")}" fill="none" stroke="${COL[i]}" stroke-width="2.2" stroke-linejoin="round"/>`;
+    ps.forEach(o => g += `<circle cx="${X(o.x)}" cy="${Y(o.y)}" r="2.4" fill="${COL[i]}"><title>${Ps[i].n} ${o.s}: ${sg(o.y)}</title></circle>`); });
+  $("chart").innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="chart">${g}</svg>`;
+  $("legend").innerHTML = Ps.map((P, i) => `<i style="background:${COL[i]}"></i>${P.n}`).join("") + ` \u00b7 HAPM ${v}`;
+}
+function rowEditor() {
+  const on = shown(); let h = "", g = "";
+  for (const [k, lab, x] of ROWS) { if (!k) { h += `<div class="gh">${lab}</div>`; continue; }
+    h += `<label><input type="checkbox" data-k="${k}"${on.has(k) ? " checked" : ""}> ${lab}</label>`; }
+  $("rowedit").innerHTML = h;
+  $("rowedit").querySelectorAll("input").forEach(el => el.onchange = () => { const s = shown(); el.checked ? s.add(el.dataset.k) : s.delete(el.dataset.k); S.custom = KEYS.filter(k => s.has(k)); render(); });
+}
+(async () => {
+  const idx = await (await fetch(`${ROOT}data/index.json`)).json();
+  S.CQ = await (await fetch(`${ROOT}data/career_q.json`)).json();
+  const slugs = await (await fetch(`${ROOT}data/slugs.json`)).json(), byName = {};
+  for (const [pid, [n]] of Object.entries(slugs)) byName[n] = +pid;
+  $("names").innerHTML = Object.keys(byName).sort().map(n => `<option value="${n.replace(/"/g, "&quot;")}">`).join("");
+  $("home").href = ROOT || "./";
+  for (const v of idx.variants) $("variant").add(new Option("HAPM " + v, v));
+  for (let a = 19; a <= 40; a++) $("age").add(new Option(a, a));
+  const ss = idx.seasons.map(s => s.season); for (const s of ss) { $("from").add(new Option(s, s)); $("to").add(new Option(s, s)); }
+  S.from = ss[ss.length - 4]; S.to = ss[ss.length - 1];
+  for (const [k, lab] of ROWS) if (k) $("cm").add(new Option(lab === "HAPM" ? "HAPM" : lab, k));
+  const H = Object.fromEntries(new URLSearchParams(location.hash.slice(1)));
+  if (H.p) S.p = H.p.split(",").map(Number).filter(p => slugs[p]).slice(0, 4);
+  if (H.v && idx.variants.includes(H.v)) S.variant = H.v;
+  if (["career", "best", "latest", "age", "range"].includes(H.s)) S.mode = H.s;
+  if (H.age) S.age = +H.age; if (H.f) S.from = H.f; if (H.t) S.to = H.t;
+  if (H.col) for (const t of H.col.split(",")) { const [a, b] = t.split(":"); if (b) S.col[a] = b; }
+  if (H.rows) S.custom = H.rows.split(",").filter(k => KEYS.includes(k)); else if (PRESET[H.r]) S.rows = H.r;
+  if (["pct", "win", "lose", "none"].includes(H.c)) S.color = H.c; if (H.cm && KEYS.includes(H.cm)) S.cm = H.cm; if (["season", "age", "year"].includes(H.x)) S.x = H.x;
+  $("variant").value = S.variant; $("age").value = S.age; $("from").value = S.from; $("to").value = S.to; $("cm").value = S.cm;
+  $("variant").onchange = e => { S.variant = e.target.value; render(); };
+  $("age").onchange = e => { S.age = +e.target.value; render(); };
+  $("from").onchange = e => { S.from = e.target.value; if (S.to < S.from) { S.to = S.from; $("to").value = S.to; } render(); };
+  $("to").onchange = e => { S.to = e.target.value; if (S.from > S.to) { S.from = S.to; $("from").value = S.from; } render(); };
+  $("cm").onchange = e => { S.cm = e.target.value; render(); };
+  [...$("mode").children].forEach(b => b.onclick = () => { S.mode = b.dataset.m; S.col = {}; render(); });
+  [...$("preset").children].forEach(b => b.onclick = () => { S.rows = b.dataset.r; S.custom = null; if ($("rowedit").style.display === "block") rowEditor(); render(); });
+  [...$("color").children].forEach(b => b.onclick = () => { S.color = b.dataset.c; render(); });
+  [...$("xax").children].forEach(b => b.onclick = () => { S.x = b.dataset.x; render(); });
+  $("editRows").onclick = () => { const o = $("rowedit").style.display === "block"; $("rowedit").style.display = o ? "none" : "block"; if (!o) rowEditor(); };
+  $("add").onchange = () => { const p = byName[$("add").value]; if (p && !S.p.includes(p) && S.p.length < 4) { S.p.push(p); render(); } $("add").value = ""; };
+  document.querySelectorAll("#pre a").forEach(a => a.onclick = () => { S.p = a.dataset.p.split(",").map(Number).filter(p => slugs[p]); S.col = {}; render(); });
+  render();
+})();
+</script>
+</body>
+</html>

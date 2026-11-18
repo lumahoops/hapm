@@ -147,7 +147,7 @@
   },
   {
    "season": "2026-27",
-   "players": 293,
+   "players": 299,
    "qualified_poss": 400
   }
  ],
@@ -161,7 +161,8 @@
  "default_variant": "2/3",
  "current": {
   "season": "2026-27",
-  "through_game": 244,
-  "games": 196
+  "through_game": 257,
+  "games": 209,
+  "updated": "2026-11-18T21:28Z"
  }
 }

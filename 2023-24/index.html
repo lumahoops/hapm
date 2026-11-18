@@ -106,6 +106,8 @@
   .yt { color:var(--mute); font-weight:400; font-size:10.5px; margin-left:3px; }
   tr.flt td { background:#fbfbfc; padding:1px 2px; } tr.flt input { width:38px; font-size:10.5px; padding:1px 2px; border:1px solid #c9ccd2; }
   tr.flt input::placeholder { color:#a3a6ad; } tr.flt input.set { border-color:var(--rose); background:var(--rose-tint); }
+  .hp { color:var(--rose); font-weight:600; }
+  a.pl { color:inherit; text-decoration:none; } a.pl:hover { color:var(--rose); text-decoration:underline; }
   .status { margin:0 auto 6px; color:var(--mute); font-size:11.5px; text-align:center; }
   details.guide { max-width:1180px; margin:22px auto 0; } details.guide[open] > summary { margin-bottom:6px; }
   .guide table { width:100%; font-size:11.5px; }
@@ -132,11 +134,11 @@
   <span class="tip" tabindex="0">?<span class="box">
     <b>HAPM</b> measures how many points per 100 possessions a player's stints produced above or below expectation. The other nine
     players in each of his stints are rated without any of his possessions. Their ratings give the margin the stint would
-    produce with an average player in his place, and his HAPM is the actual margin minus that. Players with few possessions
+    produce with an average player in his place, and his <span class="hp">HAPM</span> is the actual margin minus that. Players with few possessions
     are pulled toward a typical value for their playing time.<br><br>
     0 is the average rated player. Rotation players average about +1.3. Each cell shows the value and its percentile.
   </span></span>
-  <span class="links"><a href="https://github.com/lumahoops/NBA/tree/main/hapm">Data on GitHub</a></span>
+  <span class="links"><a id="cmplink" href="compare/">Compare players</a> <a href="https://github.com/lumahoops/NBA/tree/main/hapm">Data on GitHub</a></span>
   <span class="stamp" id="stamp"></span>
 </div>
 <details class="how"><summary><span class="ar">&#9656;</span> How HAPM works</summary>
@@ -145,12 +147,12 @@
     <div class="a">&rarr;</div>
     <div class="s"><b>2. Estimate each stint</b>Those ratings give the expected margin for each of his stints, with an average player in his place.</div>
     <div class="a">&rarr;</div>
-    <div class="s"><b>3. Actual minus expected</b>The chosen player's HAPM is what his stints produced above or below that estimate, per 100 possessions.</div>
+    <div class="s"><b>3. Actual minus expected</b>The chosen player's <span class="hp">HAPM</span> is what his stints produced above or below that estimate, per 100 possessions.</div>
   </div>
   <div class="dg">
   <div class="dcol">
     <h3>One stint</h3>
-    <p class="lead">What HAPM computes for one stint. Illustrative numbers.</p>
+    <p class="lead">What <span class="hp">HAPM</span> computes for one stint. Illustrative numbers.</p>
     <div class="stint">
       <div class="srow"><span class="slbl">His four teammates</span><span class="sb2">+1.8</span><span class="sb2">+0.4</span><span class="sb2">&minus;0.6</span><span class="sb2">+2.1</span><span class="sb2 him">he is 0</span></div>
       <div class="srow"><span class="slbl">The five opponents</span><span class="sb2">+1.1</span><span class="sb2">&minus;0.2</span><span class="sb2">+0.8</span><span class="sb2">+0.5</span><span class="sb2">&minus;0.9</span></div>
@@ -165,7 +167,7 @@
   </div>
   <div class="dcol">
     <h3>Worked example: Joki&#263; and Caldwell-Pope, Denver 2023-24</h3>
-    <p class="lead">The two shared most of their minutes. One-year RAPM puts both near the top; HAPM separates them. Per 100 possessions.</p>
+    <p class="lead">The two shared most of their minutes. One-year RAPM puts both near the top; <span class="hp">HAPM</span> separates them. Per 100 possessions.</p>
     <table class="wx">
       <tr><th></th><th>Both</th><th>Joki&#263; without Caldwell-Pope</th><th>Caldwell-Pope without Joki&#263;</th><th>Neither</th></tr>
       <tr><td>Possessions</td><td>4,403</td><td>1,105</td><td>428</td><td>1,962</td></tr>
@@ -176,10 +178,10 @@
       <tr><td class="ind">from his four teammates</td><td colspan="2">+1.3</td><td colspan="2">+13.0</td></tr>
       <tr><td class="ind">from the opponents and game context</td><td colspan="2">&minus;6.7</td><td colspan="2">&minus;6.6</td></tr>
       <tr class="bold"><td>Actual minus expected</td><td colspan="2">+16.4</td><td colspan="2">+4.9</td></tr>
-      <tr><td>HAPM 1/3 (percentile)</td><td colspan="2">+11.0 (100th)</td><td colspan="2">+4.4 (83rd)</td></tr>
+      <tr><td><span class="hp">HAPM</span> 1/3 (percentile)</td><td colspan="2">+11.0 (100th)</td><td colspan="2">+4.4 (83rd)</td></tr>
       <tr><td>RAPM 1-year (percentile)</td><td colspan="2">+5.2 (99th)</td><td colspan="2">+4.4 (97th)</td></tr>
     </table>
-    <p class="lead" style="margin-top:6px">Caldwell-Pope's stints were expected at +6.4 because Joki&#263; was usually beside him (+13.0 from his teammates). Joki&#263;'s teammates added only +1.3, so his stints were expected at &minus;5.3. HAPM credits each player with the gap between those expectations and what happened.</p>
+    <p class="lead" style="margin-top:6px">Caldwell-Pope's stints were expected at +6.4 because Joki&#263; was usually beside him (+13.0 from his teammates). Joki&#263;'s teammates added only +1.3, so his stints were expected at &minus;5.3. <span class="hp">HAPM</span> credits each player with the gap between those expectations and what happened.</p>
   </div>
   </div>
   <h3>Versions</h3>
@@ -210,15 +212,20 @@
       <tr><td>Five-man units (R&sup2;)</td><td>.109</td><td class="b">.116</td><td>.109</td></tr>
       <tr><td>Five-man units never seen together (R&sup2;)</td><td>.096</td><td class="b">.102</td><td>.095</td></tr>
     </table>
-    <p class="fn">4-year RAPM uses four seasons of each player; HAPM 2/3 uses two. Best value in each row in bold. Season pairs from 2013-14 to 2025-26.</p>
+    <p class="fn">4-year RAPM uses four seasons of each player; <span class="hp">HAPM</span> 2/3 uses two. Best value in each row in bold. Season pairs from 2013-14 to 2025-26.</p>
   </div>
   <div class="wn">
     <h3>Why HAPM differs from RAPM</h3>
-    <p>Whereas RAPM, in practice, values a player against the teammates who replace him, HAPM (held-out adjusted
+    <p>Whereas RAPM, in practice, values a player against the teammates who replace him, <span class="hp">HAPM</span> (held-out adjusted
       plus-minus) attempts to quantify a player's value by setting a counterfactual baseline: an average player, rated 0,
       in the exact stints the player played. The nine other players in every one of those stints are rated without any
       of the player's possessions, and those ratings give the margin each stint would be expected to produce with an
       average player in that place.</p>
+    <p>In other words, RAPM tries to ascertain a player's value by doing one large regression of everyone on the court across all their
+      stints, and allocating credit based on that. <span class="hp">HAPM</span> quantifies value by first estimating how a stint should go, using
+      information that purposely holds the player out of the regression, allocating the value created or lost to the
+      held-out player, better isolating a specific player from the relative strength or weaknesses of his on-court
+      teammates/replacements.</p>
   </div>
   </div>
 </details>
@@ -238,22 +245,22 @@
 <div class="wrap"><h2 class="ttl" id="ttl">NBA HAPM leaders, 2023-24</h2><div class="status" id="status"></div><table id="main"><thead id="th"><tr><th>Rk</th><th>Player</th><th>Pos</th><th>Team</th><th>Poss</th><th>HAPM</th><th>Off</th><th>Def</th></tr></thead><tbody id="rows"><tr><td>1</td><td>Nikola Jokić</td><td>C</td><td>DEN</td><td>5,439</td><td>+12.50</td><td>+9.31</td><td>+3.20</td></tr><tr><td>2</td><td>Shai Gilgeous-Alexander</td><td>PG</td><td>OKC</td><td>5,241</td><td>+10.10</td><td>+7.50</td><td>+2.59</td></tr><tr><td>3</td><td>Paul George</td><td>PF</td><td>LAC</td><td>4,966</td><td>+9.41</td><td>+5.06</td><td>+4.35</td></tr><tr><td>4</td><td>Franz Wagner</td><td>SF</td><td>ORL</td><td>4,653</td><td>+8.67</td><td>+2.82</td><td>+5.85</td></tr><tr><td>5</td><td>Kawhi Leonard</td><td>SF</td><td>LAC</td><td>4,635</td><td>+8.17</td><td>+4.62</td><td>+3.54</td></tr><tr><td>6</td><td>Giannis Antetokounmpo</td><td>PF</td><td>MIL</td><td>5,279</td><td>+7.72</td><td>+5.79</td><td>+1.93</td></tr><tr><td>7</td><td>Joel Embiid</td><td>C</td><td>PHI</td><td>2,675</td><td>+7.55</td><td>+4.30</td><td>+3.25</td></tr><tr><td>8</td><td>Tyrese Haliburton</td><td>PG</td><td>IND</td><td>4,668</td><td>+7.29</td><td>+6.23</td><td>+1.06</td></tr><tr><td>9</td><td>Damian Lillard</td><td>PG</td><td>MIL</td><td>5,350</td><td>+7.23</td><td>+5.76</td><td>+1.47</td></tr><tr><td>10</td><td>Myles Turner</td><td>C</td><td>IND</td><td>4,321</td><td>+7.17</td><td>+4.26</td><td>+2.91</td></tr><tr><td>11</td><td>Fred VanVleet</td><td>PG</td><td>HOU</td><td>5,379</td><td>+7.07</td><td>+4.15</td><td>+2.92</td></tr><tr><td>12</td><td>Herbert Jones</td><td>SF</td><td>NOP</td><td>4,636</td><td>+7.07</td><td>+3.16</td><td>+3.92</td></tr><tr><td>13</td><td>Derrick White</td><td>SG</td><td>BOS</td><td>4,799</td><td>+6.91</td><td>+3.74</td><td>+3.16</td></tr><tr><td>14</td><td>Dean Wade</td><td>PF</td><td>CLE</td><td>2,204</td><td>+6.82</td><td>+0.71</td><td>+6.11</td></tr><tr><td>15</td><td>Luka Dončić</td><td>PG</td><td>DAL</td><td>5,388</td><td>+6.79</td><td>+5.83</td><td>+0.96</td></tr><tr><td>16</td><td>Donovan Mitchell</td><td>SG</td><td>CLE</td><td>3,919</td><td>+6.55</td><td>+3.29</td><td>+3.26</td></tr><tr><td>17</td><td>Jalen Brunson</td><td>PG</td><td>NYK</td><td>5,368</td><td>+6.49</td><td>+6.81</td><td>−0.32</td></tr><tr><td>18</td><td>Josh Hart</td><td>SF</td><td>NYK</td><td>5,252</td><td>+6.45</td><td>+4.00</td><td>+2.44</td></tr><tr><td>19</td><td>Luguentz Dort</td><td>SF</td><td>OKC</td><td>4,607</td><td>+6.44</td><td>+4.37</td><td>+2.07</td></tr><tr><td>20</td><td>Anthony Davis</td><td>C</td><td>LAL</td><td>5,605</td><td>+6.42</td><td>+2.97</td><td>+3.45</td></tr><tr><td>21</td><td>Anthony Edwards</td><td>SG</td><td>MIN</td><td>5,509</td><td>+6.41</td><td>+3.68</td><td>+2.73</td></tr><tr><td>22</td><td>Lauri Markkanen</td><td>PF</td><td>UTA</td><td>3,738</td><td>+6.38</td><td>+4.82</td><td>+1.56</td></tr><tr><td>23</td><td>OG Anunoby</td><td>SF</td><td>TOR/NYK</td><td>3,406</td><td>+6.32</td><td>+1.22</td><td>+5.10</td></tr><tr><td>24</td><td>Jayson Tatum</td><td>PF</td><td>BOS</td><td>5,263</td><td>+6.09</td><td>+5.34</td><td>+0.75</td></tr><tr><td>25</td><td>LeBron James</td><td>PF</td><td>LAL</td><td>5,166</td><td>+6.08</td><td>+4.64</td><td>+1.44</td></tr><tr><td>26</td><td>Jarrett Allen</td><td>C</td><td>CLE</td><td>4,842</td><td>+6.08</td><td>+3.44</td><td>+2.64</td></tr><tr><td>27</td><td>De&#x27;Aaron Fox</td><td>PG</td><td>SAC</td><td>5,427</td><td>+6.04</td><td>+5.11</td><td>+0.93</td></tr><tr><td>28</td><td>Chet Holmgren</td><td>C</td><td>OKC</td><td>4,926</td><td>+6.03</td><td>+3.84</td><td>+2.19</td></tr><tr><td>29</td><td>Kevin Durant</td><td>PF</td><td>PHX</td><td>5,678</td><td>+5.88</td><td>+4.03</td><td>+1.85</td></tr><tr><td>30</td><td>Jusuf Nurkić</td><td>C</td><td>PHX</td><td>4,242</td><td>+5.80</td><td>+2.23</td><td>+3.57</td></tr><tr><td>31</td><td>Jose Alvarado</td><td>PG</td><td>NOP</td><td>2,044</td><td>+5.78</td><td>+2.74</td><td>+3.04</td></tr><tr><td>32</td><td>Brandin Podziemski</td><td>SG</td><td>GSW</td><td>3,948</td><td>+5.74</td><td>+3.87</td><td>+1.87</td></tr><tr><td>33</td><td>Stephen Curry</td><td>PG</td><td>GSW</td><td>4,979</td><td>+5.69</td><td>+4.93</td><td>+0.76</td></tr><tr><td>34</td><td>Domantas Sabonis</td><td>C</td><td>SAC</td><td>5,938</td><td>+5.69</td><td>+3.86</td><td>+1.83</td></tr><tr><td>35</td><td>Rudy Gobert</td><td>C</td><td>MIN</td><td>5,078</td><td>+5.66</td><td>+0.99</td><td>+4.67</td></tr><tr><td>36</td><td>Kyrie Irving</td><td>SG</td><td>DAL</td><td>4,120</td><td>+5.64</td><td>+4.37</td><td>+1.27</td></tr><tr><td>37</td><td>Isaiah Hartenstein</td><td>C</td><td>NYK</td><td>3,777</td><td>+5.50</td><td>+2.80</td><td>+2.71</td></tr><tr><td>38</td><td>Jonathan Isaac</td><td>PF</td><td>ORL</td><td>1,775</td><td>+5.47</td><td>+1.20</td><td>+4.26</td></tr><tr><td>39</td><td>Tyrese Maxey</td><td>PG</td><td>PHI</td><td>5,244</td><td>+5.46</td><td>+4.86</td><td>+0.59</td></tr><tr><td>40</td><td>Jalen Williams</td><td>PF</td><td>OKC</td><td>4,589</td><td>+5.43</td><td>+2.45</td><td>+2.98</td></tr><tr><td>41</td><td>Jimmy Butler III</td><td>PF</td><td>MIA</td><td>4,010</td><td>+5.39</td><td>+4.14</td><td>+1.25</td></tr><tr><td>42</td><td>Sam Hauser</td><td>SF</td><td>BOS</td><td>3,427</td><td>+5.37</td><td>+3.19</td><td>+2.18</td></tr><tr><td>43</td><td>Kenrich Williams</td><td>PF</td><td>OKC</td><td>2,066</td><td>+5.28</td><td>+1.67</td><td>+3.61</td></tr><tr><td>44</td><td>Draymond Green</td><td>PF</td><td>GSW</td><td>3,085</td><td>+5.25</td><td>+1.62</td><td>+3.63</td></tr><tr><td>45</td><td>Dante Exum</td><td>PG</td><td>DAL</td><td>2,209</td><td>+5.19</td><td>+3.64</td><td>+1.55</td></tr><tr><td>46</td><td>Aaron Gordon</td><td>PF</td><td>DEN</td><td>4,544</td><td>+5.09</td><td>+2.42</td><td>+2.67</td></tr><tr><td>47</td><td>Victor Wembanyama</td><td>C</td><td>SAS</td><td>4,363</td><td>+5.02</td><td>+0.39</td><td>+4.63</td></tr><tr><td>48</td><td>Devin Booker</td><td>PG</td><td>PHX</td><td>4,940</td><td>+4.96</td><td>+5.82</td><td>−0.86</td></tr><tr><td>49</td><td>Tre Jones</td><td>PG</td><td>SAS</td><td>4,415</td><td>+4.84</td><td>+2.90</td><td>+1.93</td></tr><tr><td>50</td><td>Bogdan Bogdanović</td><td>SG</td><td>ATL</td><td>4,895</td><td>+4.82</td><td>+4.18</td><td>+0.64</td></tr></tbody></table>
 <details class="guide"><summary><span class="ar">&#9656;</span> What the columns show</summary>
 <table><thead><tr><th>Column</th><th>Meaning</th><th>Column</th><th>Meaning</th></tr></thead><tbody>
-<tr><td class="t">HAPM</td><td>Points per 100 possessions his stints produced above or below what the other nine were expected to produce with an average player in his place. 0 is the average rated player; rotation players average about +1.3.</td>
-    <td class="t">Off, Def</td><td>HAPM at each end of the floor.</td></tr>
+<tr><td class="t"><span class="hp">HAPM</span></td><td>Points per 100 possessions his stints produced above or below what the other nine were expected to produce with an average player in his place. 0 is the average rated player; rotation players average about +1.3.</td>
+    <td class="t">Off, Def</td><td><span class="hp">HAPM</span> at each end of the floor.</td></tr>
 <tr><td class="t">Percentile</td><td>The small number in each cell. It ranks him among all players with the minimum possessions, across positions and teams. Cells run from red (low) through gray to green (high).</td>
     <td class="t">Poss</td><td>Possessions he played in the seasons selected.</td></tr>
 <tr><td class="t">Shot value</td><td>Selection (offensive and defensive shot quality impact) and conversion (offensive and defensive shot making impact). Hover the ? next to its title for its tree.</td>
     <td class="t">Possession value</td><td>Generation (offensive rebounding, forced turnovers) and retention (turnovers avoided, defensive rebounding). Hover the ? next to its title for its tree.</td></tr>
 <tr><td class="t">Zones</td><td>Shot value by zone: rim, mid-range, three and free throws. Defensive conversion has two zones, rim and other, because the rest changes too much from year to year. Turn them on with the Zones button.</td>
     <td class="t">D Conv</td><td>Changes the most from year to year, because opponents' shooting luck is a large part of it.</td></tr>
-<tr><td class="t">Versions</td><td>1/3 to 5/3, chosen in the Version menu and explained under "How HAPM works". Versions with more seasons are steadier and react more slowly. Shot and possession columns are available for 1/3 and 2/3.</td>
+<tr><td class="t">Versions</td><td>1/3 to 5/3, chosen in the Version menu and explained under "How <span class="hp">HAPM</span> works". Versions with more seasons are steadier and react more slowly.</td>
     <td class="t">Season ranges</td><td>Each player's values are averaged over the seasons selected, weighted by possessions.</td></tr>
-<tr><td class="t">YT</td><td>Young teammates. Half or more of his possessions came alongside players with fewer than three earlier seasons, and HAPM tends to run high for these players.</td>
-    <td class="t">Team line</td><td>The last row when a team is picked. It averages the team's players, weighted by possessions; its percentiles rank it among all teams under the same filters. HAPM values do not add up to a team's margin.</td></tr>
-<tr><td class="t">Teams view</td><td>Teams ranked by the possession-weighted average HAPM of their players, which compares rosters. Click a team to see its players.</td>
+<tr><td class="t">YT</td><td>Young teammates. Half or more of his possessions came alongside players with fewer than three earlier seasons, and <span class="hp">HAPM</span> tends to run high for these players.</td>
+    <td class="t">Team line</td><td>The last row when a team is picked. It averages the team's players, weighted by possessions; its percentiles rank it among all teams under the same filters. <span class="hp">HAPM</span> values do not add up to a team's margin.</td></tr>
+<tr><td class="t">Teams view</td><td>Teams ranked by the possession-weighted average <span class="hp">HAPM</span> of their players, which compares rosters. Click a team to see its players.</td>
     <td class="t">1997-98</td><td>The first season has no earlier seasons to rate the other nine, so its values are less certain.</td></tr>
 <tr><td class="t">Games through</td><td>The current season's values include every game up to the number shown.</td>
-    <td class="t">Columns</td><td>The buttons show or hide each group. The table opens with HAPM, Off and Def.</td></tr>
+    <td class="t">Columns</td><td>The buttons show or hide each group. The table opens with <span class="hp">HAPM</span>, Off and Def.</td></tr>
 <tr><td class="t">Filters</td><td>Minimum (&ge;) and maximum (&le;) boxes under each column, in points per 100 possessions (Poss in possessions). Rank and percentiles still count every player.</td>
     <td></td><td></td></tr>
 </tbody></table></details>
@@ -263,6 +270,7 @@
 <div id="pop"></div>
 <script>
 const ROOT = document.body.dataset.root || "", PAGE_SEASON = document.body.dataset.season || "";
+const stampTxt = c => (c.updated ? `Updated ${new Date(c.updated).toLocaleDateString("en-US", { month:"short", day:"numeric", year:"numeric" })} \u00b7 ` : "") + `${c.season}: ${c.games} games`;
 const S = { meta:null, cache:{}, variant:"2/3", sort:"net", dir:-1, view:"p", open:{ od:true, sv:false, zn:false, pv:false }, showF:false, filt:{} };
 const $ = id => document.getElementById(id);
 const sg = x => x == null ? "" : (x > 0 ? "+" : x < 0 ? "\u2212" : "") + Math.abs(x).toFixed(2);
@@ -302,6 +310,8 @@ function setSeg(id, attr, val) { [...$(id).children].forEach(x => x.classList.to
 
 async function init() {
   S.meta = await (await fetch(`${ROOT}data/index.json`)).json();
+  $("cmplink").href = `${ROOT}compare/`;
+  try { S.slugs = await (await fetch(`${ROOT}data/slugs.json`)).json(); } catch { S.slugs = {}; }   // {pid: [name, slug]} for player links
   const ss = S.meta.seasons.map(s => s.season);
   for (const s of ss.slice().reverse()) { $("from").add(new Option(s, s)); $("to").add(new Option(s, s)); }
   const full = PAGE_SEASON || S.meta.seasons.filter(s => s.qualified_poss === 1500).pop().season;
@@ -313,7 +323,7 @@ async function init() {
   if (H.flt) { for (const t of H.flt.split(",")) { const [k, a, b] = t.split(":"); S.filt[k] = [a ?? "", b ?? ""]; } S.showF = true; }
   if (H.pos) $("pos").value = H.pos; S.hashTeam = H.team || ""; S.hashMp = H.mp;
   for (const v of S.meta.variants) $("variant").add(new Option("HAPM " + v, v)); $("variant").value = S.variant;
-  const c = S.meta.current; $("stamp").textContent = `${c.season}: games through #${c.through_game}`;
+  const c = S.meta.current; $("stamp").textContent = stampTxt(c); $("stamp").title = `Through game #${c.through_game}. Updated daily.`;
   $("from").onchange = () => { $("to").value = $("from").value; load(true); };          // one season unless "to" is widened by hand
   $("to").onchange = () => { if ($("to").value < $("from").value) $("from").value = $("to").value; load(true); };
   $("variant").onchange = e => { S.variant = e.target.value; render(); };
@@ -327,7 +337,7 @@ async function init() {
   await load(true);
 }
 function syncChips() {               // shot / possession columns exist for versions 1/3 and 2/3 only
-  const tree = ["1/3", "2/3"].includes(S.variant);
+  const tree = true;
   [...$("open").children].forEach(b => { const g = b.dataset.g, t = g !== "od";
     b.classList.toggle("on", S.open[g] && (!t || tree)); b.disabled = (t && !tree) || (g === "zn" && !S.open.sv);
     b.title = t && !tree ? "Shot value and possession value are available for HAPM 1/3 and 2/3" : ""; });
@@ -371,7 +381,7 @@ function players() {                 // one row per player over the selected sea
 
 // value columns. lv: 1 Off / Def / SV / PV, 2 piece, 3 end, 4 zone. path = the header groups above the column, outermost first
 function valueCols(ox) {
-  const tree = ["1/3", "2/3"].includes(S.variant), Z = S.open.zn;
+  const tree = true, Z = S.open.zn;   // parts exist for every version
   const H = { id:"h", label:"HAPM " + S.variant, tip:VTIP[S.variant] };
   const SVg = { id:"sv", label:"Shot value", tree:"sv" }, PVg = { id:"pv", label:"Possession value", tree:"pv" };
   const SEL = [H, SVg, { id:"sel", label:"Selection" }], CONV = [H, SVg, { id:"conv", label:"Conversion" }];
@@ -425,7 +435,8 @@ function header(cols) {
     S.dir = S.sort === k ? -S.dir : (["n", "t", "pos", "rank", "best"].includes(k) ? 1 : -1); S.sort = k; render(); });
 }
 function cell(c, r, P) {
-  if (!c.v) { const x = r[c.k]; return `<td class="o ${c.l ? "l" : ""} ${c.k === "n" ? "n" : ""}">${c.k === "p" ? Math.round(x).toLocaleString() : (x ?? "")}${c.k === "n" && r.f ? '<span class="yt" title="Young teammates. HAPM tends to run high for him.">YT</span>' : ""}</td>`; }
+  if (!c.v) { const x = r[c.k], sl = c.k === "n" && r.i && S.slugs && S.slugs[r.i];
+    return `<td class="o ${c.l ? "l" : ""} ${c.k === "n" ? "n" : ""}">${c.k === "p" ? Math.round(x).toLocaleString() : sl ? `<a class="pl" href="${ROOT}player/${sl[1]}/">${x}</a>` : (x ?? "")}${c.k === "n" && r.f ? '<span class="yt" title="Young teammates. HAPM tends to run high for him.">YT</span>' : ""}</td>`; }
   const x = r[c.k], p = P ? pctOf(P[c.k], x) : null;
   return `<td class="v${c.main ? " main" : ""}${lvCls(c)}" style="background:${heat(p)}"><span class="x">${sg(x)}</span><span class="p">${p == null ? "" : Math.round(p) + "%"}</span></td>`;
 }
