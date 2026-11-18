@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NBA HAPM Leaders, 2013-14 Season | Held-Out Adjusted Plus-Minus</title>
+<meta name="description" content="2013-14 NBA HAPM (held-out adjusted plus-minus) leaders: LeBron James +9.38, LaMarcus Aldridge +8.83, Kevin Durant +8.80. Offense, defense, shot value and possession value for 297 players with 1,500+ possessions.">
+<link rel="canonical" href="https://lumahoops.github.io/hapm/2013-14/">
+<link rel="icon" type="image/svg+xml" href="https://lumahoops.github.io/hapm/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LUMA Basketball Research">
+<meta property="og:title" content="NBA HAPM Leaders, 2013-14 Season | Held-Out Adjusted Plus-Minus">
+<meta property="og:description" content="2013-14 NBA HAPM (held-out adjusted plus-minus) leaders: LeBron James +9.38, LaMarcus Aldridge +8.83, Kevin Durant +8.80. Offense, defense, shot value and possession value for 297 players with 1,500+ possessions.">
+<meta property="og:url" content="https://lumahoops.github.io/hapm/2013-14/">
+<meta property="og:image" content="https://lumahoops.github.io/hapm/og.png?v=20261118">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NBA HAPM Leaders, 2013-14 Season | Held-Out Adjusted Plus-Minus">
+<meta name="twitter:description" content="2013-14 NBA HAPM (held-out adjusted plus-minus) leaders: LeBron James +9.38, LaMarcus Aldridge +8.83, Kevin Durant +8.80. Offense, defense, shot value and possession value for 297 players with 1,500+ possessions.">
+<meta name="twitter:image" content="https://lumahoops.github.io/hapm/og.png?v=20261118">
+<style>
+  :root { --rose:#B5577A; --rose-tint:#F7E4EA; --rose-line:#E8C3CF; --ink:#16181d; --mute:#5f636b; --line:#d9dbe0; --head:#f3f4f6; --zebra:#f7f7f8; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#fff; color:var(--ink); font:12.5px/1.35 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  .top { display:flex; align-items:baseline; gap:12px; padding:10px 16px 8px; border-bottom:2px solid var(--ink); }
+  .brand { font-size:20px; font-weight:800; color:var(--rose); margin:0; display:inline; }
+  .ttl { font-size:14px; font-weight:700; text-align:center; margin:0 0 2px; }
+  .seasons { max-width:1180px; margin:14px auto 0; font-size:11.5px; color:var(--mute); line-height:1.8; } .seasons a { color:var(--rose); margin-right:6px; }
+  .sub { color:var(--mute); font-size:11px; }
+  .tip { position:relative; display:inline-block; width:15px; height:15px; line-height:15px; text-align:center; border-radius:50%;
+         border:1px solid var(--rose); color:var(--rose); font-size:10px; font-weight:700; cursor:help; }
+  .tip .box { display:none; position:absolute; left:0; top:20px; z-index:10; width:380px; padding:10px 12px; background:#fff;
+              border:1px solid var(--line); box-shadow:0 4px 14px rgba(0,0,0,.12); color:var(--ink); font-weight:400; font-size:12px; line-height:1.45; text-align:left; }
+  .tip:hover .box, .tip:focus .box { display:block; }
+  .stamp { margin-left:auto; font-size:11.5px; border:1px solid var(--rose-line); background:var(--rose-tint); padding:3px 9px; }
+  .links { font-size:11.5px; } .links a { color:var(--rose); margin-left:10px; }
+  details.how { border-bottom:1px solid var(--line); padding:7px 16px; }
+  details.how > summary, details.guide > summary { cursor:pointer; color:var(--rose); font-weight:700; font-size:13px; list-style:none; }
+  details > summary::-webkit-details-marker { display:none; }
+  details > summary .ar { display:inline-block; width:12px; transition:transform .15s; } details[open] > summary .ar { transform:rotate(90deg); }
+  .steps { display:flex; align-items:stretch; margin:10px 0 4px; overflow-x:auto; }
+  .steps .s { border:1px solid var(--line); background:#fafafa; padding:6px 10px; min-width:200px; max-width:290px; font-size:11.5px; }
+  .steps .s b { color:var(--rose); display:block; font-size:12px; }
+  .steps .a { align-self:center; padding:0 8px; color:var(--mute); font-size:16px; }
+  .how h3 { font-size:12px; margin:14px 0 2px; } .how .lead { color:var(--mute); font-size:11.5px; margin:0 0 6px; }
+  details.why { padding-top:6px; }
+  .wy { display:flex; gap:32px; flex-wrap:wrap; align-items:flex-start; margin:8px 0 4px; }
+  .wt { margin:0; font-size:11.5px; } .wt th { background:var(--head); } .wt td:first-child, .wt th:first-child { text-align:left; }
+  .wt td { padding:2px 9px; } .wt td.b { font-weight:700; background:#eef7ea; }
+  .fn { color:var(--mute); font-size:10.5px; max-width:420px; margin:5px 0 0; line-height:1.4; }
+  .wn { max-width:330px; border-left:3px solid var(--rose); padding:2px 0 2px 12px; font-size:11.5px; line-height:1.45; }
+  .wn h3 { margin-top:0; } .wn p { margin:0 0 6px; }
+  .dg { display:flex; gap:40px; flex-wrap:wrap; align-items:flex-start; }
+  .dcol { max-width:620px; }
+  .stint { font-size:11.5px; } .srow { display:flex; align-items:center; gap:5px; margin:3px 0; }
+  .slbl { width:120px; text-align:right; color:var(--mute); font-style:italic; font-size:11px; padding-right:4px; }
+  .sb2 { border:1px solid #c9ccd2; background:#fafafa; width:46px; text-align:center; padding:2px 0; }
+  .sb2.him { width:62px; border:1.5px solid var(--rose); background:var(--rose-tint); color:var(--rose); font-weight:700; }
+  .snote { color:var(--mute); font-size:11px; margin-left:125px; } .sarr { margin-left:230px; color:var(--mute); font-size:15px; line-height:1.2; }
+  .srow2 { display:flex; gap:10px; margin-left:60px; }
+  .sbox { border:1px solid #c9ccd2; background:#f6f7f8; padding:5px 9px; width:200px; text-align:center; line-height:1.35; }
+  .sbox b { display:block; } .sbox.res { margin-left:125px; width:250px; border:1.5px solid var(--rose); background:var(--rose-tint); }
+  .wx { margin:0; font-size:11.5px; } .wx th { background:var(--head); font-weight:700; white-space:normal; max-width:120px; }
+  .wx td:first-child { text-align:left; } .wx td.ind { padding-left:18px; color:var(--mute); } .wx tr.bold td { font-weight:800; }
+  .bar { display:flex; flex-wrap:wrap; align-items:center; gap:6px 12px; padding:8px 16px; border-bottom:1px solid var(--line); }
+  .bar label { color:var(--mute); }
+  select, input { font:inherit; padding:3px 5px; border:1px solid #b9bcc3; background:#fff; color:var(--ink); }
+  input[type=search] { width:180px; } input[type=number] { width:72px; }
+  .seg { display:inline-flex; border:1px solid #b9bcc3; vertical-align:middle; }
+  .seg button { font:inherit; border:0; background:#fff; padding:3px 9px; cursor:pointer; color:var(--ink); }
+  .seg button + button { border-left:1px solid #b9bcc3; }
+  .seg button.on { background:var(--rose); color:#fff; }
+  .chips { display:inline-flex; gap:4px; } .chips button { font:inherit; border:1px solid #b9bcc3; background:#fff; padding:2px 8px; cursor:pointer; color:var(--mute); }
+  .chips button.on { border-color:var(--rose); color:var(--rose); background:var(--rose-tint); font-weight:600; }
+  .chips button:disabled { opacity:.4; cursor:default; }
+  .bar a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid #b9bcc3; padding:3px 8px; }
+  .wrap { padding:12px 16px 30px; overflow-x:auto; }
+  table { border-collapse:collapse; margin:0 auto; font-variant-numeric:tabular-nums; font-size:12px; }
+  th, td { border:1px solid var(--line); padding:1px 5px; text-align:center; white-space:nowrap; }
+  th[data-tip] { position:relative; }
+  th[data-tip]:hover::after { content:attr(data-tip); position:absolute; left:50%; top:100%; transform:translateX(-50%); z-index:20;
+    width:250px; white-space:normal; padding:7px 9px; background:#fff; border:1px solid var(--line); box-shadow:0 4px 14px rgba(0,0,0,.12);
+    color:var(--ink); font-weight:400; font-size:11.5px; line-height:1.4; text-align:left; }
+  th .q { color:var(--rose); font-size:9.5px; vertical-align:super; margin-left:1px; }
+  th .qt { display:inline-block; width:14px; height:14px; line-height:13px; border:1px solid var(--rose); border-radius:50%; font-size:9.5px; vertical-align:1px; margin-left:4px; cursor:help; }
+  thead th.g0 { background:#e1e2e6; font-size:12.5px; font-weight:800; }
+  thead th.g1 { background:#e9eaed; font-size:12px; font-weight:700; border-left:2px solid #6f737b; }
+  thead th.g2 { background:#f0f1f3; font-size:11.5px; font-weight:600; border-left:1.5px solid #a9acb3; }
+  thead th.c { background:var(--head); font-weight:600; font-size:11.5px; cursor:pointer; user-select:none; }
+  thead th.c.on { background:var(--rose-tint); color:var(--rose); }
+  thead th.fold { cursor:pointer; } thead th.fold:hover { background:#d9dbe0; }
+  /* hierarchy: total > piece > end > zone, in size and weight */
+  thead th.c.l1 { font-size:12px; font-weight:700; } thead th.c.l2 { font-size:11.5px; font-weight:700; }
+  thead th.c.l3 { font-size:11px; font-weight:600; } thead th.c.l4 { font-size:10.5px; font-weight:500; color:var(--mute); }
+  th.tp, td.tp { border-left:2px solid #6f737b; } th.sb, td.sb { border-left:1.5px solid #a9acb3; }
+  tbody tr:nth-child(even) td.o { background:var(--zebra); }
+  tbody tr:hover td.o { background:var(--rose-tint); }
+  td.l, th.l { text-align:left; } td.n { font-weight:700; } td.o { padding:2px 6px; }
+  td.v { line-height:1.05; min-width:48px; padding:1px 4px; } td.v .x { display:block; font-weight:600; font-size:12px; } td.v .p { display:block; font-size:10px; }
+  td.main .x { font-weight:700; font-size:13px; } td.main .p { font-weight:500; }
+  /* Off / Def and SV / PV share one size; pieces and ends step down */
+  td.l1 .x { font-weight:600; font-size:12.5px; } td.l2 .x { font-weight:600; font-size:12px; }
+  td.l3 .x { font-weight:500; font-size:11.5px; } td.l4 { min-width:40px; } td.l4 .x { font-weight:500; font-size:11px; } td.l4 .p { font-size:9.5px; }
+  tr.agg td { border-top:2px solid var(--ink); font-weight:700; }
+  .yt { color:var(--mute); font-weight:400; font-size:10.5px; margin-left:3px; }
+  tr.flt td { background:#fbfbfc; padding:1px 2px; } tr.flt input { width:38px; font-size:10.5px; padding:1px 2px; border:1px solid #c9ccd2; }
+  tr.flt input::placeholder { color:#a3a6ad; } tr.flt input.set { border-color:var(--rose); background:var(--rose-tint); }
+  .status { margin:0 auto 6px; color:var(--mute); font-size:11.5px; text-align:center; }
+  details.guide { max-width:1180px; margin:22px auto 0; } details.guide[open] > summary { margin-bottom:6px; }
+  .guide table { width:100%; font-size:11.5px; }
+  .guide th { background:var(--head); text-align:left; padding:3px 8px; }
+  .guide td { text-align:left; white-space:normal; padding:4px 8px; vertical-align:top; line-height:1.4; }
+  .guide td.t { font-weight:700; white-space:nowrap; width:1%; }
+  .credit { max-width:1180px; margin:10px auto 0; color:var(--mute); font-size:11px; } .credit a { color:var(--rose); }
+  #pop { display:none; position:absolute; z-index:30; background:#fff; border:1px solid var(--line); box-shadow:0 6px 18px rgba(0,0,0,.14); padding:10px 12px; }
+  .tr { display:flex; flex-direction:column; align-items:center; font-size:11px; color:var(--ink); }
+  .nd { border:1px solid #c9ccd2; background:#fff; padding:3px 8px; text-align:center; line-height:1.3; white-space:nowrap; }
+  .nd b { display:block; font-size:12px; } .nd.r { border:1.5px solid var(--rose); background:var(--rose-tint); } .nd.r b { color:var(--rose); font-size:13px; }
+  .nd.m { background:#f3f4f6; } .nd .z { display:block; margin-top:3px; font-size:10px; color:var(--mute); }
+  .br { display:flex; align-items:flex-start; gap:4px; margin-top:6px; padding-top:8px; border-top:1.5px solid #b4b7be; }
+  .br > .pl { align-self:center; color:var(--mute); font-weight:700; padding:0 2px; }
+  .kid { display:flex; flex-direction:column; align-items:center; }
+  .eq { margin-top:8px; color:var(--mute); font-size:10.5px; }
+  .vg { border-collapse:collapse; font-size:11px; margin:0; } .vg td, .vg th { border:1px solid #d9dbe0; padding:2px 6px; text-align:center; }
+  .vg td.f { background:var(--rose); }
+</style>
+</head>
+<body data-root="../" data-season="2013-14">
+<div class="top">
+  <h1 class="brand">HAPM</h1><span class="sub">Held-Out Adjusted Plus-Minus</span>
+  <span class="tip" tabindex="0">?<span class="box">
+    <b>HAPM</b> measures how many points per 100 possessions a player's stints produced above or below expectation. The other nine
+    players in each of his stints are rated without any of his possessions. Their ratings give the margin the stint would
+    produce with an average player in his place, and his HAPM is the actual margin minus that. Players with few possessions
+    are pulled toward a typical value for their playing time.<br><br>
+    0 is the average rated player. Rotation players average about +1.3. Each cell shows the value and its percentile.
+  </span></span>
+  <span class="links"><a href="https://github.com/lumahoops/NBA/tree/main/hapm">Data on GitHub</a></span>
+  <span class="stamp" id="stamp"></span>
+</div>
+<details class="how"><summary><span class="ar">&#9656;</span> How HAPM works</summary>
+  <div class="steps">
+    <div class="s"><b>1. Pick the player, rate the other nine</b>Teammates and opponents are rated from every stint where the chosen player did not play, starting from their three previous seasons.</div>
+    <div class="a">&rarr;</div>
+    <div class="s"><b>2. Estimate each stint</b>Those ratings give the expected margin for each of his stints, with an average player in his place.</div>
+    <div class="a">&rarr;</div>
+    <div class="s"><b>3. Actual minus expected</b>The chosen player's HAPM is what his stints produced above or below that estimate, per 100 possessions.</div>
+  </div>
+  <div class="dg">
+  <div class="dcol">
+    <h3>One stint</h3>
+    <p class="lead">What HAPM computes for one stint. Illustrative numbers.</p>
+    <div class="stint">
+      <div class="srow"><span class="slbl">His four teammates</span><span class="sb2">+1.8</span><span class="sb2">+0.4</span><span class="sb2">&minus;0.6</span><span class="sb2">+2.1</span><span class="sb2 him">he is 0</span></div>
+      <div class="srow"><span class="slbl">The five opponents</span><span class="sb2">+1.1</span><span class="sb2">&minus;0.2</span><span class="sb2">+0.8</span><span class="sb2">+0.5</span><span class="sb2">&minus;0.9</span></div>
+      <div class="snote">each rated only from the stints he was not on the floor for</div>
+      <div class="sarr">&darr;</div>
+      <div class="srow2"><div class="sbox"><b>Expected margin</b>teammates' ratings minus opponents', with 0 in his place: +2.4</div>
+        <div class="sbox"><b>Actual margin</b>what the stint produced: +7.0</div></div>
+      <div class="sarr">&darr;</div>
+      <div class="sbox res"><b>His value for the stint</b>+7.0 &minus; (+2.4) = +4.6 per 100</div>
+      <div class="snote" style="margin-top:6px">Every stint he plays is scored this way. His season value is the possession-weighted average, pulled toward a typical value for his playing time.</div>
+    </div>
+  </div>
+  <div class="dcol">
+    <h3>Worked example: Joki&#263; and Caldwell-Pope, Denver 2023-24</h3>
+    <p class="lead">The two shared most of their minutes. One-year RAPM puts both near the top; HAPM separates them. Per 100 possessions.</p>
+    <table class="wx">
+      <tr><th></th><th>Both</th><th>Joki&#263; without Caldwell-Pope</th><th>Caldwell-Pope without Joki&#263;</th><th>Neither</th></tr>
+      <tr><td>Possessions</td><td>4,403</td><td>1,105</td><td>428</td><td>1,962</td></tr>
+      <tr><td>Net rating</td><td>+12.4</td><td>+9.1</td><td>+2.1</td><td>&minus;11.8</td></tr>
+      <tr><th></th><th colspan="2">Joki&#263;</th><th colspan="2">Caldwell-Pope</th></tr>
+      <tr><td>Actual margin of his stints</td><td colspan="2">+11.1</td><td colspan="2">+11.3</td></tr>
+      <tr><td>Expected with an average player in his place</td><td colspan="2">&minus;5.3</td><td colspan="2">+6.4</td></tr>
+      <tr><td class="ind">from his four teammates</td><td colspan="2">+1.3</td><td colspan="2">+13.0</td></tr>
+      <tr><td class="ind">from the opponents and game context</td><td colspan="2">&minus;6.7</td><td colspan="2">&minus;6.6</td></tr>
+      <tr class="bold"><td>Actual minus expected</td><td colspan="2">+16.4</td><td colspan="2">+4.9</td></tr>
+      <tr><td>HAPM 1/3 (percentile)</td><td colspan="2">+11.0 (100th)</td><td colspan="2">+4.4 (83rd)</td></tr>
+      <tr><td>RAPM 1-year (percentile)</td><td colspan="2">+5.2 (99th)</td><td colspan="2">+4.4 (97th)</td></tr>
+    </table>
+    <p class="lead" style="margin-top:6px">Caldwell-Pope's stints were expected at +6.4 because Joki&#263; was usually beside him (+13.0 from his teammates). Joki&#263;'s teammates added only +1.3, so his stints were expected at &minus;5.3. HAPM credits each player with the gap between those expectations and what happened.</p>
+  </div>
+  </div>
+  <h3>Versions</h3>
+  <p class="lead">Each version uses a different number of seasons of the player's own stints, with newer seasons counting more. The 3 means the other nine are rated with their three previous seasons.</p>
+  <div id="vgrid"></div>
+</details>
+<details class="how why"><summary><span class="ar">&#9656;</span> Why HAPM</summary>
+  <div class="wy">
+  <div>
+    <h3>When a player sits</h3>
+    <p class="lead">What the team actually lost, divided by what each metric forecast. 1 is the right size; above 1, the metric underrates the player.</p>
+    <table class="wt">
+      <tr><th>Who sits</th><th>HAPM 2/3</th><th>RAPM 4-year</th><th>RAPM 1-year</th></tr>
+      <tr><td>Top player by possessions</td><td class="b">.90</td><td>1.85</td><td>3.67</td></tr>
+      <tr><td>Second</td><td class="b">.87</td><td>1.73</td><td>3.78</td></tr>
+      <tr><td>Third to fifth</td><td class="b">.98</td><td>1.95</td><td>3.78</td></tr>
+      <tr><td>Sixth to eighth</td><td class="b">1.45</td><td>2.56</td><td>7.51</td></tr>
+    </table>
+    <p class="fn">Every team-game from 2013-14 to 2025-26, compared within team and half-season, with home court and opponent strength held fixed. Each forecast uses values from the other half of the season. Closest to 1 in bold.</p>
+  </div>
+  <div>
+    <h3>Next season</h3>
+    <p class="lead">How well one season's values predict the next season.</p>
+    <table class="wt">
+      <tr><th>Next season</th><th>HAPM 2/3</th><th>RAPM 4-year</th><th>RAPM 1-year</th></tr>
+      <tr><td>Game margins (R&sup2;)</td><td class="b">.158</td><td>.149</td><td>.129</td></tr>
+      <tr><td>Team ranking (rank correlation)</td><td class="b">.744</td><td>.742</td><td>.692</td></tr>
+      <tr><td>Five-man units (R&sup2;)</td><td>.109</td><td class="b">.116</td><td>.109</td></tr>
+      <tr><td>Five-man units never seen together (R&sup2;)</td><td>.096</td><td class="b">.102</td><td>.095</td></tr>
+    </table>
+    <p class="fn">4-year RAPM uses four seasons of each player; HAPM 2/3 uses two. Best value in each row in bold. Season pairs from 2013-14 to 2025-26.</p>
+  </div>
+  <div class="wn">
+    <h3>Why HAPM differs from RAPM</h3>
+    <p>Whereas RAPM, in practice, values a player against the teammates who replace him, HAPM (held-out adjusted
+      plus-minus) attempts to quantify a player's value by setting a counterfactual baseline: an average player, rated 0,
+      in the exact stints the player played. The nine other players in every one of those stints are rated without any
+      of the player's possessions, and those ratings give the margin each stint would be expected to produce with an
+      average player in that place.</p>
+  </div>
+  </div>
+</details>
+<div class="bar">
+  <label>Seasons <select id="from"></select></label><label>to <select id="to"></select></label>
+  <label>Version <select id="variant"></select></label>
+  <label>Position <select id="pos"><option value="">All</option><option value="G">Guards</option><option value="W">Wings</option><option value="B">Bigs</option>
+    <option>PG</option><option>SG</option><option>SF</option><option>PF</option><option>C</option></select></label>
+  <label>Team <select id="team"><option value="">All teams</option></select></label>
+  <label>Min poss <input type="number" id="mp" step="100" min="0"></label>
+  <input type="search" id="q" placeholder="Search player">
+  <span class="seg" id="view"><button data-v="p" class="on">Players</button><button data-v="t">Teams</button></span>
+  <label>Columns <span class="chips" id="open"><button data-g="od">Off / Def</button><button data-g="sv">Shot value</button><button data-g="zn">Zones</button><button data-g="pv">Possession value</button></span></label>
+  <span class="chips"><button id="fbtn" title="Show minimum / maximum boxes under each column">Filters</button><button id="fclr" title="Clear all column filters" style="display:none">Clear filters</button></span>
+  <a class="btn" id="csv" href="#">CSV</a>
+</div>
+<div class="wrap"><h2 class="ttl" id="ttl">NBA HAPM leaders, 2013-14</h2><div class="status" id="status"></div><table id="main"><thead id="th"><tr><th>Rk</th><th>Player</th><th>Pos</th><th>Team</th><th>Poss</th><th>HAPM</th><th>Off</th><th>Def</th></tr></thead><tbody id="rows"><tr><td>1</td><td>LeBron James</td><td>PF</td><td>MIA</td><td>5,479</td><td>+9.38</td><td>+7.76</td><td>+1.62</td></tr><tr><td>2</td><td>LaMarcus Aldridge</td><td>PF</td><td>POR</td><td>4,876</td><td>+8.83</td><td>+5.24</td><td>+3.60</td></tr><tr><td>3</td><td>Kevin Durant</td><td>SF</td><td>OKC</td><td>6,146</td><td>+8.80</td><td>+7.28</td><td>+1.52</td></tr><tr><td>4</td><td>Chris Paul</td><td>PG</td><td>LAC</td><td>4,314</td><td>+8.50</td><td>+5.40</td><td>+3.10</td></tr><tr><td>5</td><td>Andre Iguodala</td><td>SF</td><td>GSW</td><td>3,918</td><td>+8.13</td><td>+3.56</td><td>+4.57</td></tr><tr><td>6</td><td>Stephen Curry</td><td>PG</td><td>GSW</td><td>5,483</td><td>+8.05</td><td>+6.47</td><td>+1.58</td></tr><tr><td>7</td><td>Blake Griffin</td><td>PF</td><td>LAC</td><td>5,582</td><td>+7.38</td><td>+5.50</td><td>+1.89</td></tr><tr><td>8</td><td>Kemba Walker</td><td>PG</td><td>CHA</td><td>4,818</td><td>+7.23</td><td>+2.81</td><td>+4.42</td></tr><tr><td>9</td><td>Amir Johnson</td><td>PF</td><td>TOR</td><td>4,062</td><td>+7.18</td><td>+4.33</td><td>+2.85</td></tr><tr><td>10</td><td>Damian Lillard</td><td>PG</td><td>POR</td><td>5,752</td><td>+7.00</td><td>+6.54</td><td>+0.46</td></tr><tr><td>11</td><td>Klay Thompson</td><td>SG</td><td>GSW</td><td>5,505</td><td>+6.77</td><td>+5.03</td><td>+1.74</td></tr><tr><td>12</td><td>DeAndre Jordan</td><td>C</td><td>LAC</td><td>5,611</td><td>+6.61</td><td>+4.17</td><td>+2.43</td></tr><tr><td>13</td><td>David Lee</td><td>PF</td><td>GSW</td><td>4,380</td><td>+6.60</td><td>+3.77</td><td>+2.83</td></tr><tr><td>14</td><td>Goran Dragic</td><td>SG</td><td>PHX</td><td>5,326</td><td>+6.59</td><td>+6.02</td><td>+0.57</td></tr><tr><td>15</td><td>Mike Conley</td><td>PG</td><td>MEM</td><td>4,534</td><td>+6.43</td><td>+3.26</td><td>+3.17</td></tr><tr><td>16</td><td>Patrick Beverley</td><td>PG</td><td>HOU</td><td>3,420</td><td>+6.42</td><td>+3.70</td><td>+2.72</td></tr><tr><td>17</td><td>Paul George</td><td>SF</td><td>IND</td><td>5,520</td><td>+6.42</td><td>+1.69</td><td>+4.73</td></tr><tr><td>18</td><td>John Wall</td><td>PG</td><td>WAS</td><td>5,623</td><td>+6.41</td><td>+4.69</td><td>+1.72</td></tr><tr><td>19</td><td>Dirk Nowitzki</td><td>PF</td><td>DAL</td><td>5,012</td><td>+6.38</td><td>+5.61</td><td>+0.77</td></tr><tr><td>20</td><td>Nick Collison</td><td>PF</td><td>OKC</td><td>2,608</td><td>+6.32</td><td>+3.89</td><td>+2.43</td></tr><tr><td>21</td><td>James Harden</td><td>SG</td><td>HOU</td><td>5,550</td><td>+6.16</td><td>+6.55</td><td>−0.39</td></tr><tr><td>22</td><td>Joakim Noah</td><td>C</td><td>CHI</td><td>5,128</td><td>+6.01</td><td>+1.77</td><td>+4.24</td></tr><tr><td>23</td><td>Channing Frye</td><td>PF</td><td>PHX</td><td>4,604</td><td>+6.00</td><td>+5.34</td><td>+0.66</td></tr><tr><td>24</td><td>David West</td><td>PF</td><td>IND</td><td>4,708</td><td>+5.94</td><td>+2.68</td><td>+3.26</td></tr><tr><td>25</td><td>Ricky Rubio</td><td>PG</td><td>MIN</td><td>5,198</td><td>+5.80</td><td>+3.90</td><td>+1.91</td></tr><tr><td>26</td><td>Kevin Love</td><td>PF</td><td>MIN</td><td>5,534</td><td>+5.79</td><td>+4.33</td><td>+1.46</td></tr><tr><td>27</td><td>Tony Parker</td><td>PG</td><td>SAS</td><td>3,963</td><td>+5.65</td><td>+2.90</td><td>+2.75</td></tr><tr><td>28</td><td>Russell Westbrook</td><td>PG</td><td>OKC</td><td>2,830</td><td>+5.58</td><td>+3.89</td><td>+1.69</td></tr><tr><td>29</td><td>Kyle Lowry</td><td>PG</td><td>TOR</td><td>5,388</td><td>+5.46</td><td>+4.36</td><td>+1.11</td></tr><tr><td>30</td><td>Manu Ginobili</td><td>SG</td><td>SAS</td><td>3,133</td><td>+5.45</td><td>+3.96</td><td>+1.49</td></tr><tr><td>31</td><td>Isaiah Thomas</td><td>PG</td><td>SAC</td><td>4,873</td><td>+5.41</td><td>+3.91</td><td>+1.51</td></tr><tr><td>32</td><td>Tiago Splitter</td><td>C</td><td>SAS</td><td>2,540</td><td>+5.33</td><td>−0.04</td><td>+5.38</td></tr><tr><td>33</td><td>Wesley Matthews</td><td>SG</td><td>POR</td><td>5,425</td><td>+5.28</td><td>+4.97</td><td>+0.30</td></tr><tr><td>34</td><td>Nicolas Batum</td><td>SF</td><td>POR</td><td>5,790</td><td>+5.27</td><td>+4.87</td><td>+0.41</td></tr><tr><td>35</td><td>Danny Green</td><td>SG</td><td>SAS</td><td>3,290</td><td>+5.27</td><td>+0.79</td><td>+4.48</td></tr><tr><td>36</td><td>Dwight Howard</td><td>C</td><td>HOU</td><td>4,713</td><td>+5.22</td><td>+1.97</td><td>+3.25</td></tr><tr><td>37</td><td>Patty Mills</td><td>PG</td><td>SAS</td><td>3,032</td><td>+5.21</td><td>+2.82</td><td>+2.40</td></tr><tr><td>38</td><td>Roy Hibbert</td><td>C</td><td>IND</td><td>4,558</td><td>+5.19</td><td>+1.31</td><td>+3.88</td></tr><tr><td>39</td><td>Marcin Gortat</td><td>C</td><td>WAS</td><td>4,972</td><td>+5.16</td><td>+2.00</td><td>+3.16</td></tr><tr><td>40</td><td>Ty Lawson</td><td>PG</td><td>DEN</td><td>4,486</td><td>+5.07</td><td>+5.26</td><td>−0.19</td></tr><tr><td>41</td><td>Al Jefferson</td><td>C</td><td>CHA</td><td>4,657</td><td>+5.02</td><td>+3.36</td><td>+1.66</td></tr><tr><td>42</td><td>Lance Stephenson</td><td>SG</td><td>IND</td><td>5,248</td><td>+4.94</td><td>+2.95</td><td>+1.99</td></tr><tr><td>43</td><td>Trevor Ariza</td><td>SF</td><td>WAS</td><td>5,193</td><td>+4.80</td><td>+2.05</td><td>+2.75</td></tr><tr><td>44</td><td>Serge Ibaka</td><td>PF</td><td>OKC</td><td>5,211</td><td>+4.78</td><td>+1.55</td><td>+3.23</td></tr><tr><td>45</td><td>Jimmy Butler III</td><td>SG</td><td>CHI</td><td>4,787</td><td>+4.69</td><td>+2.37</td><td>+2.32</td></tr><tr><td>46</td><td>DeMarre Carroll</td><td>SF</td><td>ATL</td><td>4,555</td><td>+4.66</td><td>+1.75</td><td>+2.91</td></tr><tr><td>47</td><td>George Hill</td><td>PG</td><td>IND</td><td>4,586</td><td>+4.64</td><td>+1.87</td><td>+2.77</td></tr><tr><td>48</td><td>Tim Duncan</td><td>C</td><td>SAS</td><td>4,262</td><td>+4.59</td><td>+1.46</td><td>+3.13</td></tr><tr><td>49</td><td>Eric Bledsoe</td><td>PG</td><td>PHX</td><td>2,834</td><td>+4.58</td><td>−0.21</td><td>+4.79</td></tr><tr><td>50</td><td>Chandler Parsons</td><td>SF</td><td>HOU</td><td>5,518</td><td>+4.57</td><td>+4.10</td><td>+0.47</td></tr></tbody></table>
+<details class="guide"><summary><span class="ar">&#9656;</span> What the columns show</summary>
+<table><thead><tr><th>Column</th><th>Meaning</th><th>Column</th><th>Meaning</th></tr></thead><tbody>
+<tr><td class="t">HAPM</td><td>Points per 100 possessions his stints produced above or below what the other nine were expected to produce with an average player in his place. 0 is the average rated player; rotation players average about +1.3.</td>
+    <td class="t">Off, Def</td><td>HAPM at each end of the floor.</td></tr>
+<tr><td class="t">Percentile</td><td>The small number in each cell. It ranks him among all players with the minimum possessions, across positions and teams. Cells run from red (low) through gray to green (high).</td>
+    <td class="t">Poss</td><td>Possessions he played in the seasons selected.</td></tr>
+<tr><td class="t">Shot value</td><td>Selection (offensive and defensive shot quality impact) and conversion (offensive and defensive shot making impact). Hover the ? next to its title for its tree.</td>
+    <td class="t">Possession value</td><td>Generation (offensive rebounding, forced turnovers) and retention (turnovers avoided, defensive rebounding). Hover the ? next to its title for its tree.</td></tr>
+<tr><td class="t">Zones</td><td>Shot value by zone: rim, mid-range, three and free throws. Defensive conversion has two zones, rim and other, because the rest changes too much from year to year. Turn them on with the Zones button.</td>
+    <td class="t">D Conv</td><td>Changes the most from year to year, because opponents' shooting luck is a large part of it.</td></tr>
+<tr><td class="t">Versions</td><td>1/3 to 5/3, chosen in the Version menu and explained under "How HAPM works". Versions with more seasons are steadier and react more slowly. Shot and possession columns are available for 1/3 and 2/3.</td>
+    <td class="t">Season ranges</td><td>Each player's values are averaged over the seasons selected, weighted by possessions.</td></tr>
+<tr><td class="t">YT</td><td>Young teammates. Half or more of his possessions came alongside players with fewer than three earlier seasons, and HAPM tends to run high for these players.</td>
+    <td class="t">Team line</td><td>The last row when a team is picked. It averages the team's players, weighted by possessions; its percentiles rank it among all teams under the same filters. HAPM values do not add up to a team's margin.</td></tr>
+<tr><td class="t">Teams view</td><td>Teams ranked by the possession-weighted average HAPM of their players, which compares rosters. Click a team to see its players.</td>
+    <td class="t">1997-98</td><td>The first season has no earlier seasons to rate the other nine, so its values are less certain.</td></tr>
+<tr><td class="t">Games through</td><td>The current season's values include every game up to the number shown.</td>
+    <td class="t">Columns</td><td>The buttons show or hide each group. The table opens with HAPM, Off and Def.</td></tr>
+<tr><td class="t">Filters</td><td>Minimum (&ge;) and maximum (&le;) boxes under each column, in points per 100 possessions (Poss in possessions). Rank and percentiles still count every player.</td>
+    <td></td><td></td></tr>
+</tbody></table></details>
+<div class="seasons">Seasons: <a href="../2026-27/">2026-27</a> <a href="../2025-26/">2025-26</a> <a href="../2024-25/">2024-25</a> <a href="../2023-24/">2023-24</a> <a href="../2022-23/">2022-23</a> <a href="../2021-22/">2021-22</a> <a href="../2020-21/">2020-21</a> <a href="../2019-20/">2019-20</a> <a href="../2018-19/">2018-19</a> <a href="../2017-18/">2017-18</a> <a href="../2016-17/">2016-17</a> <a href="../2015-16/">2015-16</a> <a href="../2014-15/">2014-15</a> <a href="../2013-14/">2013-14</a> <a href="../2012-13/">2012-13</a> <a href="../2011-12/">2011-12</a> <a href="../2010-11/">2010-11</a> <a href="../2009-10/">2009-10</a> <a href="../2008-09/">2008-09</a> <a href="../2007-08/">2007-08</a> <a href="../2006-07/">2006-07</a> <a href="../2005-06/">2005-06</a> <a href="../2004-05/">2004-05</a> <a href="../2003-04/">2003-04</a> <a href="../2002-03/">2002-03</a> <a href="../2001-02/">2001-02</a> <a href="../2000-01/">2000-01</a> <a href="../1999-00/">1999-00</a> <a href="../1998-99/">1998-99</a> <a href="../1997-98/">1997-98</a> &middot; <a href="../">All seasons</a></div>
+<div class="credit">LUMA Basketball Research &middot; <a href="https://github.com/lumahoops/NBA/tree/main/hapm">Data on GitHub</a> (CC BY 4.0) &middot; &copy; 2026 Court Share LLC</div>
+</div>
+<div id="pop"></div>
+<script>
+const ROOT = document.body.dataset.root || "", PAGE_SEASON = document.body.dataset.season || "";
+const S = { meta:null, cache:{}, variant:"2/3", sort:"net", dir:-1, view:"p", open:{ od:true, sv:false, zn:false, pv:false }, showF:false, filt:{} };
+const $ = id => document.getElementById(id);
+const sg = x => x == null ? "" : (x > 0 ? "+" : x < 0 ? "\u2212" : "") + Math.abs(x).toFixed(2);
+const GRP = { G:["PG", "SG", "G"], W:["SF", "F"], B:["PF", "C", "F"] };     // ESPN lists some rookies only as G / F / C
+const VTIP = { "1/3":"1/3 uses this season's stints only. It reacts fastest and varies most.",
+  "2/3":"2/3 uses this season and last season, with this season counting more. It is the default.",
+  "3/3":"3/3 uses this season and the two before it, with newer seasons counting more.",
+  "4/3":"4/3 uses this season and the three before it, with newer seasons counting more.",
+  "5/3":"5/3 uses this season and the four before it, with newer seasons counting more. It is the steadiest and reacts slowest." };
+// data order (export): totals, then zones
+const TK = ["sv", "sel", "selo", "seld", "conv", "convo", "convd", "pv", "gen", "oreb", "dtov", "ret", "otov", "dreb",
+  "so_r", "so_m", "so_t", "so_f", "sd_r", "sd_m", "sd_t", "sd_f", "co_r", "co_m", "co_t", "co_f", "cd_r", "cd_o"];
+const ZN = { r:"Rim", m:"Mid", t:"3", f:"FT", o:"Other" }, ZL = { r:"at the rim", m:"from mid-range", t:"from three", f:"from free throws", o:"outside the rim" };
+
+// ---- trees (hover = compact; "How HAPM works" = with zones)
+const node = (k, t, c, z) => `<div class="nd ${c || ""}"><b>${k}</b>${t}${z ? `<span class="z">${z}</span>` : ""}</div>`;
+const kid = (top, a, b) => `<div class="kid">${top}<div class="br">${a}<span class="pl">+</span>${b}</div></div>`;
+const Z4 = "Rim \u00b7 Mid \u00b7 3 \u00b7 FT", Z2 = "Rim \u00b7 Other";
+const svTree = z => `<div class="tr">${node("SV", "Shot value", "r")}<div class="br">` +
+  kid(node("Sel", "Selection", "m"), node("O Sel", "Offensive shot selection", "", z && Z4), node("D Sel", "Defensive shot selection", "", z && Z4)) + '<span class="pl">+</span>' +
+  kid(node("Conv", "Conversion", "m"), node("O Conv", "Offensive conversion", "", z && Z4), node("D Conv", "Defensive conversion", "", z && Z2)) + "</div></div>";
+const pvTree = () => `<div class="tr">${node("PV", "Possession value", "r")}<div class="br">` +
+  kid(node("Gen", "Generation", "m"), node("O Reb", "Offensive rebounding"), node("D TOV", "Forced turnovers")) + '<span class="pl">+</span>' +
+  kid(node("Ret", "Retention", "m"), node("O TOV", "Turnovers avoided"), node("D Reb", "Defensive rebounding")) + "</div></div>";
+const vGrid = () => `<table class="vg"><tr><th>Version</th><th>This season</th><th>1 before</th><th>2 before</th><th>3 before</th><th>4 before</th></tr>` +
+  [1, 2, 3, 4, 5].map(a => `<tr><th>${a}/3</th>` + [0, 1, 2, 3, 4].map(k => `<td class="${k < a ? "f" : ""}" style="${k < a ? `opacity:${1 - k * 0.17}` : ""}"></td>`).join("") + "</tr>").join("") + "</table>";
+const TREE = { sv: () => svTree(S.open.zn), pv: pvTree, ov: () => vGrid() + '<div class="eq">Seasons of his own stints used by each version; newer seasons count more.</div>' };
+
+// ---- colors: red (low) -> gray (middle) -> green (high), by percentile; numbers stay black
+const LO = [238, 172, 172], MID = [234, 235, 238], HI = [190, 228, 176];
+function heat(p) { if (p == null) return ""; const t = Math.min(1, Math.abs(p - 50) / 50), e = p >= 50 ? HI : LO;
+  return `rgb(${MID.map((m, i) => Math.round(m + (e[i] - m) * t)).join(",")})`; }
+function pctOf(sorted, x) { if (x == null || !sorted || !sorted.length) return null; let lo = 0, hi = sorted.length;
+  while (lo < hi) { const m = (lo + hi) >> 1; if (sorted[m] < x) lo = m + 1; else hi = m; } return 100 * lo / sorted.length; }
+async function season(s) { if (!S.cache[s]) S.cache[s] = await (await fetch(`${ROOT}data/${s}.json`)).json(); return S.cache[s]; }
+function setSeg(id, attr, val) { [...$(id).children].forEach(x => x.classList.toggle("on", x.dataset[attr] === val)); }
+
+async function init() {
+  S.meta = await (await fetch(`${ROOT}data/index.json`)).json();
+  const ss = S.meta.seasons.map(s => s.season);
+  for (const s of ss.slice().reverse()) { $("from").add(new Option(s, s)); $("to").add(new Option(s, s)); }
+  const full = PAGE_SEASON || S.meta.seasons.filter(s => s.qualified_poss === 1500).pop().season;
+  const H = Object.fromEntries(new URLSearchParams(location.hash.slice(1)));
+  $("from").value = ss.includes(H.from) ? H.from : full; $("to").value = ss.includes(H.to) ? H.to : $("from").value;
+  if (H.v && S.meta.variants.includes(H.v)) S.variant = H.v;
+  if (H.view === "t") { S.view = "t"; setSeg("view", "v", "t"); }
+  if (H.cols != null) { const on = H.cols.split(","); for (const g in S.open) S.open[g] = on.includes(g); }
+  if (H.flt) { for (const t of H.flt.split(",")) { const [k, a, b] = t.split(":"); S.filt[k] = [a ?? "", b ?? ""]; } S.showF = true; }
+  if (H.pos) $("pos").value = H.pos; S.hashTeam = H.team || ""; S.hashMp = H.mp;
+  for (const v of S.meta.variants) $("variant").add(new Option("HAPM " + v, v)); $("variant").value = S.variant;
+  const c = S.meta.current; $("stamp").textContent = `${c.season}: games through #${c.through_game}`;
+  $("from").onchange = () => { $("to").value = $("from").value; load(true); };          // one season unless "to" is widened by hand
+  $("to").onchange = () => { if ($("to").value < $("from").value) $("from").value = $("to").value; load(true); };
+  $("variant").onchange = e => { S.variant = e.target.value; render(); };
+  for (const id of ["pos", "team", "q"]) $(id).oninput = render;
+  $("mp").oninput = () => { S.mpUser = true; render(); };
+  [...$("view").children].forEach(b => b.onclick = () => setView(b.dataset.v));
+  [...$("open").children].forEach(b => b.onclick = () => toggle(b.dataset.g));
+  $("fbtn").onclick = () => { S.showF = !S.showF; render(); };
+  $("fclr").onclick = () => { S.filt = {}; render(); };
+  $("vgrid").innerHTML = vGrid();
+  await load(true);
+}
+function syncChips() {               // shot / possession columns exist for versions 1/3 and 2/3 only
+  const tree = ["1/3", "2/3"].includes(S.variant);
+  [...$("open").children].forEach(b => { const g = b.dataset.g, t = g !== "od";
+    b.classList.toggle("on", S.open[g] && (!t || tree)); b.disabled = (t && !tree) || (g === "zn" && !S.open.sv);
+    b.title = t && !tree ? "Shot value and possession value are available for HAPM 1/3 and 2/3" : ""; });
+}
+function toggle(g) { S.open[g] = !S.open[g]; if (g === "zn" && S.open.zn) S.open.sv = true; render(); }
+
+function setView(v) {
+  S.view = v; setSeg("view", "v", v);
+  if (v === "t" && S.sort === "pos") { S.sort = "net"; S.dir = -1; }
+  render();
+}
+function openTeam(t) { $("team").value = t; setView("p"); }
+
+async function load(resetMp) {
+  const ss = S.meta.seasons.map(s => s.season), a = ss.indexOf($("from").value), b = ss.indexOf($("to").value);
+  S.range = ss.slice(a, b + 1); S.seasons = await Promise.all(S.range.map(season));
+  const one = S.range.length === 1;
+  if (resetMp && !S.mpUser) $("mp").value = one ? S.seasons[0].qualified_poss : 1500 * Math.min(S.range.length, 4);
+  $("csv").href = `${ROOT}data/${S.range[S.range.length - 1]}.csv`; $("csv").style.display = one ? "" : "none";
+  const teams = new Set(); S.seasons.forEach(d => d.rows.forEach(r => r.t.split("/").forEach(t => teams.add(t))));
+  const cur = $("team").value; $("team").innerHTML = '<option value="">All teams</option>' + [...teams].sort().map(t => `<option>${t}</option>`).join("");
+  if (teams.has(cur)) $("team").value = cur;
+  if (S.hashTeam && teams.has(S.hashTeam)) { $("team").value = S.hashTeam; S.hashTeam = ""; }
+  if (S.hashMp) { $("mp").value = S.hashMp; S.hashMp = null; S.mpUser = true; }
+  render();
+}
+
+function players() {                 // one row per player over the selected seasons (possession-weighted)
+  const v = S.variant, ox = S.meta.variants.filter(x => x !== v), M = new Map();
+  for (const d of S.seasons) for (const r of d.rows) { if (!r.v[v]) continue;
+    let m = M.get(r.i); if (!m) { m = { i:r.i, n:r.n, teams:new Set(), pos:r.pos, p:0, fp:0, s:{} }; M.set(r.i, m); }
+    r.t.split("/").forEach(t => m.teams.add(t)); if (r.pos) m.pos = r.pos; if (r.f) m.fp += r.p;
+    const add = (key, val) => { if (val == null) return; const e = m.s[key] || (m.s[key] = [0, 0]); e[0] += val * r.p; e[1] += r.p; };
+    add("net", r.v[v][2]); add("o", r.v[v][0]); add("d", r.v[v][1]);
+    ox.forEach((x, j) => add("x" + (j + 1), r.v[x] ? r.v[x][2] : null));
+    const c = r.c && r.c[v]; if (c) TK.forEach((k, j) => add(k, c[j]));
+    m.p += r.p; }
+  return { ox, rows: [...M.values()].map(m => { const o = { i:m.i, n:m.n, t:[...m.teams].join("/"), pos:m.pos, p:m.p, f:m.fp >= m.p / 2 };   // YT on half his possessions or more
+    for (const [key, e] of Object.entries(m.s)) o[key] = e[0] / e[1]; return o; }) };
+}
+
+// value columns. lv: 1 Off / Def / SV / PV, 2 piece, 3 end, 4 zone. path = the header groups above the column, outermost first
+function valueCols(ox) {
+  const tree = ["1/3", "2/3"].includes(S.variant), Z = S.open.zn;
+  const H = { id:"h", label:"HAPM " + S.variant, tip:VTIP[S.variant] };
+  const SVg = { id:"sv", label:"Shot value", tree:"sv" }, PVg = { id:"pv", label:"Possession value", tree:"pv" };
+  const SEL = [H, SVg, { id:"sel", label:"Selection" }], CONV = [H, SVg, { id:"conv", label:"Conversion" }];
+  const GEN = [H, PVg, { id:"gen", label:"Generation" }], RET = [H, PVg, { id:"ret", label:"Retention" }];
+  const cols = [
+    {k:"net",t:"HAPM",v:1,main:1,path:[H],h:"Points per 100 possessions above or below what the other nine were expected to produce with an average player in his place"},
+  ];
+  if (S.open.od) cols.push({k:"o",t:"Off",v:1,lv:1,nb:1,path:[H],h:"HAPM on offense"}, {k:"d",t:"Def",v:1,lv:1,nb:1,path:[H],h:"HAPM on defense"});
+  const zones = (pre, keys, side, kind, path) => Z ? [...keys].map(z => ({k:`${pre}_${z}`, t:ZN[z], v:1, lv:4, path, h:`${side} ${kind} impact ${ZL[z]}`})) : [];
+  if (tree) {
+    if (S.open.sv) cols.push({k:"sv",t:"SV",v:1,lv:1,path:[H, SVg],h:"Shot value: selection + conversion"},
+      {k:"sel",t:"Sel",v:1,lv:2,path:SEL,h:"Selection: shot quality impact, offense and defense"},
+      {k:"selo",t:"O Sel",v:1,lv:3,path:SEL,h:"Offensive shot quality impact"}, ...zones("so", "rmtf", "Offensive", "shot quality", SEL),
+      {k:"seld",t:"D Sel",v:1,lv:3,path:SEL,h:"Defensive shot quality impact"}, ...zones("sd", "rmtf", "Defensive", "shot quality", SEL),
+      {k:"conv",t:"Conv",v:1,lv:2,path:CONV,h:"Conversion: shot making impact, offense and defense"},
+      {k:"convo",t:"O Conv",v:1,lv:3,path:CONV,h:"Offensive conversion impact"}, ...zones("co", "rmtf", "Offensive", "conversion", CONV),
+      {k:"convd",t:"D Conv",v:1,lv:3,path:CONV,h:"Defensive conversion impact. It changes the most from year to year, because opponents' shooting luck is a large part of it"},
+      ...zones("cd", "ro", "Defensive", "conversion", CONV));
+    if (S.open.pv) cols.push({k:"pv",t:"PV",v:1,lv:1,path:[H, PVg],h:"Possession value: generation + retention"},
+      {k:"gen",t:"Gen",v:1,lv:2,path:GEN,h:"Generation: possessions gained"},
+      {k:"oreb",t:"O Reb",v:1,lv:3,path:GEN,h:"Offensive rebounding impact"},
+      {k:"dtov",t:"D TOV",v:1,lv:3,path:GEN,h:"Forced turnover impact"},
+      {k:"ret",t:"Ret",v:1,lv:2,path:RET,h:"Retention: possessions kept"},
+      {k:"otov",t:"O TOV",v:1,lv:3,path:RET,h:"Turnover avoidance impact"},
+      {k:"dreb",t:"D Reb",v:1,lv:3,path:RET,h:"Defensive rebounding impact"});
+  }
+  return cols;
+}
+const lvCls = c => (c.lv === 1 && !c.nb ? " tp" : c.lv === 2 ? " sb" : "") + (c.lv ? ` l${c.lv}` : "");
+
+function header(cols) {
+  const tip = h => h ? ` title="${h}"` : "";
+  const L = Math.max(...cols.map(c => c.path.length)) + 1, rows = Array(L).fill(""), placed = new Set();
+  const th = (c, span) => `<th data-k="${c.k}" class="c${c.l ? " l" : ""}${lvCls(c)}${S.sort === c.k ? " on" : ""}"${tip(c.h)}${span > 1 ? ` rowspan="${span}"` : ""}>${c.t}${S.sort === c.k ? (S.dir < 0 ? " \u25BC" : " \u25B2") : ""}</th>`;
+  const gth = (g, n, r) => `<th colspan="${n}" class="g${r}"${tip(g.tip)}>${g.label}${g.tree ? `<span class="q qt" data-tree="${g.tree}">?</span>` : ""}</th>`;
+  for (let r = 0; r < L; r++) for (let i = 0; i < cols.length; ) {
+    const c = cols[i];
+    if (c.path.length <= r) { if (!placed.has(c.k)) { rows[r] += th(c, L - r); placed.add(c.k); } i++; continue; }
+    const g = c.path[r]; let j = i; while (j < cols.length && cols[j].path.length > r && cols[j].path[r].id === g.id) j++;
+    rows[r] += gth(g, j - i, r); i = j;
+  }
+  let fr = "";
+  if (S.showF) fr = `<tr class="flt">` + cols.map(c => (c.v || c.k === "p")
+    ? `<td><input data-k="${c.k}" data-i="0" placeholder="\u2265" value="${(S.filt[c.k] || [])[0] ?? ""}"> <input data-k="${c.k}" data-i="1" placeholder="\u2264" value="${(S.filt[c.k] || [])[1] ?? ""}"></td>`
+    : "<td></td>").join("") + "</tr>";
+  $("th").innerHTML = rows.map(x => `<tr>${x}</tr>`).join("") + fr;
+  document.querySelectorAll("#th tr.flt input").forEach(el => { el.classList.toggle("set", el.value !== "");
+    el.oninput = () => { const k = el.dataset.k, f = S.filt[k] || (S.filt[k] = ["", ""]); f[+el.dataset.i] = el.value.trim();
+      if (!f[0] && !f[1]) delete S.filt[k]; el.classList.toggle("set", el.value !== ""); S.keepHead = true; try { render(); } finally { S.keepHead = false; } }; });
+  document.querySelectorAll("#th th.c").forEach(t => t.onclick = () => { const k = t.dataset.k;
+    S.dir = S.sort === k ? -S.dir : (["n", "t", "pos", "rank", "best"].includes(k) ? 1 : -1); S.sort = k; render(); });
+}
+function cell(c, r, P) {
+  if (!c.v) { const x = r[c.k]; return `<td class="o ${c.l ? "l" : ""} ${c.k === "n" ? "n" : ""}">${c.k === "p" ? Math.round(x).toLocaleString() : (x ?? "")}${c.k === "n" && r.f ? '<span class="yt" title="Young teammates. HAPM tends to run high for him.">YT</span>' : ""}</td>`; }
+  const x = r[c.k], p = P ? pctOf(P[c.k], x) : null;
+  return `<td class="v${c.main ? " main" : ""}${lvCls(c)}" style="background:${heat(p)}"><span class="x">${sg(x)}</span><span class="p">${p == null ? "" : Math.round(p) + "%"}</span></td>`;
+}
+function sortRows(rows) { const k = S.sort; rows.sort((a, b) => { const x = a[k], y = b[k]; if (x == null) return 1; if (y == null) return -1;
+  return (typeof x === "string" ? x.localeCompare(y) : x - y) * S.dir; }); }
+function teamAvgs(pool, cols, single) {   // possession-weighted average per team over the given players
+  const T = new Map();
+  for (const r of pool) for (const t of r.t.split("/")) { if (single && r.t.includes("/")) continue;
+    const e = T.get(t) || { t, w:0, n:0, s:{}, best:null }; e.w += r.p; e.n++;
+    for (const c of cols) if (c.v && r[c.k] != null) e.s[c.k] = (e.s[c.k] || 0) + r[c.k] * r.p;
+    if (!e.best || r.net > e.best.net) e.best = r; T.set(t, e); }
+  return [...T.values()].map(e => { const o = { t:e.t, n:e.n, p:e.w, best:e.best.n + " " + sg(e.best.net) };
+    for (const c of cols) if (c.v) o[c.k] = e.s[c.k] / e.w; return o; });
+}
+
+function passF(r) {                 // column filters: values in points (Poss in possessions); blank = no limit
+  for (const [k, [a, b]] of Object.entries(S.filt)) { const x = r[k];
+    if (a !== "" && !isNaN(+a) && !(x != null && x >= +a)) return false;
+    if (b !== "" && !isNaN(+b) && !(x != null && x <= +b)) return false; }
+  return true;
+}
+function render() {
+  syncChips();
+  $("fbtn").classList.toggle("on", S.showF); $("fclr").style.display = Object.keys(S.filt).length ? "" : "none";
+  const st = { from:$("from").value, to:$("to").value, v:S.variant, view:S.view, pos:$("pos").value, team:$("team").value, mp:$("mp").value,
+    cols:Object.keys(S.open).filter(g => S.open[g]).join(","), flt:Object.entries(S.filt).map(([k, [a, b]]) => `${k}:${a}:${b}`).join(",") };
+  history.replaceState(null, "", "#" + new URLSearchParams(Object.entries(st).filter(([k, x]) => x || k === "cols")).toString());
+  const { ox, rows } = players(), mp = +$("mp").value || 0, pos = $("pos").value, tm = $("team").value, q = $("q").value.toLowerCase();
+  const posOk = r => !pos || (GRP[pos] ? GRP[pos].includes(r.pos) : r.pos === pos);
+  const pool = rows.filter(r => r.p >= mp), P = {};
+  const vc = valueCols(ox);
+  if (!["rank", "n", "pos", "t", "p", "best"].includes(S.sort) && !vc.some(c => c.k === S.sort)) { S.sort = "net"; S.dir = -1; }
+  for (const c of vc) P[c.k] = pool.map(r => r[c.k]).filter(x => x != null).sort((a, b) => a - b);
+  const rangeTxt = S.range.length === 1 ? S.range[0] : `${S.range[0]} to ${S.range[S.range.length - 1]}`;
+  const posTxt = pos ? ` \u00b7 ${$("pos").selectedOptions[0].text}` : "";
+  if (S.view === "t") return renderTeams(pool.filter(posOk), vc, rangeTxt + posTxt);
+  let show = pool.filter(r => posOk(r) && (!tm || r.t.split("/").includes(tm)) && (!q || r.n.toLowerCase().includes(q)) && passF(r));
+  const rk = new Map(pool.slice().sort((a, b) => b.net - a.net).map((r, i) => [r.i, i + 1]));
+  show.forEach(r => r.rank = rk.get(r.i)); sortRows(show);
+  const OVW = [{ id:"ovw", label:"Overview" }];
+  const cols = [ {k:"rank",t:"Rk",path:OVW}, {k:"n",t:"Player",l:1,path:OVW}, {k:"pos",t:"Pos",path:OVW}, {k:"t",t:"Team",l:1,path:OVW}, {k:"p",t:"Poss",path:OVW}, ...vc ];
+  if (!S.keepHead) header(cols);
+  let html = show.map(r => "<tr>" + cols.map(c => cell(c, r, P)).join("") + "</tr>").join("");
+  if (tm && show.length) {            // team line, with percentiles among all teams under the same filters
+    const all = teamAvgs(pool.filter(posOk), vc, false), Q = {};
+    for (const c of vc) Q[c.k] = all.map(o => o[c.k]).filter(x => x != null).sort((a, b) => a - b);
+    const a = all.find(o => o.t === tm); a.n = `${tm} average (possession-weighted)`; a.rank = ""; a.pos = ""; a.t = "";
+    html += `<tr class="agg">` + cols.map(c => cell(c, a, Q)).join("") + "</tr>";
+  }
+  $("rows").innerHTML = html;
+  $("ttl").textContent = `NBA HAPM leaders, ${rangeTxt}`;
+  $("status").innerHTML = `${rangeTxt}${posTxt} \u00b7 HAPM ${S.variant} \u00b7 ${show.length} players with ${mp.toLocaleString()}+ possessions` +
+    (tm ? ` \u00b7 team line percentiles rank ${tm} among all teams` : "");
+}
+
+function renderTeams(pool, vc, label) {   // team strength = possession-weighted average of its players
+  const all = teamAvgs(pool, vc, true), Q = {};
+  for (const c of vc) Q[c.k] = all.map(r => r[c.k]).filter(x => x != null).sort((a, b) => a - b);
+  all.slice().sort((a, b) => b.net - a.net).forEach((r, i) => r.rank = i + 1);
+  const rows = all.filter(passF); sortRows(rows);
+  const TG = [{ id:"tm", label:"Team", tip:"Values are the possession-weighted average of the team's players with the minimum possessions. Players traded during the selected seasons are left out. HAPM values do not add up to a team's margin." }];
+  const cols = [ {k:"rank",t:"Rk",path:TG}, {k:"t",t:"Team",l:1,path:TG}, {k:"n",t:"Players",path:TG}, {k:"p",t:"Poss",path:TG}, {k:"best",t:"Best player",l:1,path:TG}, ...vc ];
+  if (!S.keepHead) header(cols);
+  $("rows").innerHTML = rows.map(r => `<tr style="cursor:pointer" onclick="openTeam('${r.t}')" title="Show ${r.t}'s players">` + cols.map(c => c.v ? cell(c, r, Q) : `<td class="o ${c.l ? "l" : ""}">${c.k === "p" ? Math.round(r.p).toLocaleString() : r[c.k]}</td>`).join("") + "</tr>").join("");
+  $("ttl").textContent = `NBA HAPM by team, ${label}`;
+  $("status").innerHTML = `${label} \u00b7 HAPM ${S.variant} \u00b7 ${rows.length} teams \u00b7 possession-weighted average of each team's players \u00b7 click a team to see its players`;
+}
+
+// tree pop-up: stays while the pointer is on the title or on the pop-up itself; closes 300 ms after leaving both
+let popFor = null, popHide = null;
+document.addEventListener("mouseover", e => {
+  const pop = $("pop");
+  if (e.target.closest("#pop")) { clearTimeout(popHide); return; }
+  const el = e.target.closest("[data-tree]");
+  if (el) {
+    clearTimeout(popHide);
+    if (popFor !== el || pop.style.display !== "block") {
+      popFor = el; pop.innerHTML = TREE[el.dataset.tree](); pop.style.display = "block";
+      const b = el.getBoundingClientRect(), w = pop.offsetWidth;
+      pop.style.top = (window.scrollY + b.bottom + 2) + "px";
+      pop.style.left = Math.max(8, Math.min(window.scrollX + b.left + b.width / 2 - w / 2, document.documentElement.scrollWidth - w - 8)) + "px";
+    }
+    return;
+  }
+  if (pop.style.display === "block") { clearTimeout(popHide); popHide = setTimeout(() => { pop.style.display = "none"; popFor = null; }, 300); }
+});
+init();
+</script>
+</body>
+</html>
