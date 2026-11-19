@@ -54,10 +54,7 @@
   .note { color:var(--mute); font-size:11px; margin:4px 0 0; }
   .two { display:flex; gap:28px; flex-wrap:wrap; align-items:flex-start; }
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
-  #chart svg { display:block; } .cc { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:8px; }
-  #pChart { position:sticky; top:8px; } #mchips { max-width:600px; }
-  .mc { display:inline-block; border:1px solid #b9bcc3; padding:1px 7px; margin:0 4px 4px 0; cursor:pointer; color:var(--mute); }
-  .mc.on { color:#fff; border-color:transparent; } .lg { font-size:11px; color:var(--mute); margin-top:4px; } .lg i { display:inline-block; width:14px; height:3px; vertical-align:middle; margin:0 4px 0 10px; }
+  th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
 </style>
 </head>
@@ -71,10 +68,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer" class="two"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>Poss</th><th>HAPM</th><th>Off</th><th>Def</th></tr></thead><tbody><tr><td>1998-99</td><td>DAL</td><td>727</td><td>+0.67</td><td>−1.58</td><td>+2.25</td></tr><tr><td>1997-98</td><td>PHX</td><td>2,177</td><td>+4.79</td><td>+1.43</td><td>+3.36</td></tr></tbody></table></div>
-    <div id="pChart"><div class="cc"><span id="mchips"></span>
-      <span class="seg" id="xax"><button data-x="season">Season</button><button data-x="age">Age</button><button data-x="year">Year of career</button></span></div>
-    <div id="chart"></div><div class="lg" id="legend"></div></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>1998-99</td><td>DAL</td><td>+0.67</td><td>−1.58</td><td>+2.25</td><td class="ps sep">727</td></tr><tr><td>1997-98</td><td>PHX</td><td>+4.79</td><td>+1.43</td><td>+3.36</td><td class="ps sep">2,177</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -85,10 +79,7 @@
 <script>
 const ROOT = document.body.dataset.root || "", PID = +document.body.dataset.pid;
 const stampTxt = c => (c.updated ? `Updated ${new Date(c.updated).toLocaleDateString("en-US", { month:"short", day:"numeric", year:"numeric" })} \u00b7 ` : "") + `${c.season}: ${c.games} games`;
-const S = { variant:"2/3", detail:"sum", tab:"career", cm:["net", "o", "d"], x:"season", cache:{}, seasonCache:{} };
-const CHART_KEYS = [["net", "HAPM", "#B5577A"], ["o", "Off", "#2f6f9f"], ["d", "Def", "#8b6fc0"], ["sv", "SV", "#c08a1e"], ["pv", "PV", "#4b8a52"],
-  ["sel", "Sel", "#d08c3a"], ["conv", "Conv", "#a0522d"], ["gen", "Gen", "#2e8b8b"], ["ret", "Ret", "#6b8e23"], ["selo", "O Sel", "#999"], ["seld", "D Sel", "#777"],
-  ["convo", "O Conv", "#555"], ["convd", "D Conv", "#333"]];
+const S = { variant:"2/3", detail:"sum", tab:"career", cache:{}, seasonCache:{} };
 const $ = id => document.getElementById(id);
 const sg = x => x == null ? "" : (x > 0 ? "+" : x < 0 ? "\u2212" : "") + Math.abs(x).toFixed(2);
 const LO = [238, 172, 172], MID = [234, 235, 238], HI = [190, 228, 176];
@@ -116,39 +107,19 @@ function pct(r, k) { const p = r.q && r.q[S.variant]; if (!p) return null; const
 function careerTable(P) {
   const G = DET[S.detail], keys = G.flatMap(g => g[1]);
   const rows = P.seasons.slice().reverse();
-  let h = `<table><thead><tr class="g"><th colspan="3"></th>${G.map(g => `<th colspan="${g[1].length}">${g[0]}</th>`).join("")}</tr>` +
-    `<tr><th class="l">Season</th><th class="l">Team</th><th>Poss</th>${keys.map(k => `<th>${LAB[k]}</th>`).join("")}</tr></thead><tbody>`;
-  for (const r of rows) h += `<tr><td class="l">${r.s}</td><td class="l">${r.t}${r.f ? '<span class="yt" title="Young teammates. HAPM tends to run high for him.">YT</span>' : ""}</td><td>${r.p.toLocaleString()}</td>` +
-    keys.map(k => { const x = val(r, k), p = pct(r, k); return `<td class="v${k === "net" ? " main" : ""}" style="background:${heat(p)}"><span class="x">${sg(x)}</span><span class="p">${p == null ? "" : p + "%"}</span></td>`; }).join("") + "</tr>";
+  let h = `<table><thead><tr class="g"><th colspan="2"></th>${G.map(g => `<th colspan="${g[1].length}">${g[0]}</th>`).join("")}<th class="sep"></th></tr>` +
+    `<tr><th class="l">Season</th><th class="l">Team</th>${keys.map(k => `<th>${LAB[k]}</th>`).join("")}<th class="ps sep">Poss</th></tr></thead><tbody>`;
+  for (const r of rows) h += `<tr><td class="l">${r.s}</td><td class="l">${r.t}${r.f ? '<span class="yt" title="Young teammates. HAPM tends to run high for him.">YT</span>' : ""}</td>` +
+    keys.map(k => { const x = val(r, k), p = pct(r, k); return `<td class="v${k === "net" ? " main" : ""}" style="background:${heat(p)}"><span class="x">${sg(x)}</span><span class="p">${p == null ? "" : p + "%"}</span></td>`; }).join("") +
+    `<td class="ps sep">${r.p.toLocaleString()}</td></tr>`;
   // career line: possession-weighted average over the seasons with a value
   const car = keys.map(k => { let a = 0, w = 0; for (const r of rows) { const x = val(r, k); if (x != null) { a += x * r.p; w += r.p; } } return w ? a / w : null; });
   const tp = rows.reduce((s, r) => s + r.p, 0);
-  h += `<tr class="car"><td class="l">Career</td><td class="l">${rows.length} seasons</td><td>${tp.toLocaleString()}</td>${car.map(x => `<td>${sg(x)}</td>`).join("")}</tr>`;
+  h += `<tr class="car"><td class="l">Career</td><td class="l">${rows.length} seasons</td>${car.map(x => `<td>${sg(x)}</td>`).join("")}<td class="ps sep">${tp.toLocaleString()}</td></tr>`;
   return h + "</tbody></table>";
 }
 
-function chart(P) {
-  const rows = P.seasons.filter(r => r.v[S.variant]), W = 600, H = 300, L = 34, R = 10, T = 10, B = 30;
-  const xOf = (r, i) => S.x === "age" ? r.a : S.x === "year" ? i + 1 : +r.s.slice(0, 4);
-  const ser = CHART_KEYS.filter(([k]) => S.cm.includes(k)).map(([k, n, c]) => ({ k, n, c, pts:rows.map((r, i) => ({ x:xOf(r, i), y:val(r, k), s:r.s })).filter(o => o.x != null && o.y != null) }));
-  $("mchips").innerHTML = CHART_KEYS.map(([k, n, c]) => `<span class="mc${S.cm.includes(k) ? " on" : ""}" data-k="${k}" style="${S.cm.includes(k) ? `background:${c}` : ""}">${n}</span>`).join("");
-  document.querySelectorAll(".mc").forEach(el => el.onclick = () => { const k = el.dataset.k; S.cm = S.cm.includes(k) ? S.cm.filter(x => x !== k) : [...S.cm, k]; chart(P); hash(); });
-  [...$("xax").children].forEach(b => b.classList.toggle("on", b.dataset.x === S.x));
-  const all = ser.flatMap(o => o.pts); if (!all.length) { $("chart").innerHTML = '<p class="note">Pick a metric.</p>'; $("legend").innerHTML = ""; return; }
-  const x0 = Math.min(...all.map(o => o.x)), x1 = Math.max(...all.map(o => o.x)); let lo = Math.min(0, ...all.map(o => o.y)), hi = Math.max(0, ...all.map(o => o.y));
-  const pad = (hi - lo) * .08 || 1; lo -= pad; hi += pad;
-  const X = t => L + (W - L - R) * (x1 === x0 ? .5 : (t - x0) / (x1 - x0)), Y = t => T + (H - T - B) * (hi - t) / (hi - lo);
-  const st = (hi - lo) > 16 ? 5 : (hi - lo) > 6 ? 2 : 1; let g = "";
-  for (let t = Math.ceil(lo / st) * st; t <= hi; t += st) g += `<line x1="${L}" x2="${W - R}" y1="${Y(t)}" y2="${Y(t)}" stroke="${t === 0 ? "#8a8d94" : "#eceef1"}"/><text x="${L - 5}" y="${Y(t) + 3}" text-anchor="end" font-size="10" fill="#5f636b">${t > 0 ? "+" + t : t}</text>`;
-  const xs = Math.max(1, Math.ceil((x1 - x0) / 10));
-  for (let t = x0; t <= x1; t += xs) g += `<text x="${X(t)}" y="${H - 12}" text-anchor="middle" font-size="10" fill="#5f636b">${S.x === "season" ? `${String(t).slice(2)}-${String(t + 1).slice(2)}` : t}</text>`;
-  g += `<text x="${(L + W - R) / 2}" y="${H - 1}" text-anchor="middle" font-size="10" fill="#5f636b">${{ season:"Season", age:"Age", year:"Year of career" }[S.x]}</text>`;
-  for (const o of ser) { g += `<polyline points="${o.pts.map(p => `${X(p.x).toFixed(1)},${Y(p.y).toFixed(1)}`).join(" ")}" fill="none" stroke="${o.c}" stroke-width="${o.k === "net" ? 2.6 : 1.6}" stroke-linejoin="round"/>`;
-    o.pts.forEach(p => g += `<circle cx="${X(p.x)}" cy="${Y(p.y)}" r="2.3" fill="${o.c}"><title>${o.n} ${p.s}: ${sg(p.y)}</title></circle>`); }
-  $("chart").innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="chart">${g}</svg>`;
-  $("legend").innerHTML = `HAPM ${S.variant}, points per 100 possessions. Click a metric to add or remove it.`;
-}
-function hash() { history.replaceState(null, "", "#" + new URLSearchParams(Object.entries({ t:S.tab, v:S.variant, d:S.detail, cm:S.cm.join(","), x:S.x }).filter(([, x]) => x)).toString()); }
+function hash() { history.replaceState(null, "", "#" + new URLSearchParams(Object.entries({ t:S.tab, v:S.variant, d:S.detail }).filter(([, x]) => x)).toString()); }
 
 async function render() {
   [...$("detail").children].forEach(b => b.classList.toggle("on", b.dataset.d === S.detail));
@@ -157,7 +128,6 @@ async function render() {
   $("pMates").style.display = S.tab === "mates" ? "" : "none"; $("detailBox").style.display = S.tab === "career" ? "" : "none";
   const main = await player(PID);
   $("tables").innerHTML = careerTable(main);
-  if (S.tab === "career") chart(main);
   $("cmpbtn").href = `${ROOT}compare/#p=${PID}&v=${encodeURIComponent(S.variant)}`;
   hash();
   if (S.tab === "mates") mates();
@@ -177,12 +147,12 @@ async function mates() {      // shared possessions over the seasons chosen; net
   const M = Object.values(A).sort((a, b) => b.c[0] - a.c[0]), last = P.n.split(" ").slice(-1)[0];
   const nr = (m, p) => p < 1 ? "" : `<span class="${p < 250 ? "n0" : ""}">${sg(100 * m / p)}</span>`;
   $("mates").innerHTML = !M.length ? '<p class="note">No teammate shared 100+ possessions with him in these seasons.</p>' :
-    `<table class="mt"><thead><tr><th class="l" rowspan="2">Teammate</th><th rowspan="2">HAPM ${v}</th><th colspan="2" class="sep">Together</th>` +
-    `<th colspan="2" class="sep">${last} without him</th><th colspan="2" class="sep">Him without ${last}</th><th colspan="2" class="sep">Neither</th></tr>` +
-    `<tr>${"<th class='sep'>Poss</th><th>Net</th>".repeat(4)}</tr></thead><tbody>` +
+    `<table class="mt"><thead><tr><th class="l" rowspan="2">Teammate</th><th rowspan="2">HAPM ${v}</th><th colspan="4" class="sep">Net rating</th><th colspan="4" class="sep ps">Possessions</th></tr>` +
+    `<tr>${[0, 1].map(b => [`Together`, `${last} without him`, `Him without ${last}`, `Neither`].map((x, j) => `<th class="${j ? "" : "sep"}${b ? " ps" : ""}">${x}</th>`).join("")).join("")}</tr></thead><tbody>` +
     M.map(a => { const sl = S.slugs[a.mp], n = sl ? sl[0] : a.mp, h = hv[a.mp], c = a.c;
       return `<tr><td class="l">${sl ? `<a href="${ROOT}player/${sl[1]}/">${n}</a>` : n} <span class="yt">${[...a.teams].join("/")}</span></td><td>${h ? sg(h[0] / h[1]) : ""}</td>` +
-        [0, 1, 2, 3].map(j => `<td class="sep">${Math.round(c[2 * j]).toLocaleString()}</td><td>${nr(c[2 * j + 1], c[2 * j])}</td>`).join("") + "</tr>"; }).join("") +
+        [0, 1, 2, 3].map(j => `<td class="${j ? "" : "sep"}">${nr(c[2 * j + 1], c[2 * j])}</td>`).join("") +
+        [0, 1, 2, 3].map(j => `<td class="ps${j ? "" : " sep"}">${Math.round(c[2 * j]).toLocaleString()}</td>`).join("") + "</tr>"; }).join("") +
     "</tbody></table><p class='note'>Over several seasons, possessions add up and net rating is the total margin over the total possessions. A teammate's HAPM is his possession-weighted average over these seasons. Gray net ratings rest on fewer than 250 possessions.</p>";
 }
 
@@ -194,9 +164,8 @@ async function mates() {      // shared possessions over the seasons chosen; net
   for (const v of idx.variants) $("variant").add(new Option("HAPM " + v, v));
   const H = Object.fromEntries(new URLSearchParams(location.hash.slice(1)));
   if (H.v && idx.variants.includes(H.v)) S.variant = H.v; if (H.d && DET[H.d]) S.detail = H.d;
-  if (["career", "mates"].includes(H.t)) S.tab = H.t; if (H.cm) S.cm = H.cm.split(",").filter(k => CHART_KEYS.some(c => c[0] === k)); if (["season", "age", "year"].includes(H.x)) S.x = H.x;
+  if (["career", "mates"].includes(H.t)) S.tab = H.t;
   [...$("tab").children].forEach(b => b.onclick = () => { S.tab = b.dataset.t; render(); });
-  [...$("xax").children].forEach(b => b.onclick = () => { S.x = b.dataset.x; render(); });
   $("variant").value = S.variant;
   $("variant").onchange = e => { S.variant = e.target.value; render(); };
   [...$("detail").children].forEach(b => b.onclick = () => { S.detail = b.dataset.d; render(); });
