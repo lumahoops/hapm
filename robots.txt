@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hapm.lumahoops.org/sitemap.xml
+Sitemap: https://hapm.github.lumahoops.org/sitemap.xml
