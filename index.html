@@ -46,6 +46,7 @@
   .steps .a { align-self:center; padding:0 8px; color:var(--mute); font-size:16px; }
   .how h3 { font-size:12px; margin:14px 0 2px; } .how .lead { color:var(--mute); font-size:11.5px; margin:0 0 6px; }
   details.why { padding-top:6px; }
+  .how .tech { color:inherit; font-size:12px; line-height:1.45; max-width:880px; margin:6px 0 10px; }
   .wy { display:flex; gap:32px; flex-wrap:wrap; align-items:flex-start; margin:8px 0 4px; }
   .wt { margin:0; font-size:11.5px; } .wt th { background:var(--head); } .wt td:first-child, .wt th:first-child { text-align:left; }
   .wt td { padding:2px 9px; } .wt td.b { font-weight:700; background:#eef7ea; }
@@ -142,7 +143,11 @@
   <span class="links"><a id="cmplink" href="compare/">Compare players</a> <a href="https://github.com/lumahoops/NBA/tree/main/hapm">Data on GitHub</a></span>
   <span class="stamp" id="stamp"></span>
 </div>
+<details class="how"><summary><span class="ar">&#9656;</span> What is HAPM?</summary>
+  <p class="lead tech"><span class="hp">HAPM</span> (held-out adjusted plus-minus) is a player's value in points per 100 possessions. Whereas RAPM solves for all 10 players at once and splits each stint's result among them, <span class="hp">HAPM</span> holds the player out, estimates each of his stints from the other nine players, and credits him with the actualized difference. 0 is an average player; rotation players average about +1.3.</p>
+</details>
 <details class="how"><summary><span class="ar">&#9656;</span> How HAPM works</summary>
+  <p class="lead tech"><span class="hp">HAPM</span> is a player's net impact per 100 possessions, measured against an expectation built without him. The expectation comes from a ridge regression on every stint the measured player did not play, excluding his possessions from the entire regression, including the priors from each player's three previous seasons. His raw value is the possession-weighted mean of actual minus expected margin over his stints, with 0 in his place. That value is shrunk toward a playing-time center by its reliability.</p>
   <div class="steps">
     <div class="s"><b>1. Pick the player, rate the other nine</b>Teammates and opponents are rated from every stint where the chosen player did not play, starting from their three previous seasons.</div>
     <div class="a">&rarr;</div>
@@ -168,7 +173,7 @@
   </div>
   <div class="dcol">
     <h3>Worked example: Joki&#263; and Caldwell-Pope, Denver 2023-24</h3>
-    <p class="lead">The two shared most of their minutes. One-year RAPM puts both near the top; <span class="hp">HAPM</span> separates them. Per 100 possessions.</p>
+    <p class="lead">The two shared most of their minutes. Per 100 possessions.</p>
     <table class="wx">
       <tr><th></th><th>Both</th><th>Joki&#263; without Caldwell-Pope</th><th>Caldwell-Pope without Joki&#263;</th><th>Neither</th></tr>
       <tr><td>Possessions</td><td>4,403</td><td>1,105</td><td>428</td><td>1,962</td></tr>
@@ -179,10 +184,10 @@
       <tr><td class="ind">from his four teammates</td><td colspan="2">+1.3</td><td colspan="2">+13.0</td></tr>
       <tr><td class="ind">from the opponents and game context</td><td colspan="2">&minus;6.7</td><td colspan="2">&minus;6.6</td></tr>
       <tr class="bold"><td>Actual minus expected</td><td colspan="2">+16.4</td><td colspan="2">+4.9</td></tr>
-      <tr><td><span class="hp">HAPM</span> 1/3 (percentile)</td><td colspan="2">+11.0 (100th)</td><td colspan="2">+4.4 (83rd)</td></tr>
-      <tr><td>RAPM 1-year (percentile)</td><td colspan="2">+5.2 (99th)</td><td colspan="2">+4.4 (97th)</td></tr>
+      <tr><td><span class="hp">HAPM</span> 2/3 (percentile)</td><td colspan="2">+12.6 (100th)</td><td colspan="2">+4.3 (82nd)</td></tr>
+      <tr><td>RAPM 2-year (percentile)</td><td colspan="2">+6.9 (100th)</td><td colspan="2">+4.3 (94th)</td></tr>
     </table>
-    <p class="lead" style="margin-top:6px">Caldwell-Pope's stints were expected at +6.4 because Joki&#263; was usually beside him (+13.0 from his teammates). Joki&#263;'s teammates added only +1.3, so his stints were expected at &minus;5.3. <span class="hp">HAPM</span> credits each player with the gap between those expectations and what happened.</p>
+    <p class="lead" style="margin-top:6px">Caldwell-Pope's stints were expected at +6.4 because Joki&#263; was usually beside him (+13.0 from his teammates). Joki&#263;'s teammates added only +1.3, so his stints were expected at &minus;5.3. <span class="hp">HAPM</span> credits each player with the gap between those expectations and what happened. <span class="hp">HAPM</span> 2/3 and 2-year RAPM also use 2022-23; percentiles are among 2023-24 players with 1,500+ possessions.</p>
   </div>
   </div>
   <h3>Versions</h3>
@@ -192,16 +197,27 @@
 <details class="how why"><summary><span class="ar">&#9656;</span> Why HAPM</summary>
   <div class="wy">
   <div>
-    <h3>When a player sits</h3>
+    <h3>True value</h3>
+    <p class="lead">A player's <span class="hp">HAPM</span> is what he adds to his stints, in points per 100 possessions. When a team's top player sits, the team loses about what his <span class="hp">HAPM</span> says.</p>
     <p class="lead">What the team actually lost, divided by what each metric forecast. 1 is the right size; above 1, the metric underrates the player.</p>
     <table class="wt">
-      <tr><th>Who sits</th><th>HAPM 2/3</th><th>RAPM 4-year</th><th>RAPM 1-year</th></tr>
-      <tr><td>Top player by possessions</td><td class="b">.90</td><td>1.85</td><td>3.67</td></tr>
-      <tr><td>Second</td><td class="b">.87</td><td>1.73</td><td>3.78</td></tr>
-      <tr><td>Third to fifth</td><td class="b">.98</td><td>1.95</td><td>3.78</td></tr>
-      <tr><td>Sixth to eighth</td><td class="b">1.45</td><td>2.56</td><td>7.51</td></tr>
+      <tr><th>Who sits</th><th>HAPM 2/3</th><th>RAPM 4-year</th><th>RAPM 2-year</th><th>RAPM 1-year</th></tr>
+      <tr><td>Top player by possessions</td><td class="b">.90</td><td>1.85</td><td>2.30</td><td>3.67</td></tr>
+      <tr><td>Second</td><td class="b">.87</td><td>1.73</td><td>2.03</td><td>3.78</td></tr>
+      <tr><td>Third to fifth</td><td class="b">.98</td><td>1.95</td><td>2.31</td><td>3.78</td></tr>
+      <tr><td>Sixth to eighth</td><td class="b">1.45</td><td>2.56</td><td>3.20</td><td>7.51</td></tr>
     </table>
     <p class="fn">Every team-game from 2013-14 to 2025-26, compared within team and half-season, with home court and opponent strength held fixed. Each forecast uses values from the other half of the season. Closest to 1 in bold.</p>
+  </div>
+  <div>
+    <h3>No teammate bias</h3>
+    <p class="lead">A player's <span class="hp">HAPM</span> barely moves with the strength of his teammates.</p>
+    <table class="wt">
+      <tr><th>How much a rating moves with</th><th>HAPM 2/3</th><th>RAPM 4-year</th><th>RAPM 2-year</th><th>RAPM 1-year</th></tr>
+      <tr><td>The strength of his teammates</td><td class="b">&minus;.02</td><td class="b">+.02</td><td>+.08</td><td>+.23</td></tr>
+      <tr><td>The strength of the players who replace him</td><td>&minus;.05</td><td class="b">&minus;.01</td><td>&minus;.03</td><td>&minus;.10</td></tr>
+    </table>
+    <p class="fn">1,359 cases of a player staying on his team from one season to the next, 2013-14 to 2025-26, 2,000+ possessions in both seasons. Each value is the change in next season's rating per standard deviation of his teammates' (or replacements') strength, measured by their previous-season RAPM, given his own rating the season before. 0 means no pull. Closest to 0 in bold.</p>
   </div>
   <div>
     <h3>Next season</h3>
@@ -214,19 +230,6 @@
       <tr><td>Five-man units never seen together (R&sup2;)</td><td>.096</td><td class="b">.102</td><td>.095</td></tr>
     </table>
     <p class="fn">4-year RAPM uses four seasons of each player; <span class="hp">HAPM</span> 2/3 uses two. Best value in each row in bold. Season pairs from 2013-14 to 2025-26.</p>
-  </div>
-  <div class="wn">
-    <h3>Why HAPM differs from RAPM</h3>
-    <p>Whereas RAPM, in practice, values a player against the teammates who replace him, <span class="hp">HAPM</span> (held-out adjusted
-      plus-minus) attempts to quantify a player's value by setting a counterfactual baseline: an average player, rated 0,
-      in the exact stints the player played. The nine other players in every one of those stints are rated without any
-      of the player's possessions, and those ratings give the margin each stint would be expected to produce with an
-      average player in that place.</p>
-    <p>In other words, RAPM tries to ascertain a player's value by doing one large regression of everyone on the court across all their
-      stints, and allocating credit based on that. <span class="hp">HAPM</span> quantifies value by first estimating how a stint should go, using
-      information that purposely holds the player out of the regression, allocating the value created or lost to the
-      held-out player, better isolating a specific player from the relative strength or weaknesses of his on-court
-      teammates/replacements.</p>
   </div>
   </div>
 </details>
