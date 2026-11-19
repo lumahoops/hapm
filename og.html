@@ -24,7 +24,7 @@
 <body>
 <div class="hd"><span class="brand">HAPM</span><span class="sub">Held-out adjusted plus-minus</span><span class="when" id="when"></span></div>
 <table><thead><tr><th></th><th class="n">Player</th><th>Team</th><th id="vh">HAPM</th><th>Off</th><th>Def</th></tr></thead><tbody id="rows"></tbody></table>
-<div class="ft"><span><b>lumahoops.github.io/hapm</b> &middot; every NBA season since 1997-98</span><span>LUMA Basketball Research</span></div>
+<div class="ft"><span><b>hapm.github.lumahoops.org</b> &middot; every NBA season since 1997-98</span><span>LUMA Basketball Research</span></div>
 <script>
 const LO = [238, 172, 172], MID = [234, 235, 238], HI = [190, 228, 176];
 const heat = p => { const t = Math.min(1, Math.abs(p - 50) / 50), e = p >= 50 ? HI : LO; return `rgb(${MID.map((m, i) => Math.round(m + (e[i] - m) * t)).join(",")})`; };
