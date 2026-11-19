@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="1626246">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2022-23</td><td>HOU</td><td>−1.02</td><td>−1.67</td><td>+0.65</td><td class="ps sep">339</td></tr><tr><td>2021-22</td><td>DAL</td><td>−1.98</td><td>−2.97</td><td>+0.99</td><td class="ps sep">253</td></tr><tr><td>2020-21</td><td>DAL</td><td>−1.76</td><td>−1.43</td><td>−0.34</td><td class="ps sep">487</td></tr><tr><td>2019-20</td><td>DAL</td><td>−0.87</td><td>−0.10</td><td>−0.77</td><td class="ps sep">866</td></tr><tr><td>2018-19</td><td>LAC/PHI</td><td>−0.47</td><td>−0.92</td><td>+0.45</td><td class="ps sep">1,434</td></tr><tr><td>2017-18</td><td>DET/LAC</td><td>−0.63</td><td>−0.13</td><td>−0.50</td><td class="ps sep">694</td></tr><tr><td>2016-17</td><td>DET</td><td>−1.44</td><td>−0.81</td><td>−0.62</td><td class="ps sep">588</td></tr><tr><td>2015-16</td><td>SAS</td><td>+0.33</td><td>+0.95</td><td>−0.62</td><td class="ps sep">980</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2022-23/">2022-23</a></td><td>HOU</td><td>−1.02</td><td>−1.67</td><td>+0.65</td><td class="ps sep">339</td></tr><tr><td><a href="../../2021-22/">2021-22</a></td><td>DAL</td><td>−1.98</td><td>−2.97</td><td>+0.99</td><td class="ps sep">253</td></tr><tr><td><a href="../../2020-21/">2020-21</a></td><td>DAL</td><td>−1.76</td><td>−1.43</td><td>−0.34</td><td class="ps sep">487</td></tr><tr><td><a href="../../2019-20/">2019-20</a></td><td>DAL</td><td>−0.87</td><td>−0.10</td><td>−0.77</td><td class="ps sep">866</td></tr><tr><td><a href="../../2018-19/">2018-19</a></td><td>LAC/PHI</td><td>−0.47</td><td>−0.92</td><td>+0.45</td><td class="ps sep">1,434</td></tr><tr><td><a href="../../2017-18/">2017-18</a></td><td>DET/LAC</td><td>−0.63</td><td>−0.13</td><td>−0.50</td><td class="ps sep">694</td></tr><tr><td><a href="../../2016-17/">2016-17</a></td><td>DET</td><td>−1.44</td><td>−0.81</td><td>−0.62</td><td class="ps sep">588</td></tr><tr><td><a href="../../2015-16/">2015-16</a></td><td>SAS</td><td>+0.33</td><td>+0.95</td><td>−0.62</td><td class="ps sep">980</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2022-23: <a href="../../player/tari-eason/">Tari Eason</a>, <a href="../../player/josh-christopher/">Josh Christopher</a>, <a href="../../player/daishen-nix/">Daishen Nix</a>, <a href="../../player/tyty-washington-jr/">TyTy Washington Jr.</a>, <a href="../../player/kj-martin/">KJ Martin</a> &middot; Seasons: <a href="../../2015-16/">2015-16</a> <a href="../../2016-17/">2016-17</a> <a href="../../2017-18/">2017-18</a> <a href="../../2018-19/">2018-19</a> <a href="../../2019-20/">2019-20</a> <a href="../../2020-21/">2020-21</a> <a href="../../2021-22/">2021-22</a> <a href="../../2022-23/">2022-23</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>

@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="101113">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2010-11</td><td>LAC</td><td>−3.16</td><td>−2.38</td><td>−0.77</td><td class="ps sep">816</td></tr><tr><td>2008-09</td><td>SAC/POR</td><td>−6.92</td><td>−3.52</td><td>−3.40</td><td class="ps sep">408</td></tr><tr><td>2007-08</td><td>IND</td><td>−4.65</td><td>−3.37</td><td>−1.28</td><td class="ps sep">636</td></tr><tr><td>2006-07</td><td>IND/GSW</td><td>−1.95</td><td>−2.32</td><td>+0.37</td><td class="ps sep">1,472</td></tr><tr><td>2005-06</td><td>GSW</td><td>−1.75</td><td>−1.29</td><td>−0.46</td><td class="ps sep">1,957</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2010-11/">2010-11</a></td><td>LAC</td><td>−3.16</td><td>−2.38</td><td>−0.77</td><td class="ps sep">816</td></tr><tr><td><a href="../../2008-09/">2008-09</a></td><td>SAC/POR</td><td>−6.92</td><td>−3.52</td><td>−3.40</td><td class="ps sep">408</td></tr><tr><td><a href="../../2007-08/">2007-08</a></td><td>IND</td><td>−4.65</td><td>−3.37</td><td>−1.28</td><td class="ps sep">636</td></tr><tr><td><a href="../../2006-07/">2006-07</a></td><td>IND/GSW</td><td>−1.95</td><td>−2.32</td><td>+0.37</td><td class="ps sep">1,472</td></tr><tr><td><a href="../../2005-06/">2005-06</a></td><td>GSW</td><td>−1.75</td><td>−1.29</td><td>−0.46</td><td class="ps sep">1,957</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2010-11: <a href="../../player/eric-bledsoe/">Eric Bledsoe</a>, <a href="../../player/al-farouq-aminu/">Al-Farouq Aminu</a>, <a href="../../player/randy-foye/">Randy Foye</a>, <a href="../../player/blake-griffin/">Blake Griffin</a>, <a href="../../player/baron-davis/">Baron Davis</a>, <a href="../../player/ryan-gomes/">Ryan Gomes</a>, <a href="../../player/eric-gordon/">Eric Gordon</a>, <a href="../../player/brian-cook/">Brian Cook</a>, <a href="../../player/rasual-butler/">Rasual Butler</a>, <a href="../../player/deandre-jordan/">DeAndre Jordan</a> &middot; Seasons: <a href="../../2005-06/">2005-06</a> <a href="../../2006-07/">2006-07</a> <a href="../../2007-08/">2007-08</a> <a href="../../2008-09/">2008-09</a> <a href="../../2010-11/">2010-11</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>

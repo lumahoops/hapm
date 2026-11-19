@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="1924">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2005-06</td><td>PHI</td><td>−3.12</td><td>−1.81</td><td>−1.30</td><td class="ps sep">454</td></tr><tr><td>2004-05</td><td>NOH</td><td>−3.06</td><td>−1.79</td><td>−1.27</td><td class="ps sep">3,646</td></tr><tr><td>2003-04</td><td>CLE/ATL/ORL</td><td>−4.57</td><td>−1.76</td><td>−2.81</td><td class="ps sep">1,425</td></tr><tr><td>2002-03</td><td>NYK</td><td>−3.43</td><td>−0.84</td><td>−2.59</td><td class="ps sep">767</td></tr><tr><td>2001-02</td><td>CHH</td><td>+0.53</td><td>+0.94</td><td>−0.41</td><td class="ps sep">3,580</td></tr><tr><td>2000-01</td><td>CHH</td><td>−1.21</td><td>−1.83</td><td>+0.62</td><td class="ps sep">784</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2005-06/">2005-06</a></td><td>PHI</td><td>−3.12</td><td>−1.81</td><td>−1.30</td><td class="ps sep">454</td></tr><tr><td><a href="../../2004-05/">2004-05</a></td><td>NOH</td><td>−3.06</td><td>−1.79</td><td>−1.27</td><td class="ps sep">3,646</td></tr><tr><td><a href="../../2003-04/">2003-04</a></td><td>CLE/ATL/ORL</td><td>−4.57</td><td>−1.76</td><td>−2.81</td><td class="ps sep">1,425</td></tr><tr><td><a href="../../2002-03/">2002-03</a></td><td>NYK</td><td>−3.43</td><td>−0.84</td><td>−2.59</td><td class="ps sep">767</td></tr><tr><td><a href="../../2001-02/">2001-02</a></td><td>CHH</td><td>+0.53</td><td>+0.94</td><td>−0.41</td><td class="ps sep">3,580</td></tr><tr><td><a href="../../2000-01/">2000-01</a></td><td>CHH</td><td>−1.21</td><td>−1.83</td><td>+0.62</td><td class="ps sep">784</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2005-06: <a href="../../player/john-salmons/">John Salmons</a>, <a href="../../player/allen-iverson/">Allen Iverson</a>, <a href="../../player/andre-iguodala/">Andre Iguodala</a>, <a href="../../player/chris-webber/">Chris Webber</a>, <a href="../../player/kyle-korver/">Kyle Korver</a>, <a href="../../player/kevin-ollie/">Kevin Ollie</a>, <a href="../../player/steven-hunter/">Steven Hunter</a> &middot; Seasons: <a href="../../2000-01/">2000-01</a> <a href="../../2001-02/">2001-02</a> <a href="../../2002-03/">2002-03</a> <a href="../../2003-04/">2003-04</a> <a href="../../2004-05/">2004-05</a> <a href="../../2005-06/">2005-06</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>

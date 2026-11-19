@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="275">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2004-05</td><td>NYK</td><td>+0.46</td><td>+0.75</td><td>−0.28</td><td class="ps sep">1,000</td></tr><tr><td>2003-04</td><td>NYK</td><td>+0.97</td><td>+1.86</td><td>−0.89</td><td class="ps sep">3,218</td></tr><tr><td>2002-03</td><td>NYK</td><td>+0.22</td><td>+3.30</td><td>−3.08</td><td class="ps sep">5,898</td></tr><tr><td>2001-02</td><td>NYK</td><td>−0.90</td><td>+0.96</td><td>−1.86</td><td class="ps sep">5,550</td></tr><tr><td>2000-01</td><td>NYK</td><td>+2.38</td><td>+0.97</td><td>+1.42</td><td class="ps sep">5,035</td></tr><tr><td>1999-00</td><td>NYK</td><td>+3.87</td><td>+1.77</td><td>+2.10</td><td class="ps sep">5,842</td></tr><tr><td>1998-99</td><td>NYK</td><td>+2.99</td><td>−0.66</td><td>+3.65</td><td class="ps sep">3,321</td></tr><tr><td>1997-98</td><td>NYK</td><td>+3.37</td><td>+1.09</td><td>+2.29</td><td class="ps sep">5,043</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2004-05/">2004-05</a></td><td>NYK</td><td>+0.46</td><td>+0.75</td><td>−0.28</td><td class="ps sep">1,000</td></tr><tr><td><a href="../../2003-04/">2003-04</a></td><td>NYK</td><td>+0.97</td><td>+1.86</td><td>−0.89</td><td class="ps sep">3,218</td></tr><tr><td><a href="../../2002-03/">2002-03</a></td><td>NYK</td><td>+0.22</td><td>+3.30</td><td>−3.08</td><td class="ps sep">5,898</td></tr><tr><td><a href="../../2001-02/">2001-02</a></td><td>NYK</td><td>−0.90</td><td>+0.96</td><td>−1.86</td><td class="ps sep">5,550</td></tr><tr><td><a href="../../2000-01/">2000-01</a></td><td>NYK</td><td>+2.38</td><td>+0.97</td><td>+1.42</td><td class="ps sep">5,035</td></tr><tr><td><a href="../../1999-00/">1999-00</a></td><td>NYK</td><td>+3.87</td><td>+1.77</td><td>+2.10</td><td class="ps sep">5,842</td></tr><tr><td><a href="../../1998-99/">1998-99</a></td><td>NYK</td><td>+2.99</td><td>−0.66</td><td>+3.65</td><td class="ps sep">3,321</td></tr><tr><td><a href="../../1997-98/">1997-98</a></td><td>NYK</td><td>+3.37</td><td>+1.09</td><td>+2.29</td><td class="ps sep">5,043</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2004-05: <a href="../../player/stephon-marbury/">Stephon Marbury</a>, <a href="../../player/kurt-thomas/">Kurt Thomas</a>, <a href="../../player/nazr-mohammed/">Nazr Mohammed</a>, <a href="../../player/tim-thomas/">Tim Thomas</a>, <a href="../../player/jerome-williams/">Jerome Williams</a>, <a href="../../player/trevor-ariza/">Trevor Ariza</a>, <a href="../../player/michael-sweetney/">Michael Sweetney</a>, <a href="../../player/jamal-crawford/">Jamal Crawford</a>, <a href="../../player/moochie-norris/">Moochie Norris</a> &middot; Seasons: <a href="../../1997-98/">1997-98</a> <a href="../../1998-99/">1998-99</a> <a href="../../1999-00/">1999-00</a> <a href="../../2000-01/">2000-01</a> <a href="../../2001-02/">2001-02</a> <a href="../../2002-03/">2002-03</a> <a href="../../2003-04/">2003-04</a> <a href="../../2004-05/">2004-05</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>

@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="202357">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2021-22</td><td>GSW</td><td>+1.29</td><td>+0.79</td><td>+0.51</td><td class="ps sep">2,267</td></tr><tr><td>2020-21</td><td>SAC/MIA</td><td>−2.01</td><td>+0.38</td><td>−2.39</td><td class="ps sep">1,210</td></tr><tr><td>2019-20</td><td>SAC</td><td>+2.46</td><td>+3.03</td><td>−0.58</td><td class="ps sep">4,003</td></tr><tr><td>2018-19</td><td>SAC</td><td>+3.57</td><td>+2.98</td><td>+0.58</td><td class="ps sep">3,815</td></tr><tr><td>2017-18</td><td>MIN</td><td>+1.66</td><td>−0.32</td><td>+1.98</td><td class="ps sep">2,762</td></tr><tr><td>2016-17</td><td>MIN</td><td>+2.55</td><td>−0.23</td><td>+2.78</td><td class="ps sep">2,369</td></tr><tr><td>2015-16</td><td>MIN</td><td>−0.30</td><td>−0.41</td><td>+0.11</td><td class="ps sep">2,142</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2021-22/">2021-22</a></td><td>GSW</td><td>+1.29</td><td>+0.79</td><td>+0.51</td><td class="ps sep">2,267</td></tr><tr><td><a href="../../2020-21/">2020-21</a></td><td>SAC/MIA</td><td>−2.01</td><td>+0.38</td><td>−2.39</td><td class="ps sep">1,210</td></tr><tr><td><a href="../../2019-20/">2019-20</a></td><td>SAC</td><td>+2.46</td><td>+3.03</td><td>−0.58</td><td class="ps sep">4,003</td></tr><tr><td><a href="../../2018-19/">2018-19</a></td><td>SAC</td><td>+3.57</td><td>+2.98</td><td>+0.58</td><td class="ps sep">3,815</td></tr><tr><td><a href="../../2017-18/">2017-18</a></td><td>MIN</td><td>+1.66</td><td>−0.32</td><td>+1.98</td><td class="ps sep">2,762</td></tr><tr><td><a href="../../2016-17/">2016-17</a></td><td>MIN</td><td>+2.55</td><td>−0.23</td><td>+2.78</td><td class="ps sep">2,369</td></tr><tr><td><a href="../../2015-16/">2015-16</a></td><td>MIN</td><td>−0.30</td><td>−0.41</td><td>+0.11</td><td class="ps sep">2,142</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2021-22: <a href="../../player/stephen-curry/">Stephen Curry</a>, <a href="../../player/jordan-poole/">Jordan Poole</a>, <a href="../../player/damion-lee/">Damion Lee</a>, <a href="../../player/jonathan-kuminga/">Jonathan Kuminga</a>, <a href="../../player/gary-payton-ii/">Gary Payton II</a>, <a href="../../player/otto-porter-jr/">Otto Porter Jr.</a>, <a href="../../player/andre-iguodala/">Andre Iguodala</a>, <a href="../../player/juan-toscano-anderson/">Juan Toscano-Anderson</a>, <a href="../../player/andrew-wiggins/">Andrew Wiggins</a>, <a href="../../player/chris-chiozza/">Chris Chiozza</a>, <a href="../../player/klay-thompson/">Klay Thompson</a>, <a href="../../player/draymond-green/">Draymond Green</a> &middot; Seasons: <a href="../../2015-16/">2015-16</a> <a href="../../2016-17/">2016-17</a> <a href="../../2017-18/">2017-18</a> <a href="../../2018-19/">2018-19</a> <a href="../../2019-20/">2019-20</a> <a href="../../2020-21/">2020-21</a> <a href="../../2021-22/">2021-22</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>

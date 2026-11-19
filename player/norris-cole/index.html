@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="202708">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2015-16</td><td>NOP</td><td>−2.16</td><td>−0.38</td><td>−1.78</td><td class="ps sep">2,359</td></tr><tr><td>2014-15</td><td>MIA/NOP</td><td>−1.22</td><td>+0.15</td><td>−1.38</td><td class="ps sep">3,252</td></tr><tr><td>2013-14</td><td>MIA</td><td>−0.59</td><td>−0.38</td><td>−0.20</td><td class="ps sep">3,753</td></tr><tr><td>2012-13</td><td>MIA</td><td>−1.85</td><td>−1.32</td><td>−0.53</td><td class="ps sep">2,854</td></tr><tr><td>2011-12</td><td>MIA</td><td>−2.44</td><td>−2.44</td><td>0.00</td><td class="ps sep">2,317</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2015-16/">2015-16</a></td><td>NOP</td><td>−2.16</td><td>−0.38</td><td>−1.78</td><td class="ps sep">2,359</td></tr><tr><td><a href="../../2014-15/">2014-15</a></td><td>MIA/NOP</td><td>−1.22</td><td>+0.15</td><td>−1.38</td><td class="ps sep">3,252</td></tr><tr><td><a href="../../2013-14/">2013-14</a></td><td>MIA</td><td>−0.59</td><td>−0.38</td><td>−0.20</td><td class="ps sep">3,753</td></tr><tr><td><a href="../../2012-13/">2012-13</a></td><td>MIA</td><td>−1.85</td><td>−1.32</td><td>−0.53</td><td class="ps sep">2,854</td></tr><tr><td><a href="../../2011-12/">2011-12</a></td><td>MIA</td><td>−2.44</td><td>−2.44</td><td>0.00</td><td class="ps sep">2,317</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2015-16: <a href="../../player/anthony-davis/">Anthony Davis</a>, <a href="../../player/ryan-anderson/">Ryan Anderson</a>, <a href="../../player/jrue-holiday/">Jrue Holiday</a>, <a href="../../player/dante-cunningham/">Dante Cunningham</a>, <a href="../../player/alonzo-gee/">Alonzo Gee</a>, <a href="../../player/omer-asik/">Omer Asik</a>, <a href="../../player/eric-gordon/">Eric Gordon</a>, <a href="../../player/tyreke-evans/">Tyreke Evans</a>, <a href="../../player/alexis-ajinca/">Alexis Ajinca</a>, <a href="../../player/bryce-dejean-jones/">Bryce Dejean-Jones</a>, <a href="../../player/kendrick-perkins/">Kendrick Perkins</a>, <a href="../../player/toney-douglas/">Toney Douglas</a> &middot; Seasons: <a href="../../2011-12/">2011-12</a> <a href="../../2012-13/">2012-13</a> <a href="../../2013-14/">2013-14</a> <a href="../../2014-15/">2014-15</a> <a href="../../2015-16/">2015-16</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>

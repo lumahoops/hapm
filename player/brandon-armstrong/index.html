@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="2220">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2003-04</td><td>NJN</td><td>−4.14</td><td>−1.75</td><td>−2.40</td><td class="ps sep">744</td></tr><tr><td>2001-02</td><td>NJN</td><td>−4.38</td><td>−2.98</td><td>−1.40</td><td class="ps sep">372</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2003-04/">2003-04</a></td><td>NJN</td><td>−4.14</td><td>−1.75</td><td>−2.40</td><td class="ps sep">744</td></tr><tr><td><a href="../../2001-02/">2001-02</a></td><td>NJN</td><td>−4.38</td><td>−2.98</td><td>−1.40</td><td class="ps sep">372</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2003-04: <a href="../../player/brian-scalabrine/">Brian Scalabrine</a>, <a href="../../player/aaron-williams/">Aaron Williams</a>, <a href="../../player/richard-jefferson/">Richard Jefferson</a>, <a href="../../player/zoran-planinic/">Zoran Planinic</a>, <a href="../../player/jason-collins/">Jason Collins</a>, <a href="../../player/rodney-rogers/">Rodney Rogers</a>, <a href="../../player/lucious-harris/">Lucious Harris</a>, <a href="../../player/jason-kidd/">Jason Kidd</a>, <a href="../../player/kerry-kittles/">Kerry Kittles</a>, <a href="../../player/kenyon-martin/">Kenyon Martin</a>, <a href="../../player/tamar-slay/">Tamar Slay</a> &middot; Seasons: <a href="../../2001-02/">2001-02</a> <a href="../../2003-04/">2003-04</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>

@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="1626257">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2018-19</td><td>DAL</td><td>−0.65</td><td>−0.36</td><td>−0.29</td><td class="ps sep">816</td></tr><tr><td>2017-18</td><td>DAL</td><td>+3.05</td><td>+0.59</td><td>+2.46</td><td class="ps sep">1,427</td></tr><tr><td>2016-17</td><td>DAL</td><td>+1.91</td><td>−0.60</td><td>+2.51</td><td class="ps sep">1,705</td></tr><tr><td>2015-16</td><td>DAL</td><td>−0.06</td><td>−0.30</td><td>+0.24</td><td class="ps sep">767</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2018-19/">2018-19</a></td><td>DAL</td><td>−0.65</td><td>−0.36</td><td>−0.29</td><td class="ps sep">816</td></tr><tr><td><a href="../../2017-18/">2017-18</a></td><td>DAL</td><td>+3.05</td><td>+0.59</td><td>+2.46</td><td class="ps sep">1,427</td></tr><tr><td><a href="../../2016-17/">2016-17</a></td><td>DAL</td><td>+1.91</td><td>−0.60</td><td>+2.51</td><td class="ps sep">1,705</td></tr><tr><td><a href="../../2015-16/">2015-16</a></td><td>DAL</td><td>−0.06</td><td>−0.30</td><td>+0.24</td><td class="ps sep">767</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2018-19: <a href="../../player/dorian-finney-smith/">Dorian Finney-Smith</a>, <a href="../../player/jalen-brunson/">Jalen Brunson</a>, <a href="../../player/maxi-kleber/">Maxi Kleber</a>, <a href="../../player/justin-jackson/">Justin Jackson</a>, <a href="../../player/trey-burke/">Trey Burke</a>, <a href="../../player/ryan-broekhoff/">Ryan Broekhoff</a>, <a href="../../player/devin-harris/">Devin Harris</a>, <a href="../../player/tim-hardaway-jr/">Tim Hardaway Jr.</a>, <a href="../../player/courtney-lee/">Courtney Lee</a>, <a href="../../player/luka-doncic/">Luka Dončić</a> &middot; Seasons: <a href="../../2015-16/">2015-16</a> <a href="../../2016-17/">2016-17</a> <a href="../../2017-18/">2017-18</a> <a href="../../2018-19/">2018-19</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>

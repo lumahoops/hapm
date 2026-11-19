@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="1630579">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2025-26</td><td>MIL</td><td>−3.13</td><td>+0.70</td><td>−3.83</td><td class="ps sep">2,547</td></tr><tr><td>2024-25</td><td>NYK/MIL</td><td>−0.94</td><td>−1.48</td><td>+0.54</td><td class="ps sep">1,239</td></tr><tr><td>2023-24</td><td>NYK</td><td>−3.38</td><td>−3.71</td><td>+0.33</td><td class="ps sep">1,103</td></tr><tr><td>2022-23</td><td>NYK</td><td>−2.04</td><td>−2.01</td><td>−0.03</td><td class="ps sep">1,584</td></tr><tr><td>2021-22</td><td>NYK</td><td>+1.18</td><td>−0.24</td><td>+1.42</td><td class="ps sep">1,092</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2025-26/">2025-26</a></td><td>MIL</td><td>−3.13</td><td>+0.70</td><td>−3.83</td><td class="ps sep">2,547</td></tr><tr><td><a href="../../2024-25/">2024-25</a></td><td>NYK/MIL</td><td>−0.94</td><td>−1.48</td><td>+0.54</td><td class="ps sep">1,239</td></tr><tr><td><a href="../../2023-24/">2023-24</a></td><td>NYK</td><td>−3.38</td><td>−3.71</td><td>+0.33</td><td class="ps sep">1,103</td></tr><tr><td><a href="../../2022-23/">2022-23</a></td><td>NYK</td><td>−2.04</td><td>−2.01</td><td>−0.03</td><td class="ps sep">1,584</td></tr><tr><td><a href="../../2021-22/">2021-22</a></td><td>NYK</td><td>+1.18</td><td>−0.24</td><td>+1.42</td><td class="ps sep">1,092</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2025-26: <a href="../../player/ryan-rollins/">Ryan Rollins</a>, <a href="../../player/aj-green/">AJ Green</a>, <a href="../../player/bobby-portis-jr/">Bobby Portis Jr.</a>, <a href="../../player/kevin-porter-jr/">Kevin Porter Jr.</a>, <a href="../../player/ousmane-dieng/">Ousmane Dieng</a>, <a href="../../player/kyle-kuzma/">Kyle Kuzma</a>, <a href="../../player/gary-trent-jr/">Gary Trent Jr.</a>, <a href="../../player/myles-turner/">Myles Turner</a>, <a href="../../player/taurean-prince/">Taurean Prince</a>, <a href="../../player/pete-nance/">Pete Nance</a>, <a href="../../player/gary-harris/">Gary Harris</a>, <a href="../../player/andre-jackson-jr/">Andre Jackson Jr.</a> &middot; Seasons: <a href="../../2021-22/">2021-22</a> <a href="../../2022-23/">2022-23</a> <a href="../../2023-24/">2023-24</a> <a href="../../2024-25/">2024-25</a> <a href="../../2025-26/">2025-26</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>

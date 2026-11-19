@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="1628380">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2025-26</td><td>CHI</td><td>−0.13</td><td>−1.41</td><td>+1.29</td><td class="ps sep">375</td></tr><tr><td>2024-25</td><td>CHI/SAS</td><td>−0.85</td><td>−2.51</td><td>+1.66</td><td class="ps sep">2,016</td></tr><tr><td>2023-24</td><td>SAS</td><td>−1.40</td><td>−1.84</td><td>+0.44</td><td class="ps sep">3,161</td></tr><tr><td>2022-23</td><td>SAS</td><td>+1.58</td><td>+0.84</td><td>+0.74</td><td class="ps sep">3,010</td></tr><tr><td>2021-22</td><td>SAS</td><td>−0.47</td><td>−0.43</td><td>−0.04</td><td class="ps sep">1,035</td></tr><tr><td>2019-20</td><td>POR</td><td>−0.74</td><td>+0.41</td><td>−1.15</td><td class="ps sep">605</td></tr><tr><td>2018-19</td><td>POR</td><td>+1.70</td><td>+1.25</td><td>+0.45</td><td class="ps sep">2,784</td></tr><tr><td>2017-18</td><td>POR</td><td>+1.09</td><td>+0.76</td><td>+0.33</td><td class="ps sep">2,063</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2025-26/">2025-26</a></td><td>CHI</td><td>−0.13</td><td>−1.41</td><td>+1.29</td><td class="ps sep">375</td></tr><tr><td><a href="../../2024-25/">2024-25</a></td><td>CHI/SAS</td><td>−0.85</td><td>−2.51</td><td>+1.66</td><td class="ps sep">2,016</td></tr><tr><td><a href="../../2023-24/">2023-24</a></td><td>SAS</td><td>−1.40</td><td>−1.84</td><td>+0.44</td><td class="ps sep">3,161</td></tr><tr><td><a href="../../2022-23/">2022-23</a></td><td>SAS</td><td>+1.58</td><td>+0.84</td><td>+0.74</td><td class="ps sep">3,010</td></tr><tr><td><a href="../../2021-22/">2021-22</a></td><td>SAS</td><td>−0.47</td><td>−0.43</td><td>−0.04</td><td class="ps sep">1,035</td></tr><tr><td><a href="../../2019-20/">2019-20</a></td><td>POR</td><td>−0.74</td><td>+0.41</td><td>−1.15</td><td class="ps sep">605</td></tr><tr><td><a href="../../2018-19/">2018-19</a></td><td>POR</td><td>+1.70</td><td>+1.25</td><td>+0.45</td><td class="ps sep">2,784</td></tr><tr><td><a href="../../2017-18/">2017-18</a></td><td>POR</td><td>+1.09</td><td>+0.76</td><td>+0.33</td><td class="ps sep">2,063</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2025-26: <a href="../../player/kevin-huerter/">Kevin Huerter</a>, <a href="../../player/tre-jones/">Tre Jones</a>, <a href="../../player/josh-giddey/">Josh Giddey</a>, <a href="../../player/coby-white/">Coby White</a>, <a href="../../player/jalen-smith/">Jalen Smith</a>, <a href="../../player/ayo-dosunmu/">Ayo Dosunmu</a>, <a href="../../player/matas-buzelis/">Matas Buzelis</a> &middot; Seasons: <a href="../../2017-18/">2017-18</a> <a href="../../2018-19/">2018-19</a> <a href="../../2019-20/">2019-20</a> <a href="../../2021-22/">2021-22</a> <a href="../../2022-23/">2022-23</a> <a href="../../2023-24/">2023-24</a> <a href="../../2024-25/">2024-25</a> <a href="../../2025-26/">2025-26</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>

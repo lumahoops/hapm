@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="2049">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2006-07</td><td>ATL</td><td>+0.73</td><td>−1.86</td><td>+2.60</td><td class="ps sep">1,820</td></tr><tr><td>2005-06</td><td>NOK</td><td>+1.64</td><td>+0.77</td><td>+0.87</td><td class="ps sep">3,454</td></tr><tr><td>2004-05</td><td>GSW/NOH</td><td>+1.44</td><td>−0.49</td><td>+1.93</td><td class="ps sep">3,648</td></tr><tr><td>2003-04</td><td>GSW</td><td>+3.24</td><td>+2.02</td><td>+1.22</td><td class="ps sep">2,977</td></tr><tr><td>2002-03</td><td>SAS</td><td>−1.59</td><td>−0.79</td><td>−0.80</td><td class="ps sep">811</td></tr><tr><td>2001-02</td><td>PHI</td><td>−0.06</td><td>−0.73</td><td>+0.67</td><td class="ps sep">2,800</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2006-07/">2006-07</a></td><td>ATL</td><td>+0.73</td><td>−1.86</td><td>+2.60</td><td class="ps sep">1,820</td></tr><tr><td><a href="../../2005-06/">2005-06</a></td><td>NOK</td><td>+1.64</td><td>+0.77</td><td>+0.87</td><td class="ps sep">3,454</td></tr><tr><td><a href="../../2004-05/">2004-05</a></td><td>GSW/NOH</td><td>+1.44</td><td>−0.49</td><td>+1.93</td><td class="ps sep">3,648</td></tr><tr><td><a href="../../2003-04/">2003-04</a></td><td>GSW</td><td>+3.24</td><td>+2.02</td><td>+1.22</td><td class="ps sep">2,977</td></tr><tr><td><a href="../../2002-03/">2002-03</a></td><td>SAS</td><td>−1.59</td><td>−0.79</td><td>−0.80</td><td class="ps sep">811</td></tr><tr><td><a href="../../2001-02/">2001-02</a></td><td>PHI</td><td>−0.06</td><td>−0.73</td><td>+0.67</td><td class="ps sep">2,800</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2006-07: <a href="../../player/joe-johnson/">Joe Johnson</a>, <a href="../../player/zaza-pachulia/">Zaza Pachulia</a>, <a href="../../player/josh-smith/">Josh Smith</a>, <a href="../../player/marvin-williams/">Marvin Williams</a>, <a href="../../player/shelden-williams/">Shelden Williams</a>, <a href="../../player/josh-childress/">Josh Childress</a>, <a href="../../player/lorenzen-wright/">Lorenzen Wright</a>, <a href="../../player/tyronn-lue/">Tyronn Lue</a>, <a href="../../player/salim-stoudamire/">Salim Stoudamire</a>, <a href="../../player/solomon-jones/">Solomon Jones</a> &middot; Seasons: <a href="../../2001-02/">2001-02</a> <a href="../../2002-03/">2002-03</a> <a href="../../2003-04/">2003-04</a> <a href="../../2004-05/">2004-05</a> <a href="../../2005-06/">2005-06</a> <a href="../../2006-07/">2006-07</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>

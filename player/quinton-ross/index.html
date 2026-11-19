@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="2624">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2010-11</td><td>NJN</td><td>−0.46</td><td>−2.61</td><td>+2.15</td><td class="ps sep">657</td></tr><tr><td>2009-10</td><td>DAL/WAS</td><td>−0.89</td><td>−2.61</td><td>+1.72</td><td class="ps sep">1,014</td></tr><tr><td>2008-09</td><td>MEM</td><td>+0.72</td><td>−1.78</td><td>+2.49</td><td class="ps sep">2,155</td></tr><tr><td>2007-08</td><td>LAC</td><td>−0.74</td><td>−1.32</td><td>+0.58</td><td class="ps sep">2,828</td></tr><tr><td>2006-07</td><td>LAC</td><td>+2.22</td><td>+0.63</td><td>+1.58</td><td class="ps sep">3,224</td></tr><tr><td>2005-06</td><td>LAC</td><td>+2.19</td><td>−0.70</td><td>+2.88</td><td class="ps sep">2,805</td></tr><tr><td>2004-05</td><td>LAC</td><td>−1.29</td><td>−1.95</td><td>+0.65</td><td class="ps sep">2,925</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2010-11/">2010-11</a></td><td>NJN</td><td>−0.46</td><td>−2.61</td><td>+2.15</td><td class="ps sep">657</td></tr><tr><td><a href="../../2009-10/">2009-10</a></td><td>DAL/WAS</td><td>−0.89</td><td>−2.61</td><td>+1.72</td><td class="ps sep">1,014</td></tr><tr><td><a href="../../2008-09/">2008-09</a></td><td>MEM</td><td>+0.72</td><td>−1.78</td><td>+2.49</td><td class="ps sep">2,155</td></tr><tr><td><a href="../../2007-08/">2007-08</a></td><td>LAC</td><td>−0.74</td><td>−1.32</td><td>+0.58</td><td class="ps sep">2,828</td></tr><tr><td><a href="../../2006-07/">2006-07</a></td><td>LAC</td><td>+2.22</td><td>+0.63</td><td>+1.58</td><td class="ps sep">3,224</td></tr><tr><td><a href="../../2005-06/">2005-06</a></td><td>LAC</td><td>+2.19</td><td>−0.70</td><td>+2.88</td><td class="ps sep">2,805</td></tr><tr><td><a href="../../2004-05/">2004-05</a></td><td>LAC</td><td>−1.29</td><td>−1.95</td><td>+0.65</td><td class="ps sep">2,925</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2010-11: <a href="../../player/kris-humphries/">Kris Humphries</a>, <a href="../../player/brook-lopez/">Brook Lopez</a>, <a href="../../player/devin-harris/">Devin Harris</a>, <a href="../../player/jordan-farmar/">Jordan Farmar</a>, <a href="../../player/derrick-favors/">Derrick Favors</a>, <a href="../../player/johan-petro/">Johan Petro</a>, <a href="../../player/travis-outlaw/">Travis Outlaw</a>, <a href="../../player/sasha-vujacic/">Sasha Vujacic</a>, <a href="../../player/anthony-morrow/">Anthony Morrow</a>, <a href="../../player/ben-uzoh/">Ben Uzoh</a> &middot; Seasons: <a href="../../2004-05/">2004-05</a> <a href="../../2005-06/">2005-06</a> <a href="../../2006-07/">2006-07</a> <a href="../../2007-08/">2007-08</a> <a href="../../2008-09/">2008-09</a> <a href="../../2009-10/">2009-10</a> <a href="../../2010-11/">2010-11</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>

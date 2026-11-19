@@ -56,6 +56,7 @@
   a.btn { color:var(--rose); font-weight:600; text-decoration:none; border:1px solid var(--rose); padding:3px 9px; background:var(--rose-tint); }
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
+  .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 </style>
 </head>
 <body data-root="../../" data-pid="201880">
@@ -68,7 +69,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td>2013-14</td><td>NOP</td><td>−2.12</td><td>−3.25</td><td>+1.14</td><td class="ps sep">1,878</td></tr><tr><td>2012-13</td><td>MIN</td><td>+0.24</td><td>−1.43</td><td>+1.67</td><td class="ps sep">2,352</td></tr><tr><td>2011-12</td><td>BOS</td><td>−1.73</td><td>−2.37</td><td>+0.64</td><td class="ps sep">1,375</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2013-14/">2013-14</a></td><td>NOP</td><td>−2.12</td><td>−3.25</td><td>+1.14</td><td class="ps sep">1,878</td></tr><tr><td><a href="../../2012-13/">2012-13</a></td><td>MIN</td><td>+0.24</td><td>−1.43</td><td>+1.67</td><td class="ps sep">2,352</td></tr><tr><td><a href="../../2011-12/">2011-12</a></td><td>BOS</td><td>−1.73</td><td>−2.37</td><td>+0.64</td><td class="ps sep">1,375</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -178,6 +179,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<div class="plinks">Teammates in 2013-14: <a href="../../player/tyreke-evans/">Tyreke Evans</a>, <a href="../../player/brian-roberts/">Brian Roberts</a>, <a href="../../player/anthony-davis/">Anthony Davis</a>, <a href="../../player/eric-gordon/">Eric Gordon</a>, <a href="../../player/al-farouq-aminu/">Al-Farouq Aminu</a>, <a href="../../player/anthony-morrow/">Anthony Morrow</a>, <a href="../../player/austin-rivers/">Austin Rivers</a>, <a href="../../player/darius-miller/">Darius Miller</a>, <a href="../../player/jeff-withey/">Jeff Withey</a>, <a href="../../player/luke-babbitt/">Luke Babbitt</a>, <a href="../../player/jrue-holiday/">Jrue Holiday</a>, <a href="../../player/alexis-ajinca/">Alexis Ajinca</a> &middot; Seasons: <a href="../../2011-12/">2011-12</a> <a href="../../2012-13/">2012-13</a> <a href="../../2013-14/">2013-14</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 </body>
 </html>
