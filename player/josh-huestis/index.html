@@ -12,13 +12,13 @@
 <meta property="og:title" content="Josh Huestis Plus-Minus and Impact by Season | NBA HAPM">
 <meta property="og:description" content="Josh Huestis plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2017-18. 2017-18: HAPM 2/3 +2.31, offense +0.95, defense +1.36. Season-by-season shot value, possession value and teammates.">
 <meta property="og:url" content="https://hapm.github.lumahoops.org/player/josh-huestis/">
-<meta property="og:image" content="https://hapm.github.lumahoops.org/og.png?v=20261118">
+<meta property="og:image" content="https://hapm.github.lumahoops.org/og.png?v=20261119">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Josh Huestis Plus-Minus and Impact by Season | NBA HAPM">
 <meta name="twitter:description" content="Josh Huestis plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2017-18. 2017-18: HAPM 2/3 +2.31, offense +0.95, defense +1.36. Season-by-season shot value, possession value and teammates.">
-<meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261118">
+<meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261119">
 <script>try{var m=localStorage.getItem('hapm_mode');if(m==='graphite'||(!m&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='graphite'}catch(e){}</script>
 <style>
   :root { --rose:#B5577A; --rose-tint:#F7E4EA; --rose-line:#E8C3CF; --ink:#16181d; --mute:#5f636b; --line:#d9dbe0; --head:#f3f4f6; --zebra:#f7f7f8; }
@@ -63,6 +63,7 @@
      kept in this browser (localStorage hapm_mode); with no saved choice, a system set to dark mode opens in graphite. Graphite keeps the percentile cells as they are, with black numbers. */
   .cmode { margin-left:10px; font-size:11px; } .cmode button { padding:2px 8px; }
   html[data-theme="graphite"] { color-scheme:dark; --rose:#F29BB9; --rose-tint:#4A2A38; --rose-line:#7A4A5E; --ink:#ECECEE; --mute:#A9AAB0; --line:#45464C; --head:#3A3B40; --zebra:#323338; }
+  html[data-theme="graphite"] .wt td.b { background:#2E4A36; color:#fff; }
   html[data-theme="graphite"] body { background:#2A2B2F; }
   html[data-theme="graphite"] :is(select, input, .seg button, .chips button) { background:#34353A; border-color:#55565C; }
   html[data-theme="graphite"] .seg button + button { border-left-color:#55565C; }
@@ -74,7 +75,6 @@
   html[data-theme="graphite"] thead th.g0 { background:#45464C; } html[data-theme="graphite"] thead th.g1 { background:#3F4046; } html[data-theme="graphite"] thead th.g2 { background:#393A40; }
   html[data-theme="graphite"] :is(tr.flt td, tr.car td) { background:#2F3035; }
   html[data-theme="graphite"] :is(thead tr.g th, tr.g td) { background:#3F4046; }
-  html[data-theme="graphite"] .wt td.b { background:#2E4A36; color:#fff; }
   html[data-theme="graphite"] td[style*="background:rgb"], html[data-theme="graphite"] td[style*="background:rgb"] * { color:#16181d; }
   html[data-theme="graphite"] #chart line[stroke="#eceef1"] { stroke:#3D3E44; } html[data-theme="graphite"] #chart line[stroke="#8a8d94"] { stroke:#7A7B82; }
   html[data-theme="graphite"] #chart text { fill:#A9AAB0; }
@@ -82,10 +82,29 @@
   html[data-theme="graphite"] #chart [stroke="#2f6f9f"] { stroke:#7DB5E0; } html[data-theme="graphite"] #chart [fill="#2f6f9f"] { fill:#7DB5E0; }
   html[data-theme="graphite"] #chart [stroke="#c08a1e"] { stroke:#E7B75A; } html[data-theme="graphite"] #chart [fill="#c08a1e"] { fill:#E7B75A; }
   html[data-theme="graphite"] #chart [stroke="#4b8a52"] { stroke:#86C78E; } html[data-theme="graphite"] #chart [fill="#4b8a52"] { fill:#86C78E; }
+  /* "by LUMA" exponent next to the HAPM wordmark: links back to lumahoops.org, letters in the LUMA wordmark colours.
+     On hover LUMA glows letter by letter; HAPM (the home link) only gets a faint glow, so the two read as separate. */
+  .brand { transition:text-shadow .25s; } .brand:hover { text-shadow:0 0 7px color-mix(in srgb, var(--rose) 22%, transparent); }
+  a.luma { position:relative; top:-9px; margin-left:-10px; text-decoration:none; white-space:nowrap; }
+  a.luma .by { font:500 10px/1 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color:var(--mute); margin-right:4px; }
+  a.luma .lw { font:600 11px/1 "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing:.14em; }
+  a.luma .ar { font:600 10px/1 system-ui, sans-serif; color:var(--mute); margin-left:1px; }
+  a.luma .lw span { transition:text-shadow .18s; }
+  a.luma .lw span:nth-child(1) { color:#3D66F0; } a.luma .lw span:nth-child(2) { color:#7A55B8; } a.luma .lw span:nth-child(3) { color:#C8617F; } a.luma .lw span:nth-child(4) { color:#C48A2C; }
+  html[data-theme="graphite"] a.luma .lw span:nth-child(1) { color:#9DC4FF; } html[data-theme="graphite"] a.luma .lw span:nth-child(2) { color:#C1B5FF; } html[data-theme="graphite"] a.luma .lw span:nth-child(3) { color:#F3A9BA; } html[data-theme="graphite"] a.luma .lw span:nth-child(4) { color:#F2CB72; }
+  /* hover: the glow runs through the letters one at a time (L, U, M, A), looping while the pointer stays */
+  @keyframes lumaglow { 0%, 100% { text-shadow:none; } 18% { text-shadow:0 0 5px currentColor, 0 0 12px currentColor; } 40% { text-shadow:none; } }
+  a.luma:hover .lw span, a.luma:focus-visible .lw span { animation:lumaglow 1.4s ease-in-out infinite; }
+  a.luma:hover .lw span:nth-child(2), a.luma:focus-visible .lw span:nth-child(2) { animation-delay:.14s; }
+  a.luma:hover .lw span:nth-child(3), a.luma:focus-visible .lw span:nth-child(3) { animation-delay:.28s; }
+  a.luma:hover .lw span:nth-child(4), a.luma:focus-visible .lw span:nth-child(4) { animation-delay:.42s; }
+  @media (prefers-reduced-motion: reduce) { a.luma:hover .lw span, a.luma:focus-visible .lw span { animation:none; text-shadow:0 0 5px currentColor; } }
+  a.luma:hover .ar, a.luma:focus-visible .ar { color:var(--ink); }
+  a.luma:focus-visible { outline:1px dotted var(--mute); outline-offset:2px; }
 </style>
 </head>
 <body data-root="../../" data-pid="203962">
-<div class="top"><a class="brand" id="home" href="">HAPM</a><span class="sub">Held-Out Adjusted Plus-Minus</span><span class="stamp" id="stamp"></span><span class="seg cmode" id="cmode"><button data-m="light">Light</button><button data-m="graphite">Graphite</button></span></div>
+<div class="top"><a class="brand" id="home" href="">HAPM</a><a class="luma" href="https://lumahoops.org/?ref=hapm" title="LUMA Basketball Research" aria-label="HAPM by LUMA Basketball Research (opens lumahoops.org)"><span class="by" aria-hidden="true">by</span><span class="lw" aria-hidden="true"><span>&Lambda;</span><span>U</span><span>M</span><span>A</span></span><span class="ar" aria-hidden="true">&#8599;</span></a><span class="sub">Held-Out Adjusted Plus-Minus</span><span class="stamp" id="stamp"></span><span class="seg cmode" id="cmode"><button data-m="light">Light</button><button data-m="graphite">Graphite</button></span></div>
 <div class="wrap">
   <div class="hd"><div><h1 id="name">Josh Huestis</h1><div class="meta" id="meta">PF · OKC · 2017-18</div></div></div>
   <div class="bar">
