@@ -19,6 +19,7 @@
 <meta name="twitter:title" content="Kerry Kittles HAPM: NBA Held-Out Adjusted Plus-Minus by Season">
 <meta name="twitter:description" content="Kerry Kittles NBA HAPM (held-out adjusted plus-minus), 1997-98 to 2004-05. 2004-05: HAPM 2/3 −2.77, offense −1.98, defense −0.79. Season-by-season shot value, possession value and teammates.">
 <meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261118">
+<script>try{var m=localStorage.getItem('hapm_mode');if(m==='graphite'||(!m&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='graphite'}catch(e){}</script>
 <style>
   :root { --rose:#B5577A; --rose-tint:#F7E4EA; --rose-line:#E8C3CF; --ink:#16181d; --mute:#5f636b; --line:#d9dbe0; --head:#f3f4f6; --zebra:#f7f7f8; }
   * { box-sizing:border-box; }
@@ -57,10 +58,33 @@
   th.ps, td.ps { color:var(--mute); font-weight:400; } th.ps { font-size:11px; } td.ps { font-size:11.5px; }
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
   .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
+
+  /* Two colour modes: light (default) and graphite; the switch sits at the right of the top bar and the choice is
+     kept in this browser (localStorage hapm_mode); with no saved choice, a system set to dark mode opens in graphite. Graphite keeps the percentile cells as they are, with black numbers. */
+  .cmode { margin-left:10px; font-size:11px; } .cmode button { padding:2px 8px; }
+  html[data-theme="graphite"] { color-scheme:dark; --rose:#F29BB9; --rose-tint:#4A2A38; --rose-line:#7A4A5E; --ink:#ECECEE; --mute:#A9AAB0; --line:#45464C; --head:#3A3B40; --zebra:#323338; }
+  html[data-theme="graphite"] body { background:#2A2B2F; }
+  html[data-theme="graphite"] :is(select, input, .seg button, .chips button) { background:#34353A; border-color:#55565C; }
+  html[data-theme="graphite"] .seg button + button { border-left-color:#55565C; }
+  html[data-theme="graphite"] :is(.seg button.on, .vg td.f) { background:#B5577A; color:#fff; }
+  html[data-theme="graphite"] :is(.tip .box, #pop, .nd) { background:#303136; }
+  html[data-theme="graphite"] th[data-tip]:hover::after { background:#303136; }
+  html[data-theme="graphite"] .nd.m { background:#3A3B40; }
+  html[data-theme="graphite"] :is(.steps .s, .sb2, .sbox) { background:#303136; border-color:#55565C; }
+  html[data-theme="graphite"] thead th.g0 { background:#45464C; } html[data-theme="graphite"] thead th.g1 { background:#3F4046; } html[data-theme="graphite"] thead th.g2 { background:#393A40; }
+  html[data-theme="graphite"] :is(tr.flt td, tr.car td) { background:#2F3035; }
+  html[data-theme="graphite"] :is(thead tr.g th, tr.g td) { background:#3F4046; }
+  html[data-theme="graphite"] td[style*="background:rgb"], html[data-theme="graphite"] td[style*="background:rgb"] * { color:#16181d; }
+  html[data-theme="graphite"] #chart line[stroke="#eceef1"] { stroke:#3D3E44; } html[data-theme="graphite"] #chart line[stroke="#8a8d94"] { stroke:#7A7B82; }
+  html[data-theme="graphite"] #chart text { fill:#A9AAB0; }
+  html[data-theme="graphite"] #chart [stroke="#B5577A"] { stroke:#F29BB9; } html[data-theme="graphite"] #chart [fill="#B5577A"] { fill:#F29BB9; }
+  html[data-theme="graphite"] #chart [stroke="#2f6f9f"] { stroke:#7DB5E0; } html[data-theme="graphite"] #chart [fill="#2f6f9f"] { fill:#7DB5E0; }
+  html[data-theme="graphite"] #chart [stroke="#c08a1e"] { stroke:#E7B75A; } html[data-theme="graphite"] #chart [fill="#c08a1e"] { fill:#E7B75A; }
+  html[data-theme="graphite"] #chart [stroke="#4b8a52"] { stroke:#86C78E; } html[data-theme="graphite"] #chart [fill="#4b8a52"] { fill:#86C78E; }
 </style>
 </head>
 <body data-root="../../" data-pid="954">
-<div class="top"><a class="brand" id="home" href="">HAPM</a><span class="sub">Held-Out Adjusted Plus-Minus</span><span class="stamp" id="stamp"></span></div>
+<div class="top"><a class="brand" id="home" href="">HAPM</a><span class="sub">Held-Out Adjusted Plus-Minus</span><span class="stamp" id="stamp"></span><span class="seg cmode" id="cmode"><button data-m="light">Light</button><button data-m="graphite">Graphite</button></span></div>
 <div class="wrap">
   <div class="hd"><div><h1 id="name">Kerry Kittles</h1><div class="meta" id="meta">SG · NJN, LAC · 1997-98 to 2004-05</div></div></div>
   <div class="bar">
@@ -181,5 +205,9 @@ async function mates() {      // shared possessions over the seasons chosen; net
 </script>
 <div class="plinks">Teammates in 2004-05: <a href="../../player/corey-maggette/">Corey Maggette</a>, <a href="../../player/bobby-simmons/">Bobby Simmons</a>, <a href="../../player/elton-brand/">Elton Brand</a>, <a href="../../player/rick-brunson/">Rick Brunson</a>, <a href="../../player/mikki-moore/">Mikki Moore</a>, <a href="../../player/chris-kaman/">Chris Kaman</a>, <a href="../../player/darrick-martin/">Darrick Martin</a> &middot; Seasons: <a href="../../1997-98/">1997-98</a> <a href="../../1998-99/">1998-99</a> <a href="../../1999-00/">1999-00</a> <a href="../../2001-02/">2001-02</a> <a href="../../2002-03/">2002-03</a> <a href="../../2003-04/">2003-04</a> <a href="../../2004-05/">2004-05</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
+<script>(function(){var d=document.documentElement,s=document.getElementById('cmode');if(!s)return;
+function set(m,save){if(m==='graphite')d.dataset.theme='graphite';else delete d.dataset.theme;if(save){try{localStorage.setItem('hapm_mode',m)}catch(e){}}
+s.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.m===m)})}
+set(d.dataset.theme==='graphite'?'graphite':'light',false);s.addEventListener('click',function(e){var b=e.target.closest('button');if(b)set(b.dataset.m,true)})})();</script>
 </body>
 </html>
