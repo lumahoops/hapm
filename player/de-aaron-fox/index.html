@@ -156,7 +156,8 @@ function careerTable(P) {
   let h = `<table><thead><tr class="g"><th colspan="2"></th>${G.map(g => `<th colspan="${g[1].length}">${g[0] === "HAPM" && S.variant === "par" ? "Par" : g[0]}</th>`).join("")}<th class="sep"></th></tr>` +
     `<tr><th class="l">Season</th><th class="l">Team</th>${keys.map(k => `<th>${k === "net" && S.variant === "par" ? "Par" : LAB[k]}</th>`).join("")}<th class="ps sep">Poss</th></tr></thead><tbody>`;
   for (const r of rows) h += `<tr><td class="l">${r.s}</td><td class="l">${r.t}${r.f ? '<span class="yt" title="Young teammates. HAPM tends to run high for him.">YT</span>' : ""}</td>` +
-    keys.map(k => { const x = val(r, k), p = pct(r, k); return `<td class="v${k === "net" ? " main" : ""}" style="background:${heat(p)}"><span class="x">${sg(x)}</span><span class="p">${p == null ? "" : p + "%"}</span></td>`; }).join("") +
+    keys.map(k => { const x = val(r, k), p = pct(r, k), e = k === "net" && S.variant === "par" && r.v.par ? r.v.par[5] : null;   // Par: +- instead of the percentile
+      return `<td class="v${k === "net" ? " main" : ""}" style="background:${heat(p)}"><span class="x">${sg(x)}</span><span class="p">${e != null ? "\u00b1" + e.toFixed(1) : p == null ? "" : p + "%"}</span></td>`; }).join("") +
     `<td class="ps sep">${r.p.toLocaleString()}</td></tr>`;
   // career line: possession-weighted average over the seasons with a value
   const car = keys.map(k => { let a = 0, w = 0; for (const r of rows) { const x = val(r, k); if (x != null) { a += x * r.p; w += r.p; } } return w ? a / w : null; });

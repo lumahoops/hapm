@@ -237,7 +237,7 @@
   </div>
   </div>
   <h3>Versions</h3>
-  <p class="lead"><span class="hp">HAPM</span> time decay uses every season of the player's own stints, newer seasons counting more: a season's weight halves every 1.5 seasons. <span class="hp">HAPM</span> 2-year uses this season and last season, this season counting twice as much. <span class="hp">HAPM</span> 1-year uses this season only. All three are pulled toward a typical value for the player's playing time; during the season in progress, playing time is read at his full-season pace. Par is this season's actual minus expected margin with no pull, so it swings the most. Every version rates the other nine with their three previous seasons.</p>
+  <p class="lead"><span class="hp">HAPM</span> time decay uses every season of the player's own stints, newer seasons counting more: a season's weight halves every 1.5 seasons. <span class="hp">HAPM</span> 2-year uses this season and last season, this season counting twice as much. <span class="hp">HAPM</span> 1-year uses this season only. All three are pulled toward a typical value for the player's playing time; during the season in progress, playing time is read at his full-season pace. Par is this season's actual minus expected margin with no pull, so it swings the most; the ± under each Par value is one standard error (about two-thirds of the time the true value is within it). Every version rates the other nine with their three previous seasons.</p>
   <div id="vgrid"></div>
 </details>
 <details class="how why"><summary><span class="ar">&#9656;</span> Why HAPM</summary>
@@ -328,7 +328,7 @@ const GRP = { G:["PG", "SG", "G"], W:["SF", "F"], B:["PF", "C", "F"] };     // E
 const VTIP = { "hapm":"HAPM time decay uses every season of his own stints; a season's weight halves every 1.5 seasons. It is the default.",
   "2y":"HAPM 2-year uses this season and last season, this season counting twice as much.",
   "1y":"HAPM 1-year uses this season's stints only.",
-  "par":"Par is this season's actual minus expected margin per 100, with no pull toward a typical value. It reacts fastest and swings the most." };
+  "par":"Par is this season's actual minus expected margin per 100, with no pull toward a typical value. It reacts fastest and swings the most. The \u00b1 under it is one standard error." };
 const VL = v => (S.meta && S.meta.labels && S.meta.labels[v]) || "HAPM " + v;
 // data order (export): totals, then zones
 const TK = ["sv", "sel", "selo", "seld", "conv", "convo", "convd", "pv", "gen", "oreb", "dtov", "ret", "otov", "dreb",
@@ -422,11 +422,12 @@ function players() {                 // one row per player over the selected sea
     r.t.split("/").forEach(t => m.teams.add(t)); if (r.pos) m.pos = r.pos; if (r.f) m.fp += r.p;
     const add = (key, val) => { if (val == null) return; const e = m.s[key] || (m.s[key] = [0, 0]); e[0] += val * r.p; e[1] += r.p; };
     add("net", r.v[v][2]); add("o", r.v[v][0]); add("d", r.v[v][1]);
+    if (v === "par" && r.v[v][5] != null) m.se2 = (m.se2 || 0) + (r.p * r.v[v][5]) ** 2;   // Par +- over a season range
     ox.forEach((x, j) => add("x" + (j + 1), r.v[x] ? r.v[x][2] : null));
     const c = r.c && r.c[v]; if (c) TK.forEach((k, j) => add(k, c[j]));
     m.p += r.p; }
   return { ox, rows: [...M.values()].map(m => { const o = { i:m.i, n:m.n, t:[...m.teams].join("/"), pos:m.pos, p:m.p, f:m.fp >= m.p / 2 };   // YT on half his possessions or more
-    for (const [key, e] of Object.entries(m.s)) o[key] = e[0] / e[1]; return o; }) };
+    for (const [key, e] of Object.entries(m.s)) o[key] = e[0] / e[1]; if (m.se2 != null) o.se = Math.sqrt(m.se2) / m.p; return o; }) };
 }
 
 // value columns. lv: 1 Off / Def / SV / PV, 2 piece, 3 end, 4 zone. path = the header groups above the column, outermost first
@@ -488,7 +489,8 @@ function cell(c, r, P) {
   if (!c.v) { const x = r[c.k], sl = c.k === "n" && r.i && S.slugs && S.slugs[r.i];
     return `<td class="o ${c.l ? "l" : ""} ${c.k === "n" ? "n" : ""}${c.ps ? " ps" : ""}">${c.k === "p" ? Math.round(x).toLocaleString() : sl ? `<a class="pl" href="${ROOT}player/${sl[1]}/">${x}</a>` : (x ?? "")}${c.k === "n" && r.f ? '<span class="yt" title="Young teammates. HAPM tends to run high for him.">YT</span>' : ""}</td>`; }
   const x = r[c.k], p = P ? pctOf(P[c.k], x) : null;
-  return `<td class="v${c.main ? " main" : ""}${lvCls(c)}" style="background:${heat(p)}"><span class="x">${sg(x)}</span><span class="p">${p == null ? "" : Math.round(p) + "%"}</span></td>`;
+  const pm = S.variant === "par" && c.k === "net" && r.se != null;   // Par: +- (one standard error) in place of the percentile
+  return `<td class="v${c.main ? " main" : ""}${lvCls(c)}" style="background:${heat(p)}"${pm ? ` title="Par ${sg(x)}, one standard error \u00b1${r.se.toFixed(1)}; ${Math.round(p)}th percentile"` : ""}><span class="x">${sg(x)}</span><span class="p">${pm ? "\u00b1" + r.se.toFixed(1) : p == null ? "" : Math.round(p) + "%"}</span></td>`;
 }
 function sortRows(rows) { const k = S.sort; rows.sort((a, b) => { const x = a[k], y = b[k]; if (x == null) return 1; if (y == null) return -1;
   return (typeof x === "string" ? x.localeCompare(y) : x - y) * S.dir; }); }
