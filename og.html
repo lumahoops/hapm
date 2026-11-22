@@ -37,7 +37,7 @@ const pct = (s, x) => { let n = 0; for (const y of s) if (y < x) n++; return 100
   const S = [0, 1, 2].map(j => pool.map(r => r.v[v][j]));
   const top = pool.sort((a, b) => b.v[v][2] - a.v[v][2]).slice(0, 10);
   document.getElementById("when").textContent = `${cur.season} to date \u00b7 ${cur.games} games \u00b7 ${d.qualified_poss}+ poss` + (cur.updated ? ` \u00b7 updated ${new Date(cur.updated).toLocaleDateString("en-US", { month:"short", day:"numeric" })}` : "");
-  document.getElementById("vh").textContent = `HAPM ${v}`;
+  document.getElementById("vh").textContent = (idx.labels && idx.labels[v]) || `HAPM ${v}`;
   document.getElementById("rows").innerHTML = top.map((r, i) => `<tr><td class="r">${i + 1}</td><td class="n">${r.n}</td><td>${r.t}</td>` +
     [2, 0, 1].map(j => { const x = r.v[v][j], p = pct(S[j], x); return `<td class="v" style="background:${heat(p)}">${sg(x)}<small>${Math.round(p)}%</small></td>`; }).join("") + "</tr>").join("");
   document.body.dataset.ready = "1";

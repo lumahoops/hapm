@@ -122,7 +122,8 @@
 </div>
 <script>
 const ROOT = document.body.dataset.root || "";
-const S = { p:[], variant:"2/3", mode:"career", age:27, from:"", to:"", col:{}, rows:"sum", custom:null, color:"pct", cm:"net", x:"season", cache:{} };
+const VL = v => (window.VLAB && window.VLAB[v]) || "HAPM " + v;   // version labels from data/index.json
+const S = { p:[], variant:"hapm", mode:"career", age:27, from:"", to:"", col:{}, rows:"sum", custom:null, color:"pct", cm:"net", x:"season", cache:{} };
 const $ = id => document.getElementById(id);
 const sg = x => x == null || isNaN(x) ? "" : (x > 0 ? "+" : x < 0 ? "\u2212" : "") + Math.abs(x).toFixed(2);
 const LO = [238, 172, 172], MID = [234, 235, 238], HI = [190, 228, 176];
@@ -217,7 +218,7 @@ function chart(Ps) {   // the chosen metric by season, age or year of career; on
   pts.forEach((ps, i) => { g += `<polyline points="${ps.map(o => `${X(o.x).toFixed(1)},${Y(o.y).toFixed(1)}`).join(" ")}" fill="none" stroke="${COL[i]}" stroke-width="2.2" stroke-linejoin="round"/>`;
     ps.forEach(o => g += `<circle cx="${X(o.x)}" cy="${Y(o.y)}" r="2.4" fill="${COL[i]}"><title>${Ps[i].n} ${o.s}: ${sg(o.y)}</title></circle>`); });
   $("chart").innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="chart">${g}</svg>`;
-  $("legend").innerHTML = Ps.map((P, i) => `<i style="background:${COL[i]}"></i>${P.n}`).join("") + ` \u00b7 HAPM ${v}`;
+  $("legend").innerHTML = Ps.map((P, i) => `<i style="background:${COL[i]}"></i>${P.n}`).join("") + ` \u00b7 ${VL(v)}`;
 }
 function rowEditor() {
   const on = shown(); let h = "", g = "";
@@ -233,7 +234,8 @@ function rowEditor() {
   for (const [pid, [n]] of Object.entries(slugs)) byName[n] = +pid;
   $("names").innerHTML = Object.keys(byName).sort().map(n => `<option value="${n.replace(/"/g, "&quot;")}">`).join("");
   $("home").href = ROOT || "./";
-  for (const v of idx.variants) $("variant").add(new Option("HAPM " + v, v));
+  window.VLAB = idx.labels || {};
+  for (const v of idx.variants) $("variant").add(new Option(VL(v), v));
   for (let a = 19; a <= 40; a++) $("age").add(new Option(a, a));
   const ss = idx.seasons.map(s => s.season); for (const s of ss) { $("from").add(new Option(s, s)); $("to").add(new Option(s, s)); }
   S.from = ss[ss.length - 4]; S.to = ss[ss.length - 1];

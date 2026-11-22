@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NBA Plus-Minus Leaders, 2024-25 Season | HAPM</title>
-<meta name="description" content="2024-25 NBA HAPM (held-out adjusted plus-minus) leaders: Nikola Jokić +13.40, Shai Gilgeous-Alexander +12.37, Giannis Antetokounmpo +8.61. Offense, defense, shot value and possession value for 322 players with 1,500+ possessions.">
+<meta name="description" content="2024-25 NBA HAPM (held-out adjusted plus-minus) leaders: Nikola Jokić +13.68, Shai Gilgeous-Alexander +10.65, Giannis Antetokounmpo +9.00. Offense, defense, shot value and possession value for 322 players with 1,500+ possessions.">
 <link rel="canonical" href="https://hapm.github.lumahoops.org/2024-25/">
 <link rel="icon" type="image/svg+xml" href="https://hapm.github.lumahoops.org/favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LUMA Basketball Research">
 <meta property="og:title" content="NBA Plus-Minus Leaders, 2024-25 Season | HAPM">
-<meta property="og:description" content="2024-25 NBA HAPM (held-out adjusted plus-minus) leaders: Nikola Jokić +13.40, Shai Gilgeous-Alexander +12.37, Giannis Antetokounmpo +8.61. Offense, defense, shot value and possession value for 322 players with 1,500+ possessions.">
+<meta property="og:description" content="2024-25 NBA HAPM (held-out adjusted plus-minus) leaders: Nikola Jokić +13.68, Shai Gilgeous-Alexander +10.65, Giannis Antetokounmpo +9.00. Offense, defense, shot value and possession value for 322 players with 1,500+ possessions.">
 <meta property="og:url" content="https://hapm.github.lumahoops.org/2024-25/">
 <meta property="og:image" content="https://hapm.github.lumahoops.org/og.png?v=20261122">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="NBA Plus-Minus Leaders, 2024-25 Season | HAPM">
-<meta name="twitter:description" content="2024-25 NBA HAPM (held-out adjusted plus-minus) leaders: Nikola Jokić +13.40, Shai Gilgeous-Alexander +12.37, Giannis Antetokounmpo +8.61. Offense, defense, shot value and possession value for 322 players with 1,500+ possessions.">
+<meta name="twitter:description" content="2024-25 NBA HAPM (held-out adjusted plus-minus) leaders: Nikola Jokić +13.68, Shai Gilgeous-Alexander +10.65, Giannis Antetokounmpo +9.00. Offense, defense, shot value and possession value for 322 players with 1,500+ possessions.">
 <meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261122">
 <script>try{var m=localStorage.getItem('hapm_mode');if(m==='graphite'||(!m&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='graphite'}catch(e){}</script>
 <style>
@@ -229,14 +229,14 @@
       <tr><td class="ind">from his four teammates</td><td colspan="2">+1.3</td><td colspan="2">+13.0</td></tr>
       <tr><td class="ind">from the opponents and game context</td><td colspan="2">&minus;6.7</td><td colspan="2">&minus;6.6</td></tr>
       <tr class="bold"><td>Actual minus expected</td><td colspan="2">+16.4</td><td colspan="2">+4.9</td></tr>
-      <tr><td><span class="hp">HAPM</span> 2/3 (percentile)</td><td colspan="2">+12.6 (100th)</td><td colspan="2">+4.3 (82nd)</td></tr>
+      <tr><td><span class="hp">HAPM</span> (percentile)</td><td colspan="2">+12.2 (100th)</td><td colspan="2">+2.8 (68th)</td></tr>
       <tr><td>RAPM 2-year (percentile)</td><td colspan="2">+6.9 (100th)</td><td colspan="2">+4.3 (94th)</td></tr>
     </table>
-    <p class="lead" style="margin-top:6px">Caldwell-Pope's stints were expected at +6.4 because Joki&#263; was usually beside him (+13.0 from his teammates). Joki&#263;'s teammates added only +1.3, so his stints were expected at &minus;5.3. <span class="hp">HAPM</span> credits each player with the gap between those expectations and what happened. <span class="hp">HAPM</span> 2/3 and 2-year RAPM also use 2022-23; percentiles are among 2023-24 players with 1,500+ possessions.</p>
+    <p class="lead" style="margin-top:6px">Caldwell-Pope's stints were expected at +6.4 because Joki&#263; was usually beside him (+13.0 from his teammates). Joki&#263;'s teammates added only +1.3, so his stints were expected at &minus;5.3. <span class="hp">HAPM</span> credits each player with the gap between those expectations and what happened. <span class="hp">HAPM</span> also uses his earlier seasons (newer ones counting more) and 2-year RAPM uses 2022-23; percentiles are among 2023-24 players with 1,500+ possessions.</p>
   </div>
   </div>
   <h3>Versions</h3>
-  <p class="lead">Each version uses a different number of seasons of the player's own stints, with newer seasons counting more. The 3 means the other nine are rated with their three previous seasons.</p>
+  <p class="lead"><span class="hp">HAPM</span> uses every season of the player's own stints, newer seasons counting more: a season's weight halves every 1.5 seasons. <span class="hp">HAPM</span> 1-year uses this season's stints only. Both rate the other nine with their three previous seasons.</p>
   <div id="vgrid"></div>
 </details>
 <details class="how why"><summary><span class="ar">&#9656;</span> Why HAPM</summary>
@@ -246,11 +246,11 @@
     <p class="lead">A player's <span class="hp">HAPM</span> is what he adds to his stints, in points per 100 possessions. When a team's top player sits, the team loses about what his <span class="hp">HAPM</span> says.</p>
     <p class="lead">What the team actually lost, divided by what each metric forecast. 1 is the right size; above 1, the metric underrates the player.</p>
     <table class="wt">
-      <tr><th>Who sits</th><th>HAPM 2/3</th><th>RAPM 4-year</th><th>RAPM 2-year</th><th>RAPM 1-year</th></tr>
-      <tr><td>Top player by possessions</td><td class="b">.90</td><td>1.85</td><td>2.30</td><td>3.67</td></tr>
+      <tr><th>Who sits</th><th>HAPM</th><th>RAPM 4-year</th><th>RAPM 2-year</th><th>RAPM 1-year</th></tr>
+      <tr><td>Top player by possessions</td><td class="b">.91</td><td>1.85</td><td>2.30</td><td>3.67</td></tr>
       <tr><td>Second</td><td class="b">.87</td><td>1.73</td><td>2.03</td><td>3.78</td></tr>
-      <tr><td>Third to fifth</td><td class="b">.98</td><td>1.95</td><td>2.31</td><td>3.78</td></tr>
-      <tr><td>Sixth to eighth</td><td class="b">1.45</td><td>2.56</td><td>3.20</td><td>7.51</td></tr>
+      <tr><td>Third to fifth</td><td class="b">.97</td><td>1.95</td><td>2.31</td><td>3.78</td></tr>
+      <tr><td>Sixth to eighth</td><td class="b">1.27</td><td>2.56</td><td>3.20</td><td>7.51</td></tr>
     </table>
     <p class="fn">Every team-game from 2013-14 to 2025-26, compared within team and half-season, with home court and opponent strength held fixed. Each forecast uses values from the other half of the season. Closest to 1 in bold.</p>
   </div>
@@ -258,9 +258,9 @@
     <h3>No teammate bias</h3>
     <p class="lead">A player's <span class="hp">HAPM</span> barely moves with the strength of his teammates.</p>
     <table class="wt">
-      <tr><th>How much a rating moves with</th><th>HAPM 2/3</th><th>RAPM 4-year</th><th>RAPM 2-year</th><th>RAPM 1-year</th></tr>
-      <tr><td>The strength of his teammates</td><td class="b">&minus;.02</td><td class="b">+.02</td><td>+.08</td><td>+.23</td></tr>
-      <tr><td>The strength of the players who replace him</td><td>&minus;.05</td><td class="b">&minus;.01</td><td>&minus;.03</td><td>&minus;.10</td></tr>
+      <tr><th>How much a rating moves with</th><th>HAPM</th><th>RAPM 4-year</th><th>RAPM 2-year</th><th>RAPM 1-year</th></tr>
+      <tr><td>The strength of his teammates</td><td>&minus;.03</td><td class="b">+.02</td><td>+.08</td><td>+.23</td></tr>
+      <tr><td>The strength of the players who replace him</td><td>&minus;.03</td><td class="b">&minus;.01</td><td>&minus;.03</td><td>&minus;.10</td></tr>
     </table>
     <p class="fn">1,359 cases of a player staying on his team from one season to the next, 2013-14 to 2025-26, 2,000+ possessions in both seasons. Each value is the change in next season's rating per standard deviation of his teammates' (or replacements') strength, measured by their previous-season RAPM, given his own rating the season before. 0 means no pull. Closest to 0 in bold.</p>
   </div>
@@ -268,13 +268,13 @@
     <h3>Next season</h3>
     <p class="lead">How well one season's values predict the next season.</p>
     <table class="wt">
-      <tr><th>Next season</th><th>HAPM 2/3</th><th>RAPM 4-year</th><th>RAPM 1-year</th></tr>
-      <tr><td>Game margins (R&sup2;)</td><td class="b">.158</td><td>.149</td><td>.129</td></tr>
-      <tr><td>Team ranking (rank correlation)</td><td class="b">.744</td><td>.742</td><td>.692</td></tr>
-      <tr><td>Five-man units (R&sup2;)</td><td>.109</td><td class="b">.116</td><td>.109</td></tr>
-      <tr><td>Five-man units never seen together (R&sup2;)</td><td>.096</td><td class="b">.102</td><td>.095</td></tr>
+      <tr><th>Next season</th><th>HAPM</th><th>RAPM 4-year</th><th>RAPM 1-year</th></tr>
+      <tr><td>Game margins (R&sup2;)</td><td class="b">.167</td><td>.149</td><td>.129</td></tr>
+      <tr><td>Team ranking (rank correlation)</td><td class="b">.773</td><td>.742</td><td>.692</td></tr>
+      <tr><td>Five-man units (R&sup2;)</td><td class="b">.118</td><td>.116</td><td>.109</td></tr>
+      <tr><td>Five-man units never seen together (R&sup2;)</td><td class="b">.105</td><td>.102</td><td>.095</td></tr>
     </table>
-    <p class="fn">4-year RAPM uses four seasons of each player; <span class="hp">HAPM</span> 2/3 uses two. Best value in each row in bold. Season pairs from 2013-14 to 2025-26.</p>
+    <p class="fn">4-year RAPM uses four seasons of each player; <span class="hp">HAPM</span> uses all of his seasons, newer ones counting more. Best value in each row in bold. Season pairs from 2013-14 to 2025-26.</p>
   </div>
   </div>
 </details>
@@ -291,7 +291,7 @@
   <span class="chips"><button id="fbtn" title="Show minimum / maximum boxes under each column">Filters</button><button id="fclr" title="Clear all column filters" style="display:none">Clear filters</button></span>
   <a class="btn" id="csv" href="#">CSV</a>
 </div>
-<div class="wrap"><h2 class="ttl" id="ttl">NBA HAPM leaders, 2024-25</h2><div class="status" id="status"></div><table id="main"><thead id="th"><tr><th>Rk</th><th>Player</th><th>Pos</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps">Poss</th></tr></thead><tbody id="rows"><tr><td>1</td><td><a href="../player/nikola-jokic/">Nikola Jokić</a></td><td>C</td><td>DEN</td><td>+13.40</td><td>+11.81</td><td>+1.60</td><td class="ps">5,303</td></tr><tr><td>2</td><td><a href="../player/shai-gilgeous-alexander/">Shai Gilgeous-Alexander</a></td><td>PG</td><td>OKC</td><td>+12.37</td><td>+8.53</td><td>+3.84</td><td class="ps">5,348</td></tr><tr><td>3</td><td><a href="../player/giannis-antetokounmpo/">Giannis Antetokounmpo</a></td><td>PF</td><td>MIL</td><td>+8.61</td><td>+6.19</td><td>+2.42</td><td class="ps">4,640</td></tr><tr><td>4</td><td><a href="../player/luka-doncic/">Luka Dončić</a></td><td>PG</td><td>LAL/DAL</td><td>+8.09</td><td>+5.20</td><td>+2.89</td><td class="ps">3,584</td></tr><tr><td>5</td><td><a href="../player/donovan-mitchell/">Donovan Mitchell</a></td><td>SG</td><td>CLE</td><td>+7.47</td><td>+4.68</td><td>+2.79</td><td class="ps">4,493</td></tr><tr><td>6</td><td><a href="../player/franz-wagner/">Franz Wagner</a></td><td>SF</td><td>ORL</td><td>+7.24</td><td>+2.15</td><td>+5.09</td><td class="ps">3,987</td></tr><tr><td>7</td><td><a href="../player/kawhi-leonard/">Kawhi Leonard</a></td><td>SF</td><td>LAC</td><td>+7.22</td><td>+3.60</td><td>+3.61</td><td class="ps">2,344</td></tr><tr><td>8</td><td><a href="../player/tyrese-haliburton/">Tyrese Haliburton</a></td><td>PG</td><td>IND</td><td>+6.83</td><td>+5.85</td><td>+0.98</td><td class="ps">4,932</td></tr><tr><td>9</td><td><a href="../player/dean-wade/">Dean Wade</a></td><td>PF</td><td>CLE</td><td>+6.59</td><td>+2.66</td><td>+3.94</td><td class="ps">2,524</td></tr><tr><td>10</td><td><a href="../player/dorian-finney-smith/">Dorian Finney-Smith</a></td><td>PF</td><td>LAL/BKN</td><td>+6.58</td><td>+3.79</td><td>+2.79</td><td class="ps">3,597</td></tr><tr><td>11</td><td><a href="../player/fred-vanvleet/">Fred VanVleet</a></td><td>PG</td><td>HOU</td><td>+6.58</td><td>+2.64</td><td>+3.94</td><td class="ps">4,208</td></tr><tr><td>12</td><td><a href="../player/kenrich-williams/">Kenrich Williams</a></td><td>PF</td><td>OKC</td><td>+6.48</td><td>+2.99</td><td>+3.48</td><td class="ps">2,284</td></tr><tr><td>13</td><td><a href="../player/brandin-podziemski/">Brandin Podziemski</a></td><td>SG</td><td>GSW</td><td>+6.45</td><td>+2.13</td><td>+4.32</td><td class="ps">3,436</td></tr><tr><td>14</td><td><a href="../player/draymond-green/">Draymond Green</a></td><td>PF</td><td>GSW</td><td>+6.25</td><td>+2.13</td><td>+4.12</td><td class="ps">4,033</td></tr><tr><td>15</td><td><a href="../player/victor-wembanyama/">Victor Wembanyama</a></td><td>C</td><td>SAS</td><td>+6.25</td><td>+1.16</td><td>+5.09</td><td class="ps">3,086</td></tr><tr><td>16</td><td><a href="../player/jarrett-allen/">Jarrett Allen</a></td><td>C</td><td>CLE</td><td>+6.22</td><td>+4.64</td><td>+1.58</td><td class="ps">4,669</td></tr><tr><td>17</td><td><a href="../player/isaiah-joe/">Isaiah Joe</a></td><td>SG</td><td>OKC</td><td>+6.16</td><td>+3.55</td><td>+2.61</td><td class="ps">3,286</td></tr><tr><td>18</td><td><a href="../player/alperen-sengun/">Alperen Sengun</a></td><td>C</td><td>HOU</td><td>+5.93</td><td>+2.35</td><td>+3.58</td><td class="ps">4,834</td></tr><tr><td>19</td><td><a href="../player/myles-turner/">Myles Turner</a></td><td>C</td><td>IND</td><td>+5.80</td><td>+2.61</td><td>+3.19</td><td class="ps">4,398</td></tr><tr><td>20</td><td><a href="../player/luguentz-dort/">Luguentz Dort</a></td><td>SF</td><td>OKC</td><td>+5.76</td><td>+3.04</td><td>+2.73</td><td class="ps">4,282</td></tr><tr><td>21</td><td><a href="../player/stephen-curry/">Stephen Curry</a></td><td>PG</td><td>GSW</td><td>+5.75</td><td>+5.97</td><td>−0.22</td><td class="ps">4,617</td></tr><tr><td>22</td><td><a href="../player/tobias-harris/">Tobias Harris</a></td><td>PF</td><td>DET</td><td>+5.75</td><td>+2.55</td><td>+3.21</td><td class="ps">4,707</td></tr><tr><td>23</td><td><a href="../player/ja-morant/">Ja Morant</a></td><td>PG</td><td>MEM</td><td>+5.75</td><td>+2.39</td><td>+3.35</td><td class="ps">3,169</td></tr><tr><td>24</td><td><a href="../player/kyrie-irving/">Kyrie Irving</a></td><td>SG</td><td>DAL</td><td>+5.72</td><td>+3.57</td><td>+2.15</td><td class="ps">3,649</td></tr><tr><td>25</td><td><a href="../player/pascal-siakam/">Pascal Siakam</a></td><td>PF</td><td>IND</td><td>+5.63</td><td>+2.16</td><td>+3.48</td><td class="ps">5,078</td></tr><tr><td>26</td><td><a href="../player/aaron-wiggins/">Aaron Wiggins</a></td><td>SG</td><td>OKC</td><td>+5.54</td><td>+4.65</td><td>+0.89</td><td class="ps">3,576</td></tr><tr><td>27</td><td><a href="../player/rudy-gobert/">Rudy Gobert</a></td><td>C</td><td>MIN</td><td>+5.53</td><td>+0.72</td><td>+4.81</td><td class="ps">4,728</td></tr><tr><td>28</td><td><a href="../player/ivica-zubac/">Ivica Zubac</a></td><td>C</td><td>LAC</td><td>+5.47</td><td>+0.74</td><td>+4.73</td><td class="ps">5,280</td></tr><tr><td>29</td><td><a href="../player/cade-cunningham/">Cade Cunningham</a></td><td>PG</td><td>DET</td><td>+5.36</td><td>+3.03</td><td>+2.34</td><td class="ps">5,041</td></tr><tr><td>30</td><td><a href="../player/jimmy-butler-iii/">Jimmy Butler III</a></td><td>SF</td><td>GSW/MIA</td><td>+5.33</td><td>+4.00</td><td>+1.32</td><td class="ps">3,457</td></tr><tr><td>31</td><td><a href="../player/jaren-jackson-jr/">Jaren Jackson Jr.</a></td><td>C</td><td>MEM</td><td>+5.19</td><td>+1.88</td><td>+3.30</td><td class="ps">4,608</td></tr><tr><td>32</td><td><a href="../player/dereck-lively-ii/">Dereck Lively II</a></td><td>C</td><td>DAL</td><td>+5.15</td><td>+2.03</td><td>+3.12</td><td class="ps">1,686</td></tr><tr><td>33</td><td><a href="../player/nickeil-alexander-walker/">Nickeil Alexander-Walker</a></td><td>SG</td><td>MIN</td><td>+5.14</td><td>+3.39</td><td>+1.75</td><td class="ps">4,142</td></tr><tr><td>34</td><td><a href="../player/james-harden/">James Harden</a></td><td>PG</td><td>LAC</td><td>+5.13</td><td>+4.13</td><td>+0.99</td><td class="ps">5,586</td></tr><tr><td>35</td><td><a href="../player/anthony-edwards/">Anthony Edwards</a></td><td>SG</td><td>MIN</td><td>+5.10</td><td>+3.98</td><td>+1.11</td><td class="ps">5,733</td></tr><tr><td>36</td><td><a href="../player/norman-powell/">Norman Powell</a></td><td>SG</td><td>LAC</td><td>+5.01</td><td>+2.05</td><td>+2.96</td><td class="ps">3,966</td></tr><tr><td>37</td><td><a href="../player/zach-edey/">Zach Edey</a></td><td>C</td><td>MEM</td><td>+4.99</td><td>+3.32</td><td>+1.67</td><td class="ps">2,928</td></tr><tr><td>38</td><td><a href="../player/lauri-markkanen/">Lauri Markkanen</a></td><td>PF</td><td>UTA</td><td>+4.96</td><td>+3.61</td><td>+1.36</td><td class="ps">3,009</td></tr><tr><td>39</td><td><a href="../player/og-anunoby/">OG Anunoby</a></td><td>PF</td><td>NYK</td><td>+4.90</td><td>+1.99</td><td>+2.90</td><td class="ps">5,339</td></tr><tr><td>40</td><td><a href="../player/isaiah-hartenstein/">Isaiah Hartenstein</a></td><td>C</td><td>OKC</td><td>+4.86</td><td>+1.78</td><td>+3.08</td><td class="ps">3,265</td></tr><tr><td>41</td><td><a href="../player/chet-holmgren/">Chet Holmgren</a></td><td>C</td><td>OKC</td><td>+4.83</td><td>+2.92</td><td>+1.92</td><td class="ps">1,832</td></tr><tr><td>42</td><td><a href="../player/deni-avdija/">Deni Avdija</a></td><td>SF</td><td>POR</td><td>+4.77</td><td>+3.91</td><td>+0.86</td><td class="ps">4,357</td></tr><tr><td>43</td><td><a href="../player/amen-thompson/">Amen Thompson</a></td><td>SF</td><td>HOU</td><td>+4.77</td><td>+2.31</td><td>+2.45</td><td class="ps">4,477</td></tr><tr><td>44</td><td><a href="../player/brandon-clarke/">Brandon Clarke</a></td><td>PF</td><td>MEM</td><td>+4.76</td><td>+2.26</td><td>+2.50</td><td class="ps">2,526</td></tr><tr><td>45</td><td><a href="../player/derrick-white/">Derrick White</a></td><td>SG</td><td>BOS</td><td>+4.71</td><td>+2.72</td><td>+2.00</td><td class="ps">5,104</td></tr><tr><td>46</td><td><a href="../player/luke-kornet/">Luke Kornet</a></td><td>C</td><td>BOS</td><td>+4.69</td><td>+3.42</td><td>+1.27</td><td class="ps">2,622</td></tr><tr><td>47</td><td><a href="../player/jaylin-williams/">Jaylin Williams</a></td><td>PF</td><td>OKC</td><td>+4.66</td><td>+1.88</td><td>+2.78</td><td class="ps">1,609</td></tr><tr><td>48</td><td><a href="../player/jaylen-wells/">Jaylen Wells</a></td><td>SG</td><td>MEM</td><td>+4.63</td><td>+3.38</td><td>+1.25</td><td class="ps">4,290</td></tr><tr><td>49</td><td><a href="../player/chris-paul/">Chris Paul</a></td><td>PG</td><td>SAS</td><td>+4.40</td><td>+3.81</td><td>+0.59</td><td class="ps">4,659</td></tr><tr><td>50</td><td><a href="../player/tyler-herro/">Tyler Herro</a></td><td>SG</td><td>MIA</td><td>+4.40</td><td>+4.42</td><td>−0.03</td><td class="ps">5,395</td></tr></tbody></table>
+<div class="wrap"><h2 class="ttl" id="ttl">NBA HAPM leaders, 2024-25</h2><div class="status" id="status"></div><table id="main"><thead id="th"><tr><th>Rk</th><th>Player</th><th>Pos</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps">Poss</th></tr></thead><tbody id="rows"><tr><td>1</td><td><a href="../player/nikola-jokic/">Nikola Jokić</a></td><td>C</td><td>DEN</td><td>+13.68</td><td>+11.60</td><td>+2.08</td><td class="ps">5,303</td></tr><tr><td>2</td><td><a href="../player/shai-gilgeous-alexander/">Shai Gilgeous-Alexander</a></td><td>PG</td><td>OKC</td><td>+10.65</td><td>+7.99</td><td>+2.66</td><td class="ps">5,348</td></tr><tr><td>3</td><td><a href="../player/giannis-antetokounmpo/">Giannis Antetokounmpo</a></td><td>PF</td><td>MIL</td><td>+9.00</td><td>+6.01</td><td>+3.00</td><td class="ps">4,640</td></tr><tr><td>4</td><td><a href="../player/kawhi-leonard/">Kawhi Leonard</a></td><td>SF</td><td>LAC</td><td>+8.79</td><td>+5.11</td><td>+3.69</td><td class="ps">2,344</td></tr><tr><td>5</td><td><a href="../player/franz-wagner/">Franz Wagner</a></td><td>SF</td><td>ORL</td><td>+8.08</td><td>+2.65</td><td>+5.43</td><td class="ps">3,987</td></tr><tr><td>6</td><td><a href="../player/stephen-curry/">Stephen Curry</a></td><td>PG</td><td>GSW</td><td>+7.55</td><td>+6.82</td><td>+0.72</td><td class="ps">4,617</td></tr><tr><td>7</td><td><a href="../player/luka-doncic/">Luka Dončić</a></td><td>PG</td><td>LAL/DAL</td><td>+6.89</td><td>+5.55</td><td>+1.34</td><td class="ps">3,584</td></tr><tr><td>8</td><td><a href="../player/draymond-green/">Draymond Green</a></td><td>PF</td><td>GSW</td><td>+6.84</td><td>+2.26</td><td>+4.58</td><td class="ps">4,033</td></tr><tr><td>9</td><td><a href="../player/kenrich-williams/">Kenrich Williams</a></td><td>PF</td><td>OKC</td><td>+6.84</td><td>+2.73</td><td>+4.11</td><td class="ps">2,284</td></tr><tr><td>10</td><td><a href="../player/jarrett-allen/">Jarrett Allen</a></td><td>C</td><td>CLE</td><td>+6.67</td><td>+4.14</td><td>+2.53</td><td class="ps">4,669</td></tr><tr><td>11</td><td><a href="../player/donovan-mitchell/">Donovan Mitchell</a></td><td>SG</td><td>CLE</td><td>+6.54</td><td>+4.64</td><td>+1.90</td><td class="ps">4,493</td></tr><tr><td>12</td><td><a href="../player/brandin-podziemski/">Brandin Podziemski</a></td><td>SG</td><td>GSW</td><td>+6.52</td><td>+2.33</td><td>+4.19</td><td class="ps">3,436</td></tr><tr><td>13</td><td><a href="../player/fred-vanvleet/">Fred VanVleet</a></td><td>PG</td><td>HOU</td><td>+6.46</td><td>+2.81</td><td>+3.64</td><td class="ps">4,208</td></tr><tr><td>14</td><td><a href="../player/rudy-gobert/">Rudy Gobert</a></td><td>C</td><td>MIN</td><td>+6.35</td><td>+0.82</td><td>+5.53</td><td class="ps">4,728</td></tr><tr><td>15</td><td><a href="../player/dean-wade/">Dean Wade</a></td><td>PF</td><td>CLE</td><td>+6.26</td><td>+1.71</td><td>+4.55</td><td class="ps">2,524</td></tr><tr><td>16</td><td><a href="../player/paul-george/">Paul George</a></td><td>PF</td><td>PHI</td><td>+6.25</td><td>+1.74</td><td>+4.51</td><td class="ps">2,654</td></tr><tr><td>17</td><td><a href="../player/victor-wembanyama/">Victor Wembanyama</a></td><td>C</td><td>SAS</td><td>+6.22</td><td>+1.03</td><td>+5.20</td><td class="ps">3,086</td></tr><tr><td>18</td><td><a href="../player/ja-morant/">Ja Morant</a></td><td>PG</td><td>MEM</td><td>+6.15</td><td>+2.98</td><td>+3.16</td><td class="ps">3,169</td></tr><tr><td>19</td><td><a href="../player/myles-turner/">Myles Turner</a></td><td>C</td><td>IND</td><td>+5.99</td><td>+2.60</td><td>+3.39</td><td class="ps">4,398</td></tr><tr><td>20</td><td><a href="../player/jayson-tatum/">Jayson Tatum</a></td><td>PF</td><td>BOS</td><td>+5.97</td><td>+4.35</td><td>+1.63</td><td class="ps">5,205</td></tr><tr><td>21</td><td><a href="../player/kyrie-irving/">Kyrie Irving</a></td><td>SG</td><td>DAL</td><td>+5.92</td><td>+4.62</td><td>+1.30</td><td class="ps">3,649</td></tr><tr><td>22</td><td><a href="../player/jimmy-butler-iii/">Jimmy Butler III</a></td><td>SF</td><td>GSW/MIA</td><td>+5.75</td><td>+4.26</td><td>+1.49</td><td class="ps">3,457</td></tr><tr><td>23</td><td><a href="../player/isaiah-joe/">Isaiah Joe</a></td><td>SG</td><td>OKC</td><td>+5.68</td><td>+4.00</td><td>+1.68</td><td class="ps">3,286</td></tr><tr><td>24</td><td><a href="../player/pascal-siakam/">Pascal Siakam</a></td><td>PF</td><td>IND</td><td>+5.64</td><td>+2.68</td><td>+2.96</td><td class="ps">5,078</td></tr><tr><td>25</td><td><a href="../player/dorian-finney-smith/">Dorian Finney-Smith</a></td><td>PF</td><td>LAL/BKN</td><td>+5.50</td><td>+3.43</td><td>+2.08</td><td class="ps">3,597</td></tr><tr><td>26</td><td><a href="../player/lauri-markkanen/">Lauri Markkanen</a></td><td>PF</td><td>UTA</td><td>+5.44</td><td>+3.98</td><td>+1.46</td><td class="ps">3,009</td></tr><tr><td>27</td><td><a href="../player/luguentz-dort/">Luguentz Dort</a></td><td>SF</td><td>OKC</td><td>+5.44</td><td>+2.81</td><td>+2.63</td><td class="ps">4,282</td></tr><tr><td>28</td><td><a href="../player/tyrese-haliburton/">Tyrese Haliburton</a></td><td>PG</td><td>IND</td><td>+5.43</td><td>+5.28</td><td>+0.14</td><td class="ps">4,932</td></tr><tr><td>29</td><td><a href="../player/derrick-white/">Derrick White</a></td><td>SG</td><td>BOS</td><td>+5.40</td><td>+2.61</td><td>+2.79</td><td class="ps">5,104</td></tr><tr><td>30</td><td><a href="../player/steven-adams/">Steven Adams</a></td><td>C</td><td>HOU</td><td>+5.39</td><td>+3.24</td><td>+2.15</td><td class="ps">1,588</td></tr><tr><td>31</td><td><a href="../player/alex-caruso/">Alex Caruso</a></td><td>SG</td><td>OKC</td><td>+5.32</td><td>+0.34</td><td>+4.98</td><td class="ps">2,122</td></tr><tr><td>32</td><td><a href="../player/isaiah-hartenstein/">Isaiah Hartenstein</a></td><td>C</td><td>OKC</td><td>+5.17</td><td>+2.18</td><td>+2.99</td><td class="ps">3,265</td></tr><tr><td>33</td><td><a href="../player/dereck-lively-ii/">Dereck Lively II</a></td><td>C</td><td>DAL</td><td>+5.15</td><td>+2.27</td><td>+2.88</td><td class="ps">1,686</td></tr><tr><td>34</td><td><a href="../player/jaren-jackson-jr/">Jaren Jackson Jr.</a></td><td>C</td><td>MEM</td><td>+5.10</td><td>+1.63</td><td>+3.46</td><td class="ps">4,608</td></tr><tr><td>35</td><td><a href="../player/zach-edey/">Zach Edey</a></td><td>C</td><td>MEM</td><td>+5.03</td><td>+3.35</td><td>+1.68</td><td class="ps">2,928</td></tr><tr><td>36</td><td><a href="../player/chris-paul/">Chris Paul</a></td><td>PG</td><td>SAS</td><td>+5.01</td><td>+3.44</td><td>+1.57</td><td class="ps">4,659</td></tr><tr><td>37</td><td><a href="../player/aaron-wiggins/">Aaron Wiggins</a></td><td>SG</td><td>OKC</td><td>+5.01</td><td>+4.22</td><td>+0.79</td><td class="ps">3,576</td></tr><tr><td>38</td><td><a href="../player/james-harden/">James Harden</a></td><td>PG</td><td>LAC</td><td>+4.98</td><td>+4.67</td><td>+0.31</td><td class="ps">5,586</td></tr><tr><td>39</td><td><a href="../player/chet-holmgren/">Chet Holmgren</a></td><td>C</td><td>OKC</td><td>+4.96</td><td>+2.98</td><td>+1.98</td><td class="ps">1,832</td></tr><tr><td>40</td><td><a href="../player/luke-kornet/">Luke Kornet</a></td><td>C</td><td>BOS</td><td>+4.87</td><td>+3.38</td><td>+1.48</td><td class="ps">2,622</td></tr><tr><td>41</td><td><a href="../player/kevin-durant/">Kevin Durant</a></td><td>PF</td><td>PHX</td><td>+4.82</td><td>+3.95</td><td>+0.87</td><td class="ps">4,530</td></tr><tr><td>42</td><td><a href="../player/kevon-looney/">Kevon Looney</a></td><td>C</td><td>GSW</td><td>+4.81</td><td>+2.67</td><td>+2.14</td><td class="ps">2,273</td></tr><tr><td>43</td><td><a href="../player/aaron-gordon/">Aaron Gordon</a></td><td>PF</td><td>DEN</td><td>+4.80</td><td>+2.76</td><td>+2.04</td><td class="ps">2,953</td></tr><tr><td>44</td><td><a href="../player/alperen-sengun/">Alperen Sengun</a></td><td>C</td><td>HOU</td><td>+4.75</td><td>+2.36</td><td>+2.38</td><td class="ps">4,834</td></tr><tr><td>45</td><td><a href="../player/darius-garland/">Darius Garland</a></td><td>PG</td><td>CLE</td><td>+4.74</td><td>+4.44</td><td>+0.31</td><td class="ps">4,726</td></tr><tr><td>46</td><td><a href="../player/cade-cunningham/">Cade Cunningham</a></td><td>PG</td><td>DET</td><td>+4.72</td><td>+2.77</td><td>+1.95</td><td class="ps">5,041</td></tr><tr><td>47</td><td><a href="../player/og-anunoby/">OG Anunoby</a></td><td>PF</td><td>NYK</td><td>+4.65</td><td>+1.43</td><td>+3.21</td><td class="ps">5,339</td></tr><tr><td>48</td><td><a href="../player/damian-lillard/">Damian Lillard</a></td><td>PG</td><td>MIL</td><td>+4.64</td><td>+4.20</td><td>+0.44</td><td class="ps">4,281</td></tr><tr><td>49</td><td><a href="../player/anthony-edwards/">Anthony Edwards</a></td><td>SG</td><td>MIN</td><td>+4.64</td><td>+3.43</td><td>+1.21</td><td class="ps">5,733</td></tr><tr><td>50</td><td><a href="../player/jaylen-wells/">Jaylen Wells</a></td><td>SG</td><td>MEM</td><td>+4.63</td><td>+3.38</td><td>+1.26</td><td class="ps">4,290</td></tr></tbody></table>
 <details class="guide"><summary><span class="ar">&#9656;</span> What the columns show</summary>
 <table><thead><tr><th>Column</th><th>Meaning</th><th>Column</th><th>Meaning</th></tr></thead><tbody>
 <tr><td class="t"><span class="hp">HAPM</span></td><td>Points per 100 possessions his stints produced above or below what the other nine were expected to produce with an average player in his place. 0 is the average rated player; rotation players average about +1.3.</td>
@@ -302,7 +302,7 @@
     <td class="t">Possession value</td><td>Generation (offensive rebounding, forced turnovers) and retention (turnovers avoided, defensive rebounding). Hover the ? next to its title for its tree.</td></tr>
 <tr><td class="t">Zones</td><td>Shot value by zone: rim, mid-range, three and free throws. Defensive conversion has two zones, rim and other, because the rest changes too much from year to year. Turn them on with the Zones button.</td>
     <td class="t">D Conv</td><td>Changes the most from year to year, because opponents' shooting luck is a large part of it.</td></tr>
-<tr><td class="t">Versions</td><td>1/3 to 5/3, chosen in the Version menu and explained under "How <span class="hp">HAPM</span> works". Versions with more seasons are steadier and react more slowly.</td>
+<tr><td class="t">Versions</td><td><span class="hp">HAPM</span> (every season, newer ones counting more) and <span class="hp">HAPM</span> 1-year (this season only), chosen in the Version menu and explained under "How <span class="hp">HAPM</span> works".</td>
     <td class="t">Season ranges</td><td>Each player's values are averaged over the seasons selected, weighted by possessions.</td></tr>
 <tr><td class="t">YT</td><td>Young teammates. Half or more of his possessions came alongside players with fewer than three earlier seasons, and <span class="hp">HAPM</span> tends to run high for these players.</td>
     <td class="t">Team line</td><td>The last row when a team is picked. It averages the team's players, weighted by possessions; its percentiles rank it among all teams under the same filters. <span class="hp">HAPM</span> values do not add up to a team's margin.</td></tr>
@@ -320,15 +320,13 @@
 <script>
 const ROOT = document.body.dataset.root || "", PAGE_SEASON = document.body.dataset.season || "";
 const stampTxt = c => (c.updated ? `Updated ${new Date(c.updated).toLocaleDateString("en-US", { month:"short", day:"numeric", year:"numeric" })} \u00b7 ` : "") + `${c.season}: ${c.games} games`;
-const S = { meta:null, cache:{}, variant:"2/3", sort:"net", dir:-1, view:"p", open:{ od:true, sv:false, zn:false, pv:false }, showF:false, filt:{} };
+const S = { meta:null, cache:{}, variant:"hapm", sort:"net", dir:-1, view:"p", open:{ od:true, sv:false, zn:false, pv:false }, showF:false, filt:{} };
 const $ = id => document.getElementById(id);
 const sg = x => x == null ? "" : (x > 0 ? "+" : x < 0 ? "\u2212" : "") + Math.abs(x).toFixed(2);
 const GRP = { G:["PG", "SG", "G"], W:["SF", "F"], B:["PF", "C", "F"] };     // ESPN lists some rookies only as G / F / C
-const VTIP = { "1/3":"1/3 uses this season's stints only. It reacts fastest and varies most.",
-  "2/3":"2/3 uses this season and last season, with this season counting more. It is the default.",
-  "3/3":"3/3 uses this season and the two before it, with newer seasons counting more.",
-  "4/3":"4/3 uses this season and the three before it, with newer seasons counting more.",
-  "5/3":"5/3 uses this season and the four before it, with newer seasons counting more. It is the steadiest and reacts slowest." };
+const VTIP = { "hapm":"HAPM uses every season of his own stints; a season's weight halves every 1.5 seasons. It is the default.",
+  "1y":"HAPM 1-year uses this season's stints only. It reacts fastest and varies most." };
+const VL = v => (S.meta && S.meta.labels && S.meta.labels[v]) || "HAPM " + v;
 // data order (export): totals, then zones
 const TK = ["sv", "sel", "selo", "seld", "conv", "convo", "convd", "pv", "gen", "oreb", "dtov", "ret", "otov", "dreb",
   "so_r", "so_m", "so_t", "so_f", "sd_r", "sd_m", "sd_t", "sd_f", "co_r", "co_m", "co_t", "co_f", "cd_r", "cd_o"];
@@ -344,9 +342,9 @@ const svTree = z => `<div class="tr">${node("SV", "Shot value", "r")}<div class=
 const pvTree = () => `<div class="tr">${node("PV", "Possession value", "r")}<div class="br">` +
   kid(node("Gen", "Generation", "m"), node("O Reb", "Offensive rebounding"), node("D TOV", "Forced turnovers")) + '<span class="pl">+</span>' +
   kid(node("Ret", "Retention", "m"), node("O TOV", "Turnovers avoided"), node("D Reb", "Defensive rebounding")) + "</div></div>";
-const vGrid = () => `<table class="vg"><tr><th>Version</th><th>This season</th><th>1 before</th><th>2 before</th><th>3 before</th><th>4 before</th></tr>` +
-  [1, 2, 3, 4, 5].map(a => `<tr><th>${a}/3</th>` + [0, 1, 2, 3, 4].map(k => `<td class="${k < a ? "f" : ""}" style="${k < a ? `opacity:${1 - k * 0.17}` : ""}"></td>`).join("") + "</tr>").join("") + "</table>";
-const TREE = { sv: () => svTree(S.open.zn), pv: pvTree, ov: () => vGrid() + '<div class="eq">Seasons of his own stints used by each version; newer seasons count more.</div>' };
+const vGrid = () => `<table class="vg"><tr><th>Version</th><th>This season</th><th>1 before</th><th>2 before</th><th>3 before</th><th>4 before</th><th>5 before</th></tr>` +
+  [["HAPM", 6], ["HAPM 1-year", 1]].map(([n, a]) => `<tr><th>${n}</th>` + [0, 1, 2, 3, 4, 5].map(k => `<td class="${k < a ? "f" : ""}" style="${k < a ? `opacity:${Math.max(0.12, Math.pow(0.63, k)).toFixed(2)}` : ""}"></td>`).join("") + "</tr>").join("") + "</table>";
+const TREE = { sv: () => svTree(S.open.zn), pv: pvTree, ov: () => vGrid() + '<div class="eq">Seasons of his own stints used by each version. HAPM goes back to his first season; a season' + "'" + 's weight halves every 1.5 seasons.</div>' };
 
 // ---- colors: red (low) -> gray (middle) -> green (high), by percentile; numbers stay black
 const LO = [238, 172, 172], MID = [234, 235, 238], HI = [190, 228, 176];
@@ -371,7 +369,7 @@ async function init() {
   if (H.cols != null) { const on = H.cols.split(","); for (const g in S.open) S.open[g] = on.includes(g); }
   if (H.flt) { for (const t of H.flt.split(",")) { const [k, a, b] = t.split(":"); S.filt[k] = [a ?? "", b ?? ""]; } S.showF = true; }
   if (H.pos) $("pos").value = H.pos; S.hashTeam = H.team || ""; S.hashMp = H.mp;
-  for (const v of S.meta.variants) $("variant").add(new Option("HAPM " + v, v)); $("variant").value = S.variant;
+  for (const v of S.meta.variants) $("variant").add(new Option(VL(v), v)); $("variant").value = S.variant;
   const c = S.meta.current; $("stamp").textContent = stampTxt(c); $("stamp").title = `Through game #${c.through_game}. Updated daily.`;
   $("from").onchange = () => { $("to").value = $("from").value; load(true); };          // one season unless "to" is widened by hand
   $("to").onchange = () => { if ($("to").value < $("from").value) $("from").value = $("to").value; load(true); };
@@ -385,11 +383,11 @@ async function init() {
   $("vgrid").innerHTML = vGrid();
   await load(true);
 }
-function syncChips() {               // shot / possession columns exist for versions 1/3 and 2/3 only
+function syncChips() {               // shot / possession columns exist for every version
   const tree = true;
   [...$("open").children].forEach(b => { const g = b.dataset.g, t = g !== "od";
     b.classList.toggle("on", S.open[g] && (!t || tree)); b.disabled = (t && !tree) || (g === "zn" && !S.open.sv);
-    b.title = t && !tree ? "Shot value and possession value are available for HAPM 1/3 and 2/3" : ""; });
+    b.title = ""; });
 }
 function toggle(g) { S.open[g] = !S.open[g]; if (g === "zn" && S.open.zn) S.open.sv = true; render(); }
 
@@ -431,7 +429,7 @@ function players() {                 // one row per player over the selected sea
 // value columns. lv: 1 Off / Def / SV / PV, 2 piece, 3 end, 4 zone. path = the header groups above the column, outermost first
 function valueCols(ox) {
   const tree = true, Z = S.open.zn;   // parts exist for every version
-  const H = { id:"h", label:"HAPM " + S.variant, tip:VTIP[S.variant] };
+  const H = { id:"h", label:VL(S.variant), tip:VTIP[S.variant] };
   const SVg = { id:"sv", label:"Shot value", tree:"sv" }, PVg = { id:"pv", label:"Possession value", tree:"pv" };
   const SEL = [H, SVg, { id:"sel", label:"Selection" }], CONV = [H, SVg, { id:"conv", label:"Conversion" }];
   const GEN = [H, PVg, { id:"gen", label:"Generation" }], RET = [H, PVg, { id:"ret", label:"Retention" }];
@@ -537,7 +535,7 @@ function render() {
   }
   $("rows").innerHTML = html;
   $("ttl").textContent = `NBA HAPM leaders, ${rangeTxt}`;
-  $("status").innerHTML = `${rangeTxt}${posTxt} \u00b7 HAPM ${S.variant} \u00b7 ${show.length} players with ${mp.toLocaleString()}+ possessions` +
+  $("status").innerHTML = `${rangeTxt}${posTxt} \u00b7 ${VL(S.variant)} \u00b7 ${show.length} players with ${mp.toLocaleString()}+ possessions` +
     (tm ? ` \u00b7 team line percentiles rank ${tm} among all teams` : "");
 }
 
@@ -551,7 +549,7 @@ function renderTeams(pool, vc, label) {   // team strength = possession-weighted
   if (!S.keepHead) header(cols);
   $("rows").innerHTML = rows.map(r => `<tr style="cursor:pointer" onclick="openTeam('${r.t}')" title="Show ${r.t}'s players">` + cols.map(c => c.v ? cell(c, r, Q) : `<td class="o ${c.l ? "l" : ""}${c.ps ? " ps" : ""}">${c.k === "p" ? Math.round(r.p).toLocaleString() : r[c.k]}</td>`).join("") + "</tr>").join("");
   $("ttl").textContent = `NBA HAPM by team, ${label}`;
-  $("status").innerHTML = `${label} \u00b7 HAPM ${S.variant} \u00b7 ${rows.length} teams \u00b7 possession-weighted average of each team's players \u00b7 click a team to see its players`;
+  $("status").innerHTML = `${label} \u00b7 ${VL(S.variant)} \u00b7 ${rows.length} teams \u00b7 possession-weighted average of each team's players \u00b7 click a team to see its players`;
 }
 
 // tree pop-up: stays while the pointer is on the title or on the pop-up itself; closes 300 ms after leaving both
