@@ -21,9 +21,9 @@
 <meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261122">
 <script>try{var m=localStorage.getItem('hapm_mode');if(m==='graphite'||(!m&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='graphite'}catch(e){}</script>
 <style>
-  :root { --rose:#B5577A; --rose-tint:#F7E4EA; --rose-line:#E8C3CF; --ink:#16181d; --mute:#5f636b; --line:#d9dbe0; --head:#f3f4f6; }
+  :root { --rose:#B5577A; --rose-tint:#F7E4EA; --rose-line:#E8C3CF; --ink:#16181d; --mute:#5f636b; --line:#D3D0C8; --head:#E2E0D9; --bg:#ECEAE4; --card:#F6F4EF; }
   * { box-sizing:border-box; }
-  body { margin:0; background:#fff; color:var(--ink); font:12.5px/1.35 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:12.5px/1.35 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
   a { color:var(--rose); }
   .top { display:flex; align-items:baseline; gap:12px; padding:10px 16px 8px; border-bottom:2px solid var(--ink); }
   .brand { font-size:20px; font-weight:800; color:var(--rose); text-decoration:none; } .sub { color:var(--mute); font-size:11px; }
@@ -32,9 +32,9 @@
   .ctl { display:grid; grid-template-columns:auto 1fr; gap:6px 12px; align-items:center; padding:8px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-bottom:10px; }
   .ctl > b { color:var(--mute); font-weight:600; font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; }
   .ctl > div { display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center; }
-  select, input { font:inherit; padding:3px 5px; border:1px solid #b9bcc3; background:#fff; color:var(--ink); } input#add { width:230px; }
+  select, input { font:inherit; padding:3px 5px; border:1px solid #b9bcc3; background:var(--card); color:var(--ink); } input#add { width:230px; }
   .seg { display:inline-flex; border:1px solid #b9bcc3; vertical-align:middle; }
-  .seg button { font:inherit; border:0; background:#fff; padding:3px 9px; cursor:pointer; color:var(--ink); }
+  .seg button { font:inherit; border:0; background:var(--card); padding:3px 9px; cursor:pointer; color:var(--ink); }
   .seg button + button { border-left:1px solid #b9bcc3; } .seg button.on { background:var(--rose); color:#fff; }
   .lnk { border:0; background:none; color:var(--rose); cursor:pointer; font:inherit; text-decoration:underline; padding:0; }
   .chip { display:inline-block; border:1px solid currentColor; padding:1px 7px; cursor:pointer; font-weight:600; }
@@ -46,7 +46,7 @@
   th, td { border:1px solid var(--line); padding:2px 8px; text-align:center; white-space:nowrap; }
   thead th { background:var(--head); font-size:12.5px; } th.pn { min-width:130px; } th select { font-size:11px; padding:1px 3px; max-width:150px; }
   td.k { text-align:left; } td.k.l2 { padding-left:18px; } td.k.l3 { padding-left:30px; color:var(--mute); }
-  tr.g td { background:#eceef1; font-weight:700; text-align:left; }
+  tr.g td { background:#E2E0D9; font-weight:700; text-align:left; }
   td.v { line-height:1.05; } td.v .x { display:block; font-weight:600; } td.v .p { display:block; font-size:10px; }
   .note { color:var(--mute); font-size:11px; margin:6px 0 0; max-width:560px; }
   .lg { font-size:11px; color:var(--mute); margin-top:4px; } .lg i { display:inline-block; width:14px; height:3px; vertical-align:middle; margin:0 4px 0 10px; }
@@ -55,7 +55,7 @@
   /* Two colour modes: light (default) and graphite; the switch sits at the right of the top bar and the choice is
      kept in this browser (localStorage hapm_mode); with no saved choice, a system set to dark mode opens in graphite. Graphite keeps the percentile cells as they are, with black numbers. */
   .cmode { margin-left:10px; font-size:11px; } .cmode button { padding:2px 8px; }
-  html[data-theme="graphite"] { color-scheme:dark; --rose:#F29BB9; --rose-tint:#4A2A38; --rose-line:#7A4A5E; --ink:#ECECEE; --mute:#A9AAB0; --line:#45464C; --head:#3A3B40; --zebra:#323338; }
+  html[data-theme="graphite"] { color-scheme:dark; --bg:#2A2B2F; --card:#34353A; --rose:#F29BB9; --rose-tint:#4A2A38; --rose-line:#7A4A5E; --ink:#ECECEE; --mute:#A9AAB0; --line:#45464C; --head:#3A3B40; --zebra:#323338; }
   html[data-theme="graphite"] .wt td.b { background:#2E4A36; color:#fff; }
   html[data-theme="graphite"] body { background:#2A2B2F; }
   html[data-theme="graphite"] :is(select, input, .seg button, .chips button) { background:#34353A; border-color:#55565C; }
@@ -126,7 +126,7 @@ const VL = v => (window.VLAB && window.VLAB[v]) || "HAPM " + v;   // version lab
 const S = { p:[], variant:"hapm", mode:"career", age:27, from:"", to:"", col:{}, rows:"sum", custom:null, color:"pct", cm:"net", x:"season", cache:{} };
 const $ = id => document.getElementById(id);
 const sg = x => x == null || isNaN(x) ? "" : (x > 0 ? "+" : x < 0 ? "\u2212" : "") + Math.abs(x).toFixed(2);
-const LO = [238, 172, 172], MID = [234, 235, 238], HI = [190, 228, 176];
+const LO = [238, 172, 172], MID = [231, 229, 223], HI = [190, 228, 176];
 const heat = p => { if (p == null) return ""; const t = Math.min(1, Math.abs(p - 50) / 50), e = p >= 50 ? HI : LO; return `rgb(${MID.map((m, i) => Math.round(m + (e[i] - m) * t)).join(",")})`; };
 const COL = ["#B5577A", "#2f6f9f", "#c08a1e", "#4b8a52"];
 const TK = ["sv", "sel", "selo", "seld", "conv", "convo", "convd", "pv", "gen", "oreb", "dtov", "ret", "otov", "dreb",
