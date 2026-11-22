@@ -19,7 +19,7 @@
 <meta name="twitter:title" content="NBA HAPM: Plus-Minus Ratings for Every Player, 1997-98 to 2026-27">
 <meta name="twitter:description" content="NBA HAPM (held-out adjusted plus-minus) for every player since 1997-98, with the 2026-27 season to date. Offense, defense, shot value and possession value by season or across seasons, with CSV downloads.">
 <meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261122">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "NBA HAPM (held-out adjusted plus-minus) season boards", "description": "Held-out adjusted plus-minus (HAPM) for every NBA player with 250+ possessions in a season, 1997-98 to 2026-27: HAPM, offense, defense, shot value and possession value, in two versions, HAPM (every season of his stints, newer ones counting more) and HAPM 1-year. Points per 100 possessions; 0 is the average rated player.", "url": "https://hapm.github.lumahoops.org/", "sameAs": "https://github.com/lumahoops/NBA/tree/main/hapm", "license": "https://creativecommons.org/licenses/by/4.0/", "isAccessibleForFree": true, "creator": {"@type": "Organization", "name": "LUMA Basketball Research", "url": "https://lumahoops.org"}, "copyrightHolder": {"@type": "Organization", "name": "Court Share LLC"}, "temporalCoverage": "1997/2027", "dateModified": "2026-11-22", "keywords": ["NBA", "basketball", "HAPM", "held-out adjusted plus-minus", "adjusted plus-minus", "RAPM", "player impact", "player ratings"], "variableMeasured": ["HAPM", "offense", "defense", "shot value", "possession value"], "distribution": [{"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://raw.githubusercontent.com/lumahoops/NBA/main/hapm/v1/hapm_season_boards.csv"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "NBA HAPM (held-out adjusted plus-minus) season boards", "description": "Held-out adjusted plus-minus (HAPM) for every NBA player with 250+ possessions in a season, 1997-98 to 2026-27: HAPM, offense, defense, shot value and possession value, in four versions: HAPM time decay (every season of his stints, newer ones counting more), HAPM 2-year, HAPM 1-year and Par (unshrunk). Points per 100 possessions; 0 is the average rated player.", "url": "https://hapm.github.lumahoops.org/", "sameAs": "https://github.com/lumahoops/NBA/tree/main/hapm", "license": "https://creativecommons.org/licenses/by/4.0/", "isAccessibleForFree": true, "creator": {"@type": "Organization", "name": "LUMA Basketball Research", "url": "https://lumahoops.org"}, "copyrightHolder": {"@type": "Organization", "name": "Court Share LLC"}, "temporalCoverage": "1997/2027", "dateModified": "2026-11-22", "keywords": ["NBA", "basketball", "HAPM", "held-out adjusted plus-minus", "adjusted plus-minus", "RAPM", "player impact", "player ratings"], "variableMeasured": ["HAPM", "offense", "defense", "shot value", "possession value"], "distribution": [{"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://raw.githubusercontent.com/lumahoops/NBA/main/hapm/v1/hapm_season_boards.csv"}]}</script>
 <script>try{var m=localStorage.getItem('hapm_mode');if(m==='graphite'||(!m&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='graphite'}catch(e){}</script>
 <style>
   :root { --rose:#B5577A; --rose-tint:#F7E4EA; --rose-line:#E8C3CF; --ink:#16181d; --mute:#5f636b; --line:#d9dbe0; --head:#f3f4f6; --zebra:#f7f7f8; }
@@ -230,14 +230,14 @@
       <tr><td class="ind">from his four teammates</td><td colspan="2">+1.3</td><td colspan="2">+13.0</td></tr>
       <tr><td class="ind">from the opponents and game context</td><td colspan="2">&minus;6.7</td><td colspan="2">&minus;6.6</td></tr>
       <tr class="bold"><td>Actual minus expected</td><td colspan="2">+16.4</td><td colspan="2">+4.9</td></tr>
-      <tr><td><span class="hp">HAPM</span> (percentile)</td><td colspan="2">+12.2 (100th)</td><td colspan="2">+2.8 (68th)</td></tr>
+      <tr><td><span class="hp">HAPM</span> time decay (percentile)</td><td colspan="2">+12.2 (100th)</td><td colspan="2">+2.8 (68th)</td></tr>
       <tr><td>RAPM 2-year (percentile)</td><td colspan="2">+6.9 (100th)</td><td colspan="2">+4.3 (94th)</td></tr>
     </table>
     <p class="lead" style="margin-top:6px">Caldwell-Pope's stints were expected at +6.4 because Joki&#263; was usually beside him (+13.0 from his teammates). Joki&#263;'s teammates added only +1.3, so his stints were expected at &minus;5.3. <span class="hp">HAPM</span> credits each player with the gap between those expectations and what happened. <span class="hp">HAPM</span> also uses his earlier seasons (newer ones counting more) and 2-year RAPM uses 2022-23; percentiles are among 2023-24 players with 1,500+ possessions.</p>
   </div>
   </div>
   <h3>Versions</h3>
-  <p class="lead"><span class="hp">HAPM</span> uses every season of the player's own stints, newer seasons counting more: a season's weight halves every 1.5 seasons. <span class="hp">HAPM</span> 1-year uses this season's stints only. Both rate the other nine with their three previous seasons.</p>
+  <p class="lead"><span class="hp">HAPM</span> time decay uses every season of the player's own stints, newer seasons counting more: a season's weight halves every 1.5 seasons. <span class="hp">HAPM</span> 2-year uses this season and last season, this season counting twice as much. <span class="hp">HAPM</span> 1-year uses this season only. All three are pulled toward a typical value for the player's playing time; during the season in progress, playing time is read at his full-season pace. Par is this season's actual minus expected margin with no pull, so it swings the most. Every version rates the other nine with their three previous seasons.</p>
   <div id="vgrid"></div>
 </details>
 <details class="how why"><summary><span class="ar">&#9656;</span> Why HAPM</summary>
@@ -247,7 +247,7 @@
     <p class="lead">A player's <span class="hp">HAPM</span> is what he adds to his stints, in points per 100 possessions. When a team's top player sits, the team loses about what his <span class="hp">HAPM</span> says.</p>
     <p class="lead">What the team actually lost, divided by what each metric forecast. 1 is the right size; above 1, the metric underrates the player.</p>
     <table class="wt">
-      <tr><th>Who sits</th><th>HAPM</th><th>RAPM 4-year</th><th>RAPM 2-year</th><th>RAPM 1-year</th></tr>
+      <tr><th>Who sits</th><th>HAPM time decay</th><th>RAPM 4-year</th><th>RAPM 2-year</th><th>RAPM 1-year</th></tr>
       <tr><td>Top player by possessions</td><td class="b">.91</td><td>1.85</td><td>2.30</td><td>3.67</td></tr>
       <tr><td>Second</td><td class="b">.87</td><td>1.73</td><td>2.03</td><td>3.78</td></tr>
       <tr><td>Third to fifth</td><td class="b">.97</td><td>1.95</td><td>2.31</td><td>3.78</td></tr>
@@ -259,7 +259,7 @@
     <h3>No teammate bias</h3>
     <p class="lead">A player's <span class="hp">HAPM</span> barely moves with the strength of his teammates.</p>
     <table class="wt">
-      <tr><th>How much a rating moves with</th><th>HAPM</th><th>RAPM 4-year</th><th>RAPM 2-year</th><th>RAPM 1-year</th></tr>
+      <tr><th>How much a rating moves with</th><th>HAPM time decay</th><th>RAPM 4-year</th><th>RAPM 2-year</th><th>RAPM 1-year</th></tr>
       <tr><td>The strength of his teammates</td><td>&minus;.03</td><td class="b">+.02</td><td>+.08</td><td>+.23</td></tr>
       <tr><td>The strength of the players who replace him</td><td>&minus;.03</td><td class="b">&minus;.01</td><td>&minus;.03</td><td>&minus;.10</td></tr>
     </table>
@@ -269,13 +269,13 @@
     <h3>Next season</h3>
     <p class="lead">How well one season's values predict the next season.</p>
     <table class="wt">
-      <tr><th>Next season</th><th>HAPM</th><th>RAPM 4-year</th><th>RAPM 1-year</th></tr>
+      <tr><th>Next season</th><th>HAPM time decay</th><th>RAPM 4-year</th><th>RAPM 1-year</th></tr>
       <tr><td>Game margins (R&sup2;)</td><td class="b">.167</td><td>.149</td><td>.129</td></tr>
       <tr><td>Team ranking (rank correlation)</td><td class="b">.773</td><td>.742</td><td>.692</td></tr>
       <tr><td>Five-man units (R&sup2;)</td><td class="b">.118</td><td>.116</td><td>.109</td></tr>
       <tr><td>Five-man units never seen together (R&sup2;)</td><td class="b">.105</td><td>.102</td><td>.095</td></tr>
     </table>
-    <p class="fn">4-year RAPM uses four seasons of each player; <span class="hp">HAPM</span> uses all of his seasons, newer ones counting more. Best value in each row in bold. Season pairs from 2013-14 to 2025-26.</p>
+    <p class="fn">4-year RAPM uses four seasons of each player; <span class="hp">HAPM</span> time decay uses all of his seasons, newer ones counting more. Best value in each row in bold. Season pairs from 2013-14 to 2025-26.</p>
   </div>
   </div>
 </details>
@@ -303,7 +303,7 @@
     <td class="t">Possession value</td><td>Generation (offensive rebounding, forced turnovers) and retention (turnovers avoided, defensive rebounding). Hover the ? next to its title for its tree.</td></tr>
 <tr><td class="t">Zones</td><td>Shot value by zone: rim, mid-range, three and free throws. Defensive conversion has two zones, rim and other, because the rest changes too much from year to year. Turn them on with the Zones button.</td>
     <td class="t">D Conv</td><td>Changes the most from year to year, because opponents' shooting luck is a large part of it.</td></tr>
-<tr><td class="t">Versions</td><td><span class="hp">HAPM</span> (every season, newer ones counting more) and <span class="hp">HAPM</span> 1-year (this season only), chosen in the Version menu and explained under "How <span class="hp">HAPM</span> works".</td>
+<tr><td class="t">Versions</td><td><span class="hp">HAPM</span> time decay (every season, newer ones counting more), 2-year, 1-year and Par (this season, no pull toward typical), chosen in the Version menu and explained under "How <span class="hp">HAPM</span> works".</td>
     <td class="t">Season ranges</td><td>Each player's values are averaged over the seasons selected, weighted by possessions.</td></tr>
 <tr><td class="t">YT</td><td>Young teammates. Half or more of his possessions came alongside players with fewer than three earlier seasons, and <span class="hp">HAPM</span> tends to run high for these players.</td>
     <td class="t">Team line</td><td>The last row when a team is picked. It averages the team's players, weighted by possessions; its percentiles rank it among all teams under the same filters. <span class="hp">HAPM</span> values do not add up to a team's margin.</td></tr>
@@ -325,8 +325,10 @@ const S = { meta:null, cache:{}, variant:"hapm", sort:"net", dir:-1, view:"p", o
 const $ = id => document.getElementById(id);
 const sg = x => x == null ? "" : (x > 0 ? "+" : x < 0 ? "\u2212" : "") + Math.abs(x).toFixed(2);
 const GRP = { G:["PG", "SG", "G"], W:["SF", "F"], B:["PF", "C", "F"] };     // ESPN lists some rookies only as G / F / C
-const VTIP = { "hapm":"HAPM uses every season of his own stints; a season's weight halves every 1.5 seasons. It is the default.",
-  "1y":"HAPM 1-year uses this season's stints only. It reacts fastest and varies most." };
+const VTIP = { "hapm":"HAPM time decay uses every season of his own stints; a season's weight halves every 1.5 seasons. It is the default.",
+  "2y":"HAPM 2-year uses this season and last season, this season counting twice as much.",
+  "1y":"HAPM 1-year uses this season's stints only.",
+  "par":"Par is this season's actual minus expected margin per 100, with no pull toward a typical value. It reacts fastest and swings the most." };
 const VL = v => (S.meta && S.meta.labels && S.meta.labels[v]) || "HAPM " + v;
 // data order (export): totals, then zones
 const TK = ["sv", "sel", "selo", "seld", "conv", "convo", "convd", "pv", "gen", "oreb", "dtov", "ret", "otov", "dreb",
@@ -344,8 +346,8 @@ const pvTree = () => `<div class="tr">${node("PV", "Possession value", "r")}<div
   kid(node("Gen", "Generation", "m"), node("O Reb", "Offensive rebounding"), node("D TOV", "Forced turnovers")) + '<span class="pl">+</span>' +
   kid(node("Ret", "Retention", "m"), node("O TOV", "Turnovers avoided"), node("D Reb", "Defensive rebounding")) + "</div></div>";
 const vGrid = () => `<table class="vg"><tr><th>Version</th><th>This season</th><th>1 before</th><th>2 before</th><th>3 before</th><th>4 before</th><th>5 before</th></tr>` +
-  [["HAPM", 6], ["HAPM 1-year", 1]].map(([n, a]) => `<tr><th>${n}</th>` + [0, 1, 2, 3, 4, 5].map(k => `<td class="${k < a ? "f" : ""}" style="${k < a ? `opacity:${Math.max(0.12, Math.pow(0.63, k)).toFixed(2)}` : ""}"></td>`).join("") + "</tr>").join("") + "</table>";
-const TREE = { sv: () => svTree(S.open.zn), pv: pvTree, ov: () => vGrid() + '<div class="eq">Seasons of his own stints used by each version. HAPM goes back to his first season; a season' + "'" + 's weight halves every 1.5 seasons.</div>' };
+  [["HAPM time decay", 6, 0.63], ["HAPM 2-year", 2, 0.5], ["HAPM 1-year", 1, 1], ["Par", 1, 1]].map(([n, a, d]) => `<tr><th>${n}</th>` + [0, 1, 2, 3, 4, 5].map(k => `<td class="${k < a ? "f" : ""}" style="${k < a ? `opacity:${Math.max(0.12, Math.pow(d, k)).toFixed(2)}` : ""}"></td>`).join("") + "</tr>").join("") + "</table>";
+const TREE = { sv: () => svTree(S.open.zn), pv: pvTree, ov: () => vGrid() + '<div class="eq">Seasons of his own stints used by each version. HAPM time decay goes back to his first season; a season' + "'" + 's weight halves every 1.5 seasons.</div>' };
 
 // ---- colors: red (low) -> gray (middle) -> green (high), by percentile; numbers stay black
 const LO = [238, 172, 172], MID = [234, 235, 238], HI = [190, 228, 176];
@@ -435,7 +437,7 @@ function valueCols(ox) {
   const SEL = [H, SVg, { id:"sel", label:"Selection" }], CONV = [H, SVg, { id:"conv", label:"Conversion" }];
   const GEN = [H, PVg, { id:"gen", label:"Generation" }], RET = [H, PVg, { id:"ret", label:"Retention" }];
   const cols = [
-    {k:"net",t:"HAPM",v:1,main:1,path:[H],h:"Points per 100 possessions above or below what the other nine were expected to produce with an average player in his place"},
+    {k:"net",t:S.variant === "par" ? "Par" : "HAPM",v:1,main:1,path:[H],h:"Points per 100 possessions above or below what the other nine were expected to produce with an average player in his place"},
   ];
   if (S.open.od) cols.push({k:"o",t:"Off",v:1,lv:1,nb:1,path:[H],h:"HAPM on offense"}, {k:"d",t:"Def",v:1,lv:1,nb:1,path:[H],h:"HAPM on defense"});
   const zones = (pre, keys, side, kind, path) => Z ? [...keys].map(z => ({k:`${pre}_${z}`, t:ZN[z], v:1, lv:4, path, h:`${side} ${kind} impact ${ZL[z]}`})) : [];

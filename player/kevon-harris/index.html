@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kevon Harris Plus-Minus and Impact by Season | NBA HAPM</title>
-<meta name="description" content="Kevon Harris plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2022-23. 2022-23: HAPM −0.39, offense −0.50, defense +0.12. Season-by-season shot value, possession value and teammates.">
+<meta name="description" content="Kevon Harris plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2022-23. 2022-23: HAPM time decay −0.39, offense −0.50, defense +0.12. Season-by-season shot value, possession value and teammates.">
 <link rel="canonical" href="https://hapm.github.lumahoops.org/player/kevon-harris/">
 <link rel="icon" type="image/svg+xml" href="https://hapm.github.lumahoops.org/favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LUMA Basketball Research">
 <meta property="og:title" content="Kevon Harris Plus-Minus and Impact by Season | NBA HAPM">
-<meta property="og:description" content="Kevon Harris plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2022-23. 2022-23: HAPM −0.39, offense −0.50, defense +0.12. Season-by-season shot value, possession value and teammates.">
+<meta property="og:description" content="Kevon Harris plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2022-23. 2022-23: HAPM time decay −0.39, offense −0.50, defense +0.12. Season-by-season shot value, possession value and teammates.">
 <meta property="og:url" content="https://hapm.github.lumahoops.org/player/kevon-harris/">
 <meta property="og:image" content="https://hapm.github.lumahoops.org/og.png?v=20261122">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kevon Harris Plus-Minus and Impact by Season | NBA HAPM">
-<meta name="twitter:description" content="Kevon Harris plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2022-23. 2022-23: HAPM −0.39, offense −0.50, defense +0.12. Season-by-season shot value, possession value and teammates.">
+<meta name="twitter:description" content="Kevon Harris plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2022-23. 2022-23: HAPM time decay −0.39, offense −0.50, defense +0.12. Season-by-season shot value, possession value and teammates.">
 <meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261122">
 <script>try{var m=localStorage.getItem('hapm_mode');if(m==='graphite'||(!m&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='graphite'}catch(e){}</script>
 <style>
@@ -153,8 +153,8 @@ function pct(r, k) { const p = r.q && r.q[S.variant]; if (!p) return null; const
 function careerTable(P) {
   const G = DET[S.detail], keys = G.flatMap(g => g[1]);
   const rows = P.seasons.slice().reverse();
-  let h = `<table><thead><tr class="g"><th colspan="2"></th>${G.map(g => `<th colspan="${g[1].length}">${g[0]}</th>`).join("")}<th class="sep"></th></tr>` +
-    `<tr><th class="l">Season</th><th class="l">Team</th>${keys.map(k => `<th>${LAB[k]}</th>`).join("")}<th class="ps sep">Poss</th></tr></thead><tbody>`;
+  let h = `<table><thead><tr class="g"><th colspan="2"></th>${G.map(g => `<th colspan="${g[1].length}">${g[0] === "HAPM" && S.variant === "par" ? "Par" : g[0]}</th>`).join("")}<th class="sep"></th></tr>` +
+    `<tr><th class="l">Season</th><th class="l">Team</th>${keys.map(k => `<th>${k === "net" && S.variant === "par" ? "Par" : LAB[k]}</th>`).join("")}<th class="ps sep">Poss</th></tr></thead><tbody>`;
   for (const r of rows) h += `<tr><td class="l">${r.s}</td><td class="l">${r.t}${r.f ? '<span class="yt" title="Young teammates. HAPM tends to run high for him.">YT</span>' : ""}</td>` +
     keys.map(k => { const x = val(r, k), p = pct(r, k); return `<td class="v${k === "net" ? " main" : ""}" style="background:${heat(p)}"><span class="x">${sg(x)}</span><span class="p">${p == null ? "" : p + "%"}</span></td>`; }).join("") +
     `<td class="ps sep">${r.p.toLocaleString()}</td></tr>`;

@@ -153,17 +153,21 @@
  ],
  "variants": [
   "hapm",
-  "1y"
+  "2y",
+  "1y",
+  "par"
  ],
  "labels": {
-  "hapm": "HAPM",
-  "1y": "HAPM 1-year"
+  "hapm": "HAPM time decay",
+  "2y": "HAPM 2-year",
+  "1y": "HAPM 1-year",
+  "par": "Par (raw)"
  },
  "default_variant": "hapm",
  "current": {
   "season": "2026-27",
   "through_game": 273,
   "games": 234,
-  "updated": "2026-11-22T01:48Z"
+  "updated": "2026-11-22T03:45Z"
  }
 }
