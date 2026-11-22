@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261122">
 <script>try{var m=localStorage.getItem('hapm_mode');if(m==='graphite'||(!m&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='graphite'}catch(e){}</script>
 <style>
-  :root { --rose:#B5577A; --rose-tint:#F7E4EA; --rose-line:#E8C3CF; --ink:#16181d; --mute:#5f636b; --line:#D3D0C8; --head:#E2E0D9; --zebra:#E5E3DD; --bg:#ECEAE4; --card:#F6F4EF; }
+  :root { --rose:#B5577A; --rose-tint:#F7E4EA; --rose-line:#E8C3CF; --ink:#16181d; --mute:#5f636b; --line:#d9dbe0; --head:#E9EAEC; --zebra:#EDEDEF; --bg:#F1F1F1; --card:#F9F9F9; }
   * { box-sizing:border-box; }
   body { margin:0; background:var(--bg); color:var(--ink); font:12.5px/1.35 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
   .top { display:flex; align-items:baseline; gap:12px; padding:10px 16px 8px; border-bottom:2px solid var(--ink); }
@@ -86,9 +86,9 @@
     color:var(--ink); font-weight:400; font-size:11.5px; line-height:1.4; text-align:left; }
   th .q { color:var(--rose); font-size:9.5px; vertical-align:super; margin-left:1px; }
   th .qt { display:inline-block; width:14px; height:14px; line-height:13px; border:1px solid var(--rose); border-radius:50%; font-size:9.5px; vertical-align:1px; margin-left:4px; cursor:help; }
-  thead th.g0 { background:#D6D3CB; font-size:12.5px; font-weight:800; }
-  thead th.g1 { background:#DDDAD3; font-size:12px; font-weight:700; border-left:2px solid #6f737b; }
-  thead th.g2 { background:#DEDCD5; font-size:11.5px; font-weight:600; border-left:1.5px solid #a9acb3; }
+  thead th.g0 { background:#e1e2e6; font-size:12.5px; font-weight:800; }
+  thead th.g1 { background:#e5e6e9; font-size:12px; font-weight:700; border-left:2px solid #6f737b; }
+  thead th.g2 { background:#e6e7ea; font-size:11.5px; font-weight:600; border-left:1.5px solid #a9acb3; }
   thead th.c { background:var(--head); font-weight:600; font-size:11.5px; cursor:pointer; user-select:none; }
   thead th.c.on { background:var(--rose-tint); color:var(--rose); }
   thead th.fold { cursor:pointer; } thead th.fold:hover { background:#d9dbe0; }
@@ -349,7 +349,7 @@ const vGrid = () => `<table class="vg"><tr><th>Version</th><th>This season</th><
 const TREE = { sv: () => svTree(S.open.zn), pv: pvTree, ov: () => vGrid() + '<div class="eq">Seasons of his own stints used by each version. HAPM time decay goes back to his first season; a season' + "'" + 's weight halves every 1.5 seasons.</div>' };
 
 // ---- colors: red (low) -> gray (middle) -> green (high), by percentile; numbers stay black
-const LO = [238, 172, 172], MID = [231, 229, 223], HI = [190, 228, 176];
+const LO = [238, 172, 172], MID = [234, 235, 238], HI = [190, 228, 176];
 function heat(p) { if (p == null) return ""; const t = Math.min(1, Math.abs(p - 50) / 50), e = p >= 50 ? HI : LO;
   return `rgb(${MID.map((m, i) => Math.round(m + (e[i] - m) * t)).join(",")})`; }
 function pctOf(sorted, x) { if (x == null || !sorted || !sorted.length) return null; let lo = 0, hi = sorted.length;

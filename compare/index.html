@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261122">
 <script>try{var m=localStorage.getItem('hapm_mode');if(m==='graphite'||(!m&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='graphite'}catch(e){}</script>
 <style>
-  :root { --rose:#B5577A; --rose-tint:#F7E4EA; --rose-line:#E8C3CF; --ink:#16181d; --mute:#5f636b; --line:#D3D0C8; --head:#E2E0D9; --bg:#ECEAE4; --card:#F6F4EF; }
+  :root { --rose:#B5577A; --rose-tint:#F7E4EA; --rose-line:#E8C3CF; --ink:#16181d; --mute:#5f636b; --line:#d9dbe0; --head:#E9EAEC; --bg:#F1F1F1; --card:#F9F9F9; }
   * { box-sizing:border-box; }
   body { margin:0; background:var(--bg); color:var(--ink); font:12.5px/1.35 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
   a { color:var(--rose); }
@@ -46,7 +46,7 @@
   th, td { border:1px solid var(--line); padding:2px 8px; text-align:center; white-space:nowrap; }
   thead th { background:var(--head); font-size:12.5px; } th.pn { min-width:130px; } th select { font-size:11px; padding:1px 3px; max-width:150px; }
   td.k { text-align:left; } td.k.l2 { padding-left:18px; } td.k.l3 { padding-left:30px; color:var(--mute); }
-  tr.g td { background:#E2E0D9; font-weight:700; text-align:left; }
+  tr.g td { background:#E9EAEC; font-weight:700; text-align:left; }
   td.v { line-height:1.05; } td.v .x { display:block; font-weight:600; } td.v .p { display:block; font-size:10px; }
   .note { color:var(--mute); font-size:11px; margin:6px 0 0; max-width:560px; }
   .lg { font-size:11px; color:var(--mute); margin-top:4px; } .lg i { display:inline-block; width:14px; height:3px; vertical-align:middle; margin:0 4px 0 10px; }
@@ -126,7 +126,7 @@ const VL = v => (window.VLAB && window.VLAB[v]) || "HAPM " + v;   // version lab
 const S = { p:[], variant:"hapm", mode:"career", age:27, from:"", to:"", col:{}, rows:"sum", custom:null, color:"pct", cm:"net", x:"season", cache:{} };
 const $ = id => document.getElementById(id);
 const sg = x => x == null || isNaN(x) ? "" : (x > 0 ? "+" : x < 0 ? "\u2212" : "") + Math.abs(x).toFixed(2);
-const LO = [238, 172, 172], MID = [231, 229, 223], HI = [190, 228, 176];
+const LO = [238, 172, 172], MID = [234, 235, 238], HI = [190, 228, 176];
 const heat = p => { if (p == null) return ""; const t = Math.min(1, Math.abs(p - 50) / 50), e = p >= 50 ? HI : LO; return `rgb(${MID.map((m, i) => Math.round(m + (e[i] - m) * t)).join(",")})`; };
 const COL = ["#B5577A", "#2f6f9f", "#c08a1e", "#4b8a52"];
 const TK = ["sv", "sel", "selo", "seld", "conv", "convo", "convd", "pv", "gen", "oreb", "dtov", "ret", "otov", "dreb",
