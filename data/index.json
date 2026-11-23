@@ -147,7 +147,7 @@
   },
   {
    "season": "2026-27",
-   "players": 312,
+   "players": 317,
    "qualified_poss": 400
   }
  ],
@@ -166,8 +166,8 @@
  "default_variant": "hapm",
  "current": {
   "season": "2026-27",
-  "through_game": 279,
-  "games": 240,
-  "updated": "2026-11-22T08:11Z"
+  "through_game": 286,
+  "games": 247,
+  "updated": "2026-11-23T08:15Z"
  }
 }
