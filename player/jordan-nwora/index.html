@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jordan Nwora Plus-Minus and Impact by Season | NBA HAPM</title>
-<meta name="description" content="Jordan Nwora plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2020-21 to 2023-24. 2023-24: HAPM time decay −6.84, offense −3.07, defense −3.77. Season-by-season shot value, possession value and teammates.">
+<meta name="description" content="Jordan Nwora plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2020-21 to 2023-24. 2023-24: HAPM 1-year −5.19, offense −3.37, defense −1.83. Season-by-season shot value, possession value and teammates.">
 <link rel="canonical" href="https://hapm.github.lumahoops.org/player/jordan-nwora/">
 <link rel="icon" type="image/svg+xml" href="https://hapm.github.lumahoops.org/favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LUMA Basketball Research">
 <meta property="og:title" content="Jordan Nwora Plus-Minus and Impact by Season | NBA HAPM">
-<meta property="og:description" content="Jordan Nwora plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2020-21 to 2023-24. 2023-24: HAPM time decay −6.84, offense −3.07, defense −3.77. Season-by-season shot value, possession value and teammates.">
+<meta property="og:description" content="Jordan Nwora plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2020-21 to 2023-24. 2023-24: HAPM 1-year −5.19, offense −3.37, defense −1.83. Season-by-season shot value, possession value and teammates.">
 <meta property="og:url" content="https://hapm.github.lumahoops.org/player/jordan-nwora/">
 <meta property="og:image" content="https://hapm.github.lumahoops.org/og.png?v=20261124">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Jordan Nwora Plus-Minus and Impact by Season | NBA HAPM">
-<meta name="twitter:description" content="Jordan Nwora plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2020-21 to 2023-24. 2023-24: HAPM time decay −6.84, offense −3.07, defense −3.77. Season-by-season shot value, possession value and teammates.">
+<meta name="twitter:description" content="Jordan Nwora plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 2020-21 to 2023-24. 2023-24: HAPM 1-year −5.19, offense −3.37, defense −1.83. Season-by-season shot value, possession value and teammates.">
 <meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261124">
 <script>try{var m=localStorage.getItem('hapm_mode');if(m==='graphite'||(!m&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='graphite'}catch(e){}</script>
 <style>
@@ -113,7 +113,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2023-24/">2023-24</a></td><td>TOR/IND</td><td>−6.84</td><td>−3.07</td><td>−3.77</td><td class="ps sep">1,474</td></tr><tr><td><a href="../../2022-23/">2022-23</a></td><td>IND/MIL</td><td>−4.57</td><td>−1.23</td><td>−3.35</td><td class="ps sep">2,460</td></tr><tr><td><a href="../../2021-22/">2021-22</a></td><td>MIL</td><td>−1.82</td><td>+0.44</td><td>−2.26</td><td class="ps sep">2,434</td></tr><tr><td><a href="../../2020-21/">2020-21</a></td><td>MIL</td><td>−2.24</td><td>−1.70</td><td>−0.54</td><td class="ps sep">511</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2023-24/">2023-24</a></td><td>TOR/IND</td><td>−5.19</td><td>−3.37</td><td>−1.83</td><td class="ps sep">1,474</td></tr><tr><td><a href="../../2022-23/">2022-23</a></td><td>IND/MIL</td><td>−4.30</td><td>−1.69</td><td>−2.61</td><td class="ps sep">2,460</td></tr><tr><td><a href="../../2021-22/">2021-22</a></td><td>MIL</td><td>−2.38</td><td>+0.24</td><td>−2.62</td><td class="ps sep">2,434</td></tr><tr><td><a href="../../2020-21/">2020-21</a></td><td>MIL</td><td>−2.24</td><td>−1.70</td><td>−0.54</td><td class="ps sep">511</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -226,7 +226,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
-<div class="plinks">Teammates in 2023-24: <a href="../../player/gradey-dick/">Gradey Dick</a>, <a href="../../player/jalen-mcdaniels/">Jalen McDaniels</a>, <a href="../../player/bruce-brown/">Bruce Brown</a>, <a href="../../player/javon-freeman-liberty/">Javon Freeman-Liberty</a>, <a href="../../player/garrett-temple/">Garrett Temple</a>, <a href="../../player/jontay-porter/">Jontay Porter</a>, <a href="../../player/t-j-mcconnell/">T.J. McConnell</a>, <a href="../../player/gary-trent-jr/">Gary Trent Jr.</a>, <a href="../../player/kelly-olynyk/">Kelly Olynyk</a>, <a href="../../player/immanuel-quickley/">Immanuel Quickley</a>, <a href="../../player/ben-sheppard/">Ben Sheppard</a>, <a href="../../player/ochai-agbaji/">Ochai Agbaji</a> &middot; Seasons: <a href="../../2020-21/">2020-21</a> <a href="../../2021-22/">2021-22</a> <a href="../../2022-23/">2022-23</a> <a href="../../2023-24/">2023-24</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
+<div class="plinks">Teammates in 2023-24: <a href="../../player/gradey-dick/">Gradey Dick</a>, <a href="../../player/jalen-mcdaniels/">Jalen McDaniels</a>, <a href="../../player/bruce-brown/">Bruce Brown</a>, <a href="../../player/javon-freeman-liberty/">Javon Freeman-Liberty</a>, <a href="../../player/garrett-temple/">Garrett Temple</a>, <a href="../../player/jontay-porter/">Jontay Porter</a>, <a href="../../player/t-j-mcconnell/">T.J. McConnell</a>, <a href="../../player/mouhamadou-gueye/">Mouhamadou Gueye</a>, <a href="../../player/gary-trent-jr/">Gary Trent Jr.</a>, <a href="../../player/kelly-olynyk/">Kelly Olynyk</a>, <a href="../../player/immanuel-quickley/">Immanuel Quickley</a>, <a href="../../player/ben-sheppard/">Ben Sheppard</a> &middot; Seasons: <a href="../../2020-21/">2020-21</a> <a href="../../2021-22/">2021-22</a> <a href="../../2022-23/">2022-23</a> <a href="../../2023-24/">2023-24</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 <script defer src="/site.js"></script>
 <script>(function(){var d=document.documentElement,s=document.getElementById('cmode');if(!s)return;

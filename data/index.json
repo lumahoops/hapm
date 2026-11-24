@@ -2,153 +2,183 @@
  "seasons": [
   {
    "season": "1997-98",
-   "players": 379,
-   "qualified_poss": 1500
+   "players": 397,
+   "qualified_poss": 1500,
+   "team_poss": 7246
   },
   {
    "season": "1998-99",
-   "players": 358,
-   "qualified_poss": 1500
+   "players": 379,
+   "qualified_poss": 1500,
+   "team_poss": 4394
   },
   {
    "season": "1999-00",
-   "players": 392,
-   "qualified_poss": 1500
+   "players": 406,
+   "qualified_poss": 1500,
+   "team_poss": 7548
   },
   {
    "season": "2000-01",
-   "players": 387,
-   "qualified_poss": 1500
+   "players": 407,
+   "qualified_poss": 1500,
+   "team_poss": 7419
   },
   {
    "season": "2001-02",
-   "players": 390,
-   "qualified_poss": 1500
+   "players": 413,
+   "qualified_poss": 1500,
+   "team_poss": 7355
   },
   {
    "season": "2002-03",
-   "players": 370,
-   "qualified_poss": 1500
+   "players": 401,
+   "qualified_poss": 1500,
+   "team_poss": 7350
   },
   {
    "season": "2003-04",
-   "players": 383,
-   "qualified_poss": 1500
+   "players": 401,
+   "qualified_poss": 1500,
+   "team_poss": 7254
   },
   {
    "season": "2004-05",
-   "players": 406,
-   "qualified_poss": 1500
+   "players": 430,
+   "qualified_poss": 1500,
+   "team_poss": 7393
   },
   {
    "season": "2005-06",
-   "players": 410,
-   "qualified_poss": 1500
+   "players": 428,
+   "qualified_poss": 1500,
+   "team_poss": 7305
   },
   {
    "season": "2006-07",
-   "players": 403,
-   "qualified_poss": 1500
+   "players": 430,
+   "qualified_poss": 1500,
+   "team_poss": 7401
   },
   {
    "season": "2007-08",
-   "players": 405,
-   "qualified_poss": 1500
+   "players": 422,
+   "qualified_poss": 1500,
+   "team_poss": 7447
   },
   {
    "season": "2008-09",
-   "players": 394,
-   "qualified_poss": 1500
+   "players": 411,
+   "qualified_poss": 1500,
+   "team_poss": 7403
   },
   {
    "season": "2009-10",
-   "players": 396,
-   "qualified_poss": 1500
+   "players": 416,
+   "qualified_poss": 1500,
+   "team_poss": 7478
   },
   {
    "season": "2010-11",
-   "players": 407,
-   "qualified_poss": 1500
+   "players": 427,
+   "qualified_poss": 1500,
+   "team_poss": 7452
   },
   {
    "season": "2011-12",
-   "players": 419,
-   "qualified_poss": 1500
+   "players": 450,
+   "qualified_poss": 1500,
+   "team_poss": 5918
   },
   {
    "season": "2012-13",
-   "players": 420,
-   "qualified_poss": 1500
+   "players": 435,
+   "qualified_poss": 1500,
+   "team_poss": 7446
   },
   {
    "season": "2013-14",
-   "players": 427,
-   "qualified_poss": 1500
+   "players": 445,
+   "qualified_poss": 1500,
+   "team_poss": 7621
   },
   {
    "season": "2014-15",
-   "players": 435,
-   "qualified_poss": 1500
+   "players": 463,
+   "qualified_poss": 1500,
+   "team_poss": 7589
   },
   {
    "season": "2015-16",
-   "players": 428,
-   "qualified_poss": 1500
+   "players": 442,
+   "qualified_poss": 1500,
+   "team_poss": 7817
   },
   {
    "season": "2016-17",
-   "players": 427,
-   "qualified_poss": 1500
+   "players": 451,
+   "qualified_poss": 1500,
+   "team_poss": 7926
   },
   {
    "season": "2017-18",
-   "players": 446,
-   "qualified_poss": 1500
+   "players": 478,
+   "qualified_poss": 1500,
+   "team_poss": 7966
   },
   {
    "season": "2018-19",
-   "players": 452,
-   "qualified_poss": 1500
+   "players": 477,
+   "qualified_poss": 1500,
+   "team_poss": 8065
   },
   {
    "season": "2019-20",
-   "players": 439,
-   "qualified_poss": 1500
+   "players": 465,
+   "qualified_poss": 1500,
+   "team_poss": 7055
   },
   {
    "season": "2020-21",
-   "players": 463,
-   "qualified_poss": 1500
+   "players": 496,
+   "qualified_poss": 1500,
+   "team_poss": 6972
   },
   {
    "season": "2021-22",
-   "players": 484,
-   "qualified_poss": 1500
+   "players": 516,
+   "qualified_poss": 1500,
+   "team_poss": 7956
   },
   {
    "season": "2022-23",
-   "players": 460,
-   "qualified_poss": 1500
+   "players": 489,
+   "qualified_poss": 1500,
+   "team_poss": 8037
   },
   {
    "season": "2023-24",
-   "players": 462,
-   "qualified_poss": 1500
+   "players": 508,
+   "qualified_poss": 1500,
+   "team_poss": 7983
   },
   {
    "season": "2024-25",
-   "players": 484,
-   "qualified_poss": 1500
+   "players": 516,
+   "qualified_poss": 1500,
+   "team_poss": 8001
   },
   {
    "season": "2025-26",
-   "players": 494,
-   "qualified_poss": 1500
+   "players": 528,
+   "qualified_poss": 1500,
+   "team_poss": 7998
   },
   {
    "season": "2026-27",
-   "players": 321,
-   "qualified_poss": 400
+   "players": 377,
+   "qualified_poss": 400,
+   "team_poss": 1655
   }
  ],
  "variants": [
@@ -163,11 +193,12 @@
   "1y": "HAPM 1-year",
   "par": "Par (raw)"
  },
- "default_variant": "hapm",
+ "default_variant": "1y",
+ "default_share": 30,
  "current": {
   "season": "2026-27",
   "through_game": 296,
   "games": 257,
-  "updated": "2026-11-24T08:16Z"
+  "updated": "2026-11-24T08:29Z"
  }
 }

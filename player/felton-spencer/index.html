@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Felton Spencer Plus-Minus and Impact by Season | NBA HAPM</title>
-<meta name="description" content="Felton Spencer plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 1997-98 to 2001-02. 2001-02: HAPM time decay −3.48, offense −3.49, defense +0.01. Season-by-season shot value, possession value and teammates.">
+<meta name="description" content="Felton Spencer plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 1997-98 to 2001-02. 2001-02: HAPM 1-year −3.81, offense −3.23, defense −0.58. Season-by-season shot value, possession value and teammates.">
 <link rel="canonical" href="https://hapm.github.lumahoops.org/player/felton-spencer/">
 <link rel="icon" type="image/svg+xml" href="https://hapm.github.lumahoops.org/favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LUMA Basketball Research">
 <meta property="og:title" content="Felton Spencer Plus-Minus and Impact by Season | NBA HAPM">
-<meta property="og:description" content="Felton Spencer plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 1997-98 to 2001-02. 2001-02: HAPM time decay −3.48, offense −3.49, defense +0.01. Season-by-season shot value, possession value and teammates.">
+<meta property="og:description" content="Felton Spencer plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 1997-98 to 2001-02. 2001-02: HAPM 1-year −3.81, offense −3.23, defense −0.58. Season-by-season shot value, possession value and teammates.">
 <meta property="og:url" content="https://hapm.github.lumahoops.org/player/felton-spencer/">
 <meta property="og:image" content="https://hapm.github.lumahoops.org/og.png?v=20261124">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Felton Spencer Plus-Minus and Impact by Season | NBA HAPM">
-<meta name="twitter:description" content="Felton Spencer plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 1997-98 to 2001-02. 2001-02: HAPM time decay −3.48, offense −3.49, defense +0.01. Season-by-season shot value, possession value and teammates.">
+<meta name="twitter:description" content="Felton Spencer plus-minus and impact: NBA HAPM (held-out adjusted plus-minus), 1997-98 to 2001-02. 2001-02: HAPM 1-year −3.81, offense −3.23, defense −0.58. Season-by-season shot value, possession value and teammates.">
 <meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261124">
 <script>try{var m=localStorage.getItem('hapm_mode');if(m==='graphite'||(!m&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='graphite'}catch(e){}</script>
 <style>
@@ -113,7 +113,7 @@
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
-  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2001-02/">2001-02</a></td><td>NYK</td><td>−3.48</td><td>−3.49</td><td>+0.01</td><td class="ps sep">474</td></tr><tr><td><a href="../../1999-00/">1999-00</a></td><td>SAS</td><td>−4.45</td><td>−4.45</td><td>0.00</td><td class="ps sep">282</td></tr><tr><td><a href="../../1998-99/">1998-99</a></td><td>GSW</td><td>−4.36</td><td>−4.84</td><td>+0.48</td><td class="ps sep">316</td></tr><tr><td><a href="../../1997-98/">1997-98</a></td><td>GSW</td><td>−3.17</td><td>−3.98</td><td>+0.81</td><td class="ps sep">1,493</td></tr></tbody></table></div></div>
+  <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2001-02/">2001-02</a></td><td>NYK</td><td>−3.81</td><td>−3.23</td><td>−0.58</td><td class="ps sep">474</td></tr><tr><td><a href="../../2000-01/">2000-01</a></td><td>NYK</td><td>−4.48</td><td>−2.59</td><td>−1.89</td><td class="ps sep">203</td></tr><tr><td><a href="../../1999-00/">1999-00</a></td><td>SAS</td><td>−4.51</td><td>−3.31</td><td>−1.20</td><td class="ps sep">282</td></tr><tr><td><a href="../../1998-99/">1998-99</a></td><td>GSW</td><td>−3.90</td><td>−3.57</td><td>−0.33</td><td class="ps sep">316</td></tr><tr><td><a href="../../1997-98/">1997-98</a></td><td>GSW</td><td>−3.17</td><td>−3.98</td><td>+0.81</td><td class="ps sep">1,493</td></tr></tbody></table></div></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -226,7 +226,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
-<div class="plinks">Teammates in 2001-02: <a href="../../player/latrell-sprewell/">Latrell Sprewell</a>, <a href="../../player/allan-houston/">Allan Houston</a>, <a href="../../player/mark-jackson/">Mark Jackson</a>, <a href="../../player/kurt-thomas/">Kurt Thomas</a>, <a href="../../player/shandon-anderson/">Shandon Anderson</a>, <a href="../../player/charlie-ward/">Charlie Ward</a> &middot; Seasons: <a href="../../1997-98/">1997-98</a> <a href="../../1998-99/">1998-99</a> <a href="../../1999-00/">1999-00</a> <a href="../../2001-02/">2001-02</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
+<div class="plinks">Teammates in 2001-02: <a href="../../player/latrell-sprewell/">Latrell Sprewell</a>, <a href="../../player/allan-houston/">Allan Houston</a>, <a href="../../player/mark-jackson/">Mark Jackson</a>, <a href="../../player/kurt-thomas/">Kurt Thomas</a>, <a href="../../player/shandon-anderson/">Shandon Anderson</a>, <a href="../../player/charlie-ward/">Charlie Ward</a> &middot; Seasons: <a href="../../1997-98/">1997-98</a> <a href="../../1998-99/">1998-99</a> <a href="../../1999-00/">1999-00</a> <a href="../../2000-01/">2000-01</a> <a href="../../2001-02/">2001-02</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 <script defer src="/site.js"></script>
 <script>(function(){var d=document.documentElement,s=document.getElementById('cmode');if(!s)return;
