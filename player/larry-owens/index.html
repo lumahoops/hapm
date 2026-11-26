@@ -59,6 +59,89 @@
   th.sep, td.sep { border-left:2px solid #8a8d94; } .mt td { padding:2px 6px; } .mt .n0 { color:var(--mute); }
   .plinks { max-width:1180px; margin:18px auto 10px; padding:0 16px; font-size:11.5px; line-height:1.8; color:#8a8f98; } .plinks a { color:#B5577A; margin-right:4px; }
 
+  /* Games tab (games.js) */
+  .gspan { display:flex; flex-wrap:wrap; align-items:center; gap:6px 14px; margin:2px 0 8px; } .gspan label { color:var(--mute); }
+  .gsum { font-size:13px; } .gsum b.big, .gsel b, .gsum2 b[style] { padding:1px 5px; border-radius:3px; }
+  .gchartbox { position:relative; background:var(--card); border:1px solid var(--line); border-radius:6px; padding:6px 8px 2px; margin:0 0 8px; }
+  .gview { display:flex; flex-wrap:wrap; align-items:center; gap:6px 16px; } .gleg { color:var(--mute); font-size:11px; display:flex; align-items:center; gap:6px; }
+  .gleg .lg-line { width:18px; height:3px; border-radius:2px; background:#B5577A; display:inline-block; } .gleg .lg-dot { width:5px; height:5px; border-radius:50%; display:inline-block; margin-left:12px; background:#B5577A; opacity:.4; }
+  .gchart { width:100%; user-select:none; }
+  .gsvg { display:block; } .gsvg .gt { font-size:10px; fill:var(--mute); } .gsvg .gl0 { stroke:var(--line); stroke-opacity:.7; } .gsvg .gz { stroke:#8a8d94; stroke-opacity:.8; }
+  .gsvg .gband { fill:#B5577A; fill-opacity:.13; } html[data-theme="graphite"] .gsvg .gband { fill:#F29BB9; fill-opacity:.16; }
+  .gsvg .gsq { fill:var(--card); stroke:#B5577A; stroke-width:1.6; } html[data-theme="graphite"] .gsvg .gsq { stroke:#F29BB9; }
+  .gleg .ghow { flex-basis:100%; color:var(--mute); font-size:11px; margin-top:2px; } .gleg { flex-wrap:wrap; flex:1; }
+  .gsvg .gdiv { stroke:var(--mute); stroke-dasharray:2 4; stroke-opacity:.6; }
+  .gsvg .gline { fill:none; stroke:#B5577A; stroke-width:2.4; stroke-linejoin:round; stroke-linecap:round; }
+  .gsvg .gdot { stroke:none; transition:opacity .15s; fill-opacity:.55; } .gsvg .gdot.gg { fill-opacity:.7; } .gsvg .gdot { fill:#B5577A; fill-opacity:.28; } .gsvg .ghd { fill:none; stroke:var(--ink); stroke-width:1.5; }  .gsvg .gdot.sel { stroke:var(--ink); stroke-width:1.5; opacity:1; }
+  .gsvg .gend { fill:#B5577A; stroke:var(--card); stroke-width:2; } .gsvg .gendt { font-size:11px; font-weight:700; fill:#B5577A; }
+  .gsvg .gguide { stroke:var(--mute); stroke-opacity:.5; } .gsvg .ghl { fill:none; stroke:#B5577A; stroke-width:2; }
+  .gsvg .gbrush { fill:#2f6f9f; opacity:.12; } .gsvg .gflow { fill:none; stroke:var(--mute); stroke-width:1.4; } .gsvg .gbar { stroke:none; }
+  .gtip { position:absolute; z-index:6; pointer-events:none; background:var(--card); border:1px solid var(--line); border-radius:6px; box-shadow:0 6px 18px rgba(0,0,0,.14); padding:7px 9px; font-size:12px; min-width:210px; }
+  .gtip .tt-h { font-weight:700; margin-bottom:2px; } .gtip .tt-g { display:grid; grid-template-columns:auto auto; gap:1px 12px; margin-top:4px; } .gtip .tt-g span { color:var(--mute); } .gtip .tt-g b { text-align:right; }
+  .gtip .w { color:#3d7a45; } .gtip .lo { color:#b04a4a; }
+  .gmonths { display:flex; align-items:center; gap:8px; margin:0 0 6px; } .gmonths label { color:var(--mute); }
+  .chips button { font:inherit; font-size:12px; border:1px solid var(--line); background:var(--card); color:var(--ink); padding:2px 9px; border-radius:12px; margin-right:4px; cursor:pointer; }
+  .chips button.on, html[data-theme="graphite"] .chips button.on { background:#B5577A; border-color:#B5577A; color:#fff; }
+  .gtools { display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; padding:6px 0; border-top:1px solid var(--line); }
+  .gtools label { color:var(--mute); } #gq { width:min(380px, 100%); }
+  .gcols { position:relative; } .gcols summary { list-style:none; cursor:pointer; } .gcols summary::-webkit-details-marker { display:none; }
+  .gcols > div { position:absolute; z-index:5; top:28px; left:0; background:var(--card); border:1px solid var(--line); padding:8px 10px; display:grid; grid-template-columns:repeat(3, auto); gap:3px 14px; white-space:nowrap; box-shadow:0 4px 14px rgba(0,0,0,.12); }
+  .gsel { display:flex; flex-wrap:wrap; gap:4px 16px; align-items:baseline; padding:6px 8px; background:var(--card); border:1px solid var(--line); border-radius:6px; margin:2px 0 6px; font-size:12px; }
+  .gsel { gap:6px 22px !important; font-size:13px !important; } .gsel .lab { font-weight:700; } .gsel .grp i { font-style:normal; color:var(--mute); margin-left:6px; } .gsel .grp i:first-child { margin-left:0; }
+  .gsel .tags { margin-left:auto; display:flex; gap:4px; flex-wrap:wrap; } .gsel .tag { font:inherit; font-size:12px; border:1px solid var(--rose-line); background:var(--rose-tint); color:var(--ink); padding:1px 7px; cursor:pointer; }
+  .gwrap { overflow-x:auto; } table.gl { width:100%; } .gl th { cursor:pointer; white-space:nowrap; } .gl th.srt { color:var(--rose); }
+  .gl td { padding:3px 7px; white-space:nowrap; } .gl tbody tr[data-g] { cursor:pointer; } .gl tbody tr[data-g]:hover td { box-shadow:inset 0 0 0 9999px rgba(127,127,127,.08); }
+  .gl tr.open td { border-top:2px solid var(--rose); } .gl tr.n0 td { color:var(--mute); } .gl .yr { color:var(--mute); font-size:10px; }
+  .gl tr.gsrow td { background:var(--head); font-weight:600; padding:4px 7px; border-top:2px solid var(--line); } .gl tr.gsrow td.v .x { font-size:13px; }
+  .gl td.w { color:#3d7a45; font-weight:600; } .gl td.lo { color:#b04a4a; font-weight:600; } .gmore { margin:8px 0; }
+  html[data-theme="graphite"] :is(.gl td.w, .gtip .w) { color:#86C78E; } html[data-theme="graphite"] :is(.gl td.lo, .gtip .lo) { color:#E79090; }
+  html[data-theme="graphite"] .gsvg .gline, html[data-theme="graphite"] .gsvg .ghl { stroke:#F29BB9; } html[data-theme="graphite"] .gsvg .gend { fill:#F29BB9; } html[data-theme="graphite"] .gsvg .gdot { fill:#F29BB9; fill-opacity:.38; } html[data-theme="graphite"] .gsvg .gendt { fill:#F29BB9; }
+  html[data-theme="graphite"] .gleg :is(.lg-line, .lg-dot) { background:#F29BB9; }
+  tr.gdet > td { padding:0 !important; background:var(--bg); } .gbox { text-align:left; padding:10px 12px 12px; border:1px solid var(--rose-line); border-top:0; white-space:normal; }
+  html[data-theme="graphite"] b[style*="background:rgb"] { color:#16181d; }
+  .ghd { margin-bottom:4px; } .gsum2 { font-size:12px; margin:2px 0 6px; } .gtl { width:100%; margin-bottom:6px; }
+  table.gst td { padding:2px 7px; } table.gst th { cursor:pointer; } table.gst td.l { white-space:normal; }
+  details.gq { margin-top:10px; } details.gq summary { cursor:pointer; } details.gq ul { margin:4px 0; padding-left:18px; } details.gq li { margin:2px 0; }
+  /* Stints tab (games.js) */
+  #sq { width:min(460px, 100%); } .sfil input[type=number] { width:58px; } .sfil { margin-bottom:6px; }
+  .sgrid { display:grid; grid-template-columns:300px minmax(0, 1fr); gap:12px; align-items:start; }
+  @media (max-width: 900px) { .sgrid { grid-template-columns:1fr; } }
+  .srail { background:var(--card); border:1px solid var(--line); padding:8px; max-height:760px; overflow:auto; }
+  .srail input { width:100%; box-sizing:border-box; margin:4px 0 6px; } .srh { font-weight:700; margin:4px 0 0; } .srh .note { display:block; font-weight:400; }
+  .srow { display:flex; align-items:center; justify-content:space-between; gap:6px; padding:3px 0; border-bottom:1px solid var(--line); } .srow.act .sn { font-weight:700; }
+  .sn { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } .sn i { font-style:normal; color:var(--mute); font-size:10px; margin-left:6px; }
+  .cbtns { display:inline-flex; border:1px solid var(--line); flex:none; } .cbtns button { font:inherit; font-size:11px; border:0; background:var(--card); color:var(--mute); padding:2px 7px; cursor:pointer; }
+  .cbtns button + button { border-left:1px solid var(--line); } .cbtns button.on { background:#B5577A; color:#fff; }
+  html[data-theme="graphite"] .cbtns button { background:#34353A; } html[data-theme="graphite"] .cbtns button.on { background:#B5577A; color:#fff; }
+  .ssent { font-size:14px; margin:0 0 6px; } table.scomb td, table.scomb th { padding:3px 8px; white-space:nowrap; } table.scomb td.oo { text-align:center; }
+  .scomb .d1 { color:var(--ink); font-weight:600; } .scomb .d0 { color:var(--mute); } .scomb .sw { display:inline-block; width:10px; height:3px; margin-left:5px; vertical-align:middle; }
+  .gsvg .sline { fill:none; stroke-width:2.2; } .gsvg .ssq { fill:var(--card); stroke-width:1.8; } .gsvg .stx { font-size:11px; font-weight:700; }
+  .sh2 { margin-top:14px; }
+  .spanel { position:relative; } .fsb { position:absolute; top:4px; right:4px; z-index:2; font:inherit; font-size:11px; padding:1px 7px; border:1px solid var(--line); background:var(--card); color:var(--mute); cursor:pointer; }
+  .fsb:hover { color:var(--ink); } #stabp .ssent, #schartp .gview { padding-right:96px; } #srail .srh:first-of-type { padding-right:90px; }
+  .spanel.fs { position:fixed; inset:0; z-index:60; background:var(--bg); overflow:auto; padding:34px 24px 20px; max-height:none; margin:0; border:0; }
+  body.sfsopen { overflow:hidden; }
+  .skey { font-size:11px; color:var(--mute); margin:2px 0 4px; line-height:1.4; } .skey b { color:var(--ink); }
+  .cbtns button.cmb { color:#B5577A; font-weight:600; }
+  .scomb th.sth { cursor:pointer; user-select:none; } .scomb td.nw { white-space:nowrap; }
+  .scomb .hx { visibility:hidden; border:0; background:none; color:var(--mute); cursor:pointer; font:inherit; padding:0 0 0 5px; }
+  .scomb th:hover .hx, .scomb tr:hover .hx { visibility:visible; } .scomb .hx:hover { color:var(--ink); }
+  .scomb tr.sdiff td { border-top:2px solid var(--line); }
+  .sfb { margin:4px 0 10px; } .sfr { display:flex; flex-wrap:wrap; align-items:center; gap:6px; padding:3px 0; } .sfr .fl { font-weight:700; min-width:190px; }
+  .sfr input[type=number] { width:56px; } .sfr .fadd { width:150px; } .sfr .fp { white-space:nowrap; } .sfr .fp + .fp::before { content:","; margin-right:5px; color:var(--mute); }
+  .sfr .hx { border:0; background:none; color:var(--mute); cursor:pointer; font:inherit; padding:0 3px; } .sfr .hx:hover { color:var(--ink); }
+  .ssubbar { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:6px; } .ssubbar .ssent { margin:0; }
+  .sbxbar { font-size:12px; color:var(--mute); margin:0 0 6px; display:flex; flex-wrap:wrap; gap:6px 14px; align-items:center; } .sbxbar .cbx label { margin-left:10px; color:var(--ink); white-space:nowrap; }
+  .sbxbar > label { color:var(--ink); }
+  .spanel.fs { display:flex; flex-direction:column; align-items:center; } .spanel.fs > * { max-width:100%; } #schartp.fs { align-items:stretch; }
+  .fscap { display:none; } .spanel.fs .fscap { display:block; font-size:18px; margin:0 0 10px; }
+  #stabp.fs table.scomb { font-size:15px; } #stabp.fs table.scomb td, #stabp.fs table.scomb th { padding:6px 10px; } #stabp.fs .gwrap { overflow:auto; } table.scomb td.bx { color:var(--ink); font-size:12px; line-height:1.15; } table.scomb td.bx .x { display:block; } table.scomb td.bx .p { display:block; font-size:10.5px; color:var(--ink); opacity:.72; }
+  .scomb .pg { color:#1d6a35 !important; opacity:1 !important; font-weight:700; } .scomb .pb { color:#a3262f !important; opacity:1 !important; font-weight:700; }
+  html[data-theme="graphite"] .scomb .pg { color:#7fd69a !important; } html[data-theme="graphite"] .scomb .pb { color:#ff8f8f !important; }
+  table.scomb td.bx2 { line-height:1.15; } table.scomb td.bx2 .x, table.scomb td.bx2 .p { display:block; } table.scomb td.bx2 .p { font-size:10.5px; opacity:.72; } .scomb .sb { font-style:italic; }
+  .sbxbar select { font:inherit; } table.scard { width:auto; } table.scard th.l { text-align:left; white-space:nowrap; } table.scard thead th { text-align:center; line-height:1.2; }
+  table.scard td { text-align:center; min-width:74px; }
+  .sfr .tv { width:64px; } .shid a { margin:0 2px; } #sx { margin-left:8px; } #stabp { padding-top:24px; } #stabp.fs { padding-top:34px; }
   /* Two colour modes: light (default) and graphite; the switch sits at the right of the top bar and the choice is
      kept in this browser (localStorage hapm_mode); with no saved choice, a system set to dark mode opens in graphite. Graphite keeps the percentile cells as they are, with black numbers. */
   .cmode { margin-left:10px; font-size:11px; } .cmode button { padding:2px 8px; }
@@ -108,12 +191,14 @@
 <div class="wrap">
   <div class="hd"><div><h1 id="name">Larry Owens</h1><div class="meta" id="meta">SF · WAS, SAS, NJN · 2010-11 to 2011-12</div></div></div>
   <div class="bar">
-    <span class="seg" id="tab"><button data-t="career">Career</button><button data-t="mates">Teammates</button></span>
+    <span class="seg" id="tab"><button data-t="career">Career</button><button data-t="games">Games</button><button data-t="stints">Stints</button></span>
     <label>Version <select id="variant"></select></label>
     <label id="detailBox">Detail <span class="seg" id="detail"><button data-d="sum" class="on">Summary</button><button data-d="parts">Parts</button><button data-d="ends">O / D parts</button><button data-d="zones">Zones</button></span></label>
     <a class="btn" id="cmpbtn" href="#">Compare with other players</a>
   </div>
   <div id="pCareer"><div id="tables"><table><thead><tr><th>Season</th><th>Team</th><th>HAPM</th><th>Off</th><th>Def</th><th class="ps sep">Poss</th></tr></thead><tbody><tr><td><a href="../../2011-12/">2011-12</a></td><td>NJN</td><td>−6.27</td><td>−4.08</td><td>−2.19</td><td class="ps sep">131</td></tr><tr><td><a href="../../2010-11/">2010-11</a></td><td>WAS/SAS</td><td>−2.55</td><td>−3.35</td><td>+0.80</td><td class="ps sep">283</td></tr></tbody></table></div></div>
+  <div id="pGames" style="display:none"></div>
+  <div id="pStints" style="display:none"></div>
   <div id="pMates" style="display:none">
   <h2>Teammates <select id="tmfrom"></select> to <select id="tmto"></select></h2>
   <p class="note" style="margin:0 0 6px">Teammates he shared 100+ possessions with, most shared first. Net rating is the team's points per 100 possessions minus the opponents'.
@@ -166,18 +251,23 @@ function careerTable(P) {
   return h + "</tbody></table>";
 }
 
-function hash() { history.replaceState(null, "", "#" + new URLSearchParams(Object.entries({ t:S.tab, v:S.variant, d:S.detail }).filter(([, x]) => x)).toString()); }
+function hash() {   // t / v / d here; the Games tab keeps its own keys (games.js) while it is open
+  const keep = ["games", "stints"].includes(S.tab) ? Object.fromEntries([...new URLSearchParams(location.hash.slice(1))].filter(([k]) => !["t", "v", "d"].includes(k))) : {};
+  history.replaceState(null, "", "#" + new URLSearchParams({ ...Object.fromEntries(Object.entries({ t:S.tab, v:S.variant, d:S.detail }).filter(([, x]) => x)), ...keep }).toString()); }
 
 async function render() {
   [...$("detail").children].forEach(b => b.classList.toggle("on", b.dataset.d === S.detail));
   [...$("tab").children].forEach(b => b.classList.toggle("on", b.dataset.t === S.tab));
   $("pCareer").style.display = S.tab === "career" ? "" : "none";
   $("pMates").style.display = S.tab === "mates" ? "" : "none"; $("detailBox").style.display = S.tab === "career" ? "" : "none";
+  $("pGames").style.display = S.tab === "games" ? "" : "none"; $("pStints").style.display = S.tab === "stints" ? "" : "none"; $("variant").parentElement.style.display = ["games", "stints"].includes(S.tab) ? "none" : "";
   const main = await player(PID);
   $("tables").innerHTML = careerTable(main);
   $("cmpbtn").href = `${ROOT}compare/#p=${PID}&v=${encodeURIComponent(S.variant)}`;
   hash();
   if (S.tab === "mates") mates();
+  if (S.tab === "games" && window.gamesTab) gamesTab();
+  if (S.tab === "stints" && window.stintsTab) stintsTab();
 }
 
 async function mates() {      // shared possessions over the seasons chosen; net = total margin / total possessions
@@ -212,7 +302,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   for (const v of idx.variants) $("variant").add(new Option(VL(v), v));
   const H = Object.fromEntries(new URLSearchParams(location.hash.slice(1)));
   if (H.v && idx.variants.includes(H.v)) S.variant = H.v; if (H.d && DET[H.d]) S.detail = H.d;
-  if (["career", "mates"].includes(H.t)) S.tab = H.t;
+  if (["career", "games", "stints", "mates"].includes(H.t)) S.tab = H.t; if (H.s) S.gs = H.s;
   [...$("tab").children].forEach(b => b.onclick = () => { S.tab = b.dataset.t; render(); });
   $("variant").value = S.variant;
   $("variant").onchange = e => { S.variant = e.target.value; render(); };
@@ -226,6 +316,7 @@ async function mates() {      // shared possessions over the seasons chosen; net
   render();
 })();
 </script>
+<script src="/games.js?v=3069928d4c"></script>
 <div class="plinks">Seasons: <a href="../../2010-11/">2010-11</a> <a href="../../2011-12/">2011-12</a> &middot; <a href="../../players/">All players A to Z</a> &middot; <a href="../../">NBA HAPM leaders</a></div>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9efe75416ae84c8cbda0b97ae9263407"}'></script>
 <script defer src="/site.js"></script>
