@@ -12,13 +12,13 @@
 <meta property="og:title" content="Compare NBA Players by HAPM | Held-Out Adjusted Plus-Minus">
 <meta property="og:description" content="Compare up to four NBA players by HAPM (held-out adjusted plus-minus): offense, defense, shot value, possession value and zones, by career, best season or latest season, with HAPM by season.">
 <meta property="og:url" content="https://hapm.github.lumahoops.org/compare/">
-<meta property="og:image" content="https://hapm.github.lumahoops.org/og.png?v=20261127">
+<meta property="og:image" content="https://hapm.github.lumahoops.org/og.png?v=20261128">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Compare NBA Players by HAPM | Held-Out Adjusted Plus-Minus">
 <meta name="twitter:description" content="Compare up to four NBA players by HAPM (held-out adjusted plus-minus): offense, defense, shot value, possession value and zones, by career, best season or latest season, with HAPM by season.">
-<meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261127">
+<meta name="twitter:image" content="https://hapm.github.lumahoops.org/og.png?v=20261128">
 <script>try{var m=localStorage.getItem('hapm_mode');if(m==='graphite'||(!m&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='graphite'}catch(e){}</script>
 <style>
   :root { --rose:#B5577A; --rose-tint:#F7E4EA; --rose-line:#E8C3CF; --ink:#16181d; --mute:#5f636b; --line:#d9dbe0; --head:#E9EAEC; --bg:#F1F1F1; --card:#F9F9F9; }
@@ -42,6 +42,10 @@
   #rowedit { display:none; border:1px solid var(--line); padding:8px 10px; margin-bottom:10px; columns:4 170px; font-size:12px; }
   #rowedit label { display:block; break-inside:avoid; } #rowedit .gh { font-weight:700; margin-top:4px; }
   .two { display:flex; gap:28px; flex-wrap:wrap; align-items:flex-start; }
+  .two.run > div:last-child { flex:1 1 100%; } #hzBox { margin-left:10px; color:var(--mute); font-size:11.5px; } #hzBox input { font-size:11.5px; padding:1px 4px; }
+  #chart { position:relative; } #chart .rtt { position:absolute; pointer-events:none; background:var(--card); border:1px solid var(--line); box-shadow:0 3px 10px rgba(0,0,0,.12);
+    padding:5px 8px; font-size:11.5px; white-space:nowrap; display:none; z-index:5; } #chart .rtt b { display:block; margin-bottom:2px; }
+  #chart .rtt i { display:inline-block; width:10px; height:2px; vertical-align:middle; margin-right:5px; }
   table { border-collapse:collapse; font-variant-numeric:tabular-nums; font-size:12px; }
   th, td { border:1px solid var(--line); padding:2px 8px; text-align:center; white-space:nowrap; }
   thead th { background:var(--head); font-size:12.5px; } th.pn { min-width:130px; } th select { font-size:11px; padding:1px 3px; max-width:150px; }
@@ -105,7 +109,7 @@
 <div class="wrap">
   <h1>Compare players</h1>
   <div class="ctl">
-    <b>Players</b><div><input id="add" list="names" placeholder="Add a player (up to 4)"><datalist id="names"></datalist><span id="chips"></span>
+    <b>Players</b><div><input id="add" list="names" placeholder="Add a player (up to 8)"><datalist id="names"></datalist><span id="chips"></span>
       <span class="pre" id="pre">Try: <a data-p="203999,1641705">Joki&#263; vs Wembanyama</a><a data-p="1628983,1629029">Gilgeous-Alexander vs Don&#269;i&#263;</a><a data-p="2544,201142">LeBron vs Durant</a><a data-p="201939,959">Curry vs Nash</a></span></div>
     <b>Seasons</b><div><span class="seg" id="mode"><button data-m="career">Career</button><button data-m="best">Best season</button><button data-m="latest">Latest season</button><button data-m="age">Same age</button><button data-m="range">Range</button></span>
       <span id="ageBox">Age <select id="age"></select></span><span id="rangeBox"><select id="from"></select> to <select id="to"></select></span>
@@ -117,18 +121,18 @@
   </div>
   <div id="rowedit"></div>
   <div class="two"><div><div id="table"></div><p class="note" id="note"></p></div>
-    <div><div class="cc"><label>Chart <select id="cm"></select></label><span class="seg" id="xax"><button data-x="season">Season</button><button data-x="age">Age</button><button data-x="year">Year of career</button></span></div>
+    <div><div class="cc"><label>Chart <select id="cm"></select></label><span class="seg" id="xax"><button data-x="season">Season</button><button data-x="age">Age</button><button data-x="year">Year of career</button><button data-x="date" title="Value after every game date">Running</button></span><span id="hzBox" style="display:none">Span <input type="date" id="hzA"> to <input type="date" id="hzB"></span></div>
       <div id="chart"></div><div class="lg" id="legend"></div></div></div>
 </div>
 <script>
 const ROOT = document.body.dataset.root || "";
 const VL = v => (window.VLAB && window.VLAB[v]) || "HAPM " + v;   // version labels from data/index.json
-const S = { p:[], variant:"hapm", mode:"career", age:27, from:"", to:"", col:{}, rows:"sum", custom:null, color:"pct", cm:"net", x:"season", cache:{} };
+const S = { p:[], variant:"hapm", mode:"career", age:27, from:"", to:"", col:{}, rows:"sum", custom:null, color:"pct", cm:"net", x:"season", cache:{}, hzA:"", hzB:"", bd:{}, runTok:0, SS:[] };
 const $ = id => document.getElementById(id);
 const sg = x => x == null || isNaN(x) ? "" : (x > 0 ? "+" : x < 0 ? "\u2212" : "") + Math.abs(x).toFixed(2);
 const LO = [238, 172, 172], MID = [234, 235, 238], HI = [190, 228, 176];
 const heat = p => { if (p == null) return ""; const t = Math.min(1, Math.abs(p - 50) / 50), e = p >= 50 ? HI : LO; return `rgb(${MID.map((m, i) => Math.round(m + (e[i] - m) * t)).join(",")})`; };
-const COL = ["#B5577A", "#2f6f9f", "#c08a1e", "#4b8a52"];
+const COL = ["#B5577A", "#2f6f9f", "#c08a1e", "#4b8a52", "#7b5ea7", "#c45050", "#3a9a9a", "#8a8d94"];
 const TK = ["sv", "sel", "selo", "seld", "conv", "convo", "convd", "pv", "gen", "oreb", "dtov", "ret", "otov", "dreb",
   "so_r", "so_m", "so_t", "so_f", "sd_r", "sd_m", "sd_t", "sd_f", "co_r", "co_m", "co_t", "co_f", "cd_r", "cd_o"], KEYS = ["net", "o", "d", ...TK];
 const ROWS = [[null, "HAPM", "sum"], ["net", "HAPM", 1], ["o", "Offense", 2], ["d", "Defense", 2],
@@ -175,13 +179,15 @@ async function render() {
   [...$("preset").children].forEach(b => b.classList.toggle("on", !S.custom && b.dataset.r === S.rows));
   [...$("color").children].forEach(b => b.classList.toggle("on", b.dataset.c === S.color));
   [...$("xax").children].forEach(b => b.classList.toggle("on", b.dataset.x === S.x));
+  $("cm").parentElement.style.display = S.x === "date" ? "none" : ""; $("hzBox").style.display = S.x === "date" ? "" : "none";
+  document.querySelector(".two").classList.toggle("run", S.x === "date");
   $("ageBox").style.display = S.mode === "age" ? "" : "none"; $("rangeBox").style.display = S.mode === "range" ? "" : "none";
   const Ps = await Promise.all(S.p.map(player)), C = Ps.map(column), on = shown();
   $("chips").innerHTML = Ps.map((P, i) => `<span class="chip" style="color:${COL[i]}" data-rm="${P.i}" title="Remove">${P.n} \u00d7</span>`).join(" ");
   document.querySelectorAll("[data-rm]").forEach(el => el.onclick = () => { S.p = S.p.filter(p => p !== +el.dataset.rm); delete S.col[el.dataset.rm]; render(); });
   history.replaceState(null, "", "#" + new URLSearchParams(Object.entries({ p:S.p.join(","), v:S.variant, s:S.mode, age:S.mode === "age" ? S.age : "",
     f:S.mode === "range" ? S.from : "", t:S.mode === "range" ? S.to : "", col:Object.entries(S.col).map(([a, b]) => `${a}:${b}`).join(","),
-    r:S.custom ? "" : S.rows, rows:S.custom ? [...S.custom].join(",") : "", c:S.color, cm:S.cm, x:S.x }).filter(([, x]) => x)).toString());
+    r:S.custom ? "" : S.rows, rows:S.custom ? [...S.custom].join(",") : "", c:S.color, cm:S.cm, x:S.x, hza:S.x === "date" ? S.hzA : "", hzb:S.x === "date" ? S.hzB : "" }).filter(([, x]) => x)).toString());
   if (!Ps.length) { $("table").innerHTML = '<p class="note">Add players above, or try a matchup.</p>'; $("chart").innerHTML = ""; $("legend").innerHTML = ""; $("note").textContent = ""; return; }
   const opt = P => [["", "Same as all"], ["career", "Career"], ["best", "Best season"], ["latest", "Latest season"], ...P.seasons.filter(r => r.v[S.variant]).map(r => [r.s, `${r.s}${r.a ? " (age " + r.a + ")" : ""}`]).reverse()]
     .map(([v, l]) => `<option value="${v}"${(S.col[P.i] || "") === v ? " selected" : ""}>${l}</option>`).join("");
@@ -201,7 +207,7 @@ async function render() {
   document.querySelectorAll("select[data-col]").forEach(el => el.onchange = () => { if (el.value) S.col[el.dataset.col] = el.value; else delete S.col[el.dataset.col]; render(); });
   $("note").textContent = "A column that covers several seasons shows their possession-weighted average; its percentile ranks it among career averages of players with " +
     `${S.CQ.min_poss.toLocaleString()}+ career possessions. A single season's percentile ranks it within that season. Points per 100 possessions.`;
-  chart(Ps);
+  if (S.x === "date") running(Ps); else chart(Ps);
 }
 function chart(Ps) {   // the chosen metric by season, age or year of career; one line per player
   const W = 560, H = 240, L = 34, R = 10, T = 10, B = 28, v = S.variant, k = S.cm;
@@ -220,6 +226,83 @@ function chart(Ps) {   // the chosen metric by season, age or year of career; on
   $("chart").innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="chart">${g}</svg>`;
   $("legend").innerHTML = Ps.map((P, i) => `<i style="background:${COL[i]}"></i>${P.n}`).join("") + ` \u00b7 ${VL(v)}`;
 }
+// ---------------------------------------------------------------- running chart (Chart: Running): value on every date, from data/games/bydate/<season>.json
+const MON3 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], RUN_MAX = 15;
+const sdate = d => `${MON3[+d.slice(5, 7) - 1]} ${+d.slice(8, 10)}`, ldate = d => `${sdate(d)}, ${d.slice(0, 4)}`;
+const esc = x => String(x ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+const lastName = n => { const w = String(n).split(" "); return w.length > 2 && /^(Jr\.?|Sr\.?|II|III|IV)$/.test(w[w.length - 1]) ? w.slice(-2).join(" ") : w[w.length - 1]; };
+function seasonOf(d) { const y = +d.slice(0, 4), a = +d.slice(5, 7) >= 9 ? y : y - 1; return `${a}-${String((a + 1) % 100).padStart(2, "0")}`; }   // Sep-Dec = that season
+function bdFile(s) {
+  if (!(s in S.bd)) S.bd[s] = fetch(`${ROOT}data/games/bydate/${s}.json`).then(x => x.ok ? x.json() : null).catch(() => null).then(D => {
+    if (!D) return null;
+    for (const p of Object.values(D.p)) { const ci = new Int16Array(D.dates.length).fill(-1); let j = -1;     // ci[i] = his last game row on or before date i
+      for (let i = 0; i < D.dates.length; i++) { while (j + 1 < p.g.length && p.g[j + 1][0] <= i) j++; ci[i] = j; } p.ci = ci; }
+    return D; });
+  return S.bd[s];
+}
+function interp1(x, xs, ys) { if (x <= xs[0]) return ys[0]; const n = xs.length; if (x >= xs[n - 1]) return ys[n - 1];
+  let lo = 0, hi = n - 1; while (hi - lo > 1) { const m = (lo + hi) >> 1; if (xs[m] <= x) lo = m; else hi = m; } return ys[lo] + (ys[hi] - ys[lo]) * (x - xs[lo]) / (xs[hi] - xs[lo]); }
+function bdRow(p, i) { const j = i >= 0 && p.ci ? p.ci[i] : -1; return j >= 0 ? p.g[j] : null; }
+function runVal(D, p, i, v, prev) {   // his value after date i: time decay, 1-year (Par to date shrunk), 2-year (pooled with last season), or Par to date
+  if (!p || i < p.t0) return null;
+  if (v === "hapm") return p.td[i - p.t0];
+  const g = bdRow(p, i); if (!g || g[9] == null || !g[10]) return null;
+  if (v === "par") return g[9];
+  const k = D.k, pace = k.read_pace * k.n_games / Math.max(k.thru[i], 1), mu = interp1(Math.log(Math.max(g[12] * pace, 1)), k.lx, k.net);
+  const w = 1 / (g[10] * g[10]); let num = w * g[9], den = w, s2 = w;
+  if (v === "2y" && prev) { const w0 = 0.5 / (prev[1] * prev[1]); num += w0 * prev[0]; den += w0; s2 += w0 * w0 * prev[1] * prev[1]; }
+  const x = num / den, se2 = s2 / (den * den); return mu + k.tau2 / (k.tau2 + se2) * (x - mu);
+}
+async function running(Ps) {
+  const box = $("chart"), tok = ++S.runTok, cur = S.SS[S.SS.length - 1], today = new Date().toISOString().slice(0, 10);
+  const a = S.hzA || "", b = S.hzB || "", sa = a ? seasonOf(a) : cur, sb = b ? seasonOf(b) : cur;
+  let ia = S.SS.indexOf(sa), ib = S.SS.indexOf(sb); if (ia < 0) ia = 0; if (ib < 0) ib = S.SS.length - 1; if (ia > ib) [ia, ib] = [ib, ia];
+  $("hzA").min = S.SS[0].slice(0, 4) + "-10-01"; $("hzA").max = b || today; $("hzB").min = a || $("hzA").min; $("hzB").max = today;
+  if (ib - ia + 1 > RUN_MAX) { box.innerHTML = `<p class="note">The running chart covers up to ${RUN_MAX} seasons at a time.</p>`; $("legend").innerHTML = ""; return; }
+  box.innerHTML = '<p class="note">Loading\u2026</p>';
+  const Ds = (await Promise.all(S.SS.slice(ia, ib + 1).map(async s => ({ s, D:await bdFile(s) })))).filter(o => o.D);
+  if (tok !== S.runTok) return;
+  const T = []; for (const { s, D } of Ds) for (let i = 0; i < D.dates.length; i++) { const d = D.dates[i]; if ((!a || d >= a) && (!b || d <= b)) T.push({ s, D, i, d, k:T.length }); }
+  if (T.length < 2) { box.innerHTML = '<p class="note">No games in this span.</p>'; $("legend").innerHTML = ""; return; }
+  $("hzA").value = T[0].d; $("hzB").value = T[T.length - 1].d;
+  const v = S.variant, minP = v === "hapm" ? 0 : 150;
+  const lines = Ps.map((P, j) => { const pv = {}; for (const r of P.seasons) if (r.v.par && r.v.par[2] != null && r.v.par[5]) pv[r.s] = [r.v.par[2], r.v.par[5]];
+    const L = { n:P.n, c:COL[j], pts:[] };
+    for (const t of T) { const p = t.D.p[P.i]; if (!p) continue; const g = bdRow(p, t.i); if (!g || g[12] < minP) continue;
+      const prev = pv[S.SS[S.SS.indexOf(t.s) - 1]], y = runVal(t.D, p, t.i, v, prev); if (y != null) L.pts.push([t.k, y, t.s]); }
+    return L; }).filter(L => L.pts.length);
+  box.innerHTML = ""; runChartC(box, lines, T);
+  $("legend").innerHTML = Ps.map((P, j) => `<i style="background:${COL[j]}"></i>${esc(P.n)}`).join("") + ` \u00b7 ${VL(v)} after every game date, ${ldate(T[0].d)} to ${ldate(T[T.length - 1].d)}` +
+    (minP ? ` \u00b7 lines start at ${minP} possessions` : "");
+}
+function runChartC(box, lines, T) {   // months inside one season; season labels and dashed season starts across several
+  if (!lines.length) { box.innerHTML = '<p class="note">None of these players has a value in this span.</p>'; return; }
+  const NS = "http://www.w3.org/2000/svg", mk = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); p.appendChild(e); return e; };
+  const W = Math.max(560, Math.min(1500, box.parentElement.clientWidth || 560)), H = 300, m = { l:34, r:110, t:8, b:22 };
+  const x1 = Math.max(T.length - 1, 1), ys = lines.flatMap(L => L.pts.map(p => p[1])), nS = new Set(T.map(t => t.s)).size;
+  let lo = Math.min(...ys), hi = Math.max(...ys); const sp = Math.max(hi - lo, 1), st = sp > 30 ? 10 : sp > 12 ? 5 : sp > 5 ? 2 : 1;
+  lo = Math.floor(lo / st) * st; hi = Math.ceil(hi / st) * st; if (hi === lo) hi = lo + st;
+  const X = x => m.l + x / x1 * (W - m.l - m.r), Y = y => m.t + (hi - y) / (hi - lo) * (H - m.t - m.b);
+  const svg = mk("svg", { width:W, height:H, class:"rc" }, box);
+  for (let y = lo; y <= hi + 1e-9; y += st) { mk("line", { x1:m.l, x2:W - m.r, y1:Y(y), y2:Y(y), style:y === 0 ? "stroke:#8a8d94" : "stroke:var(--line)" }, svg);
+    mk("text", { x:m.l - 4, y:Y(y) + 3, "text-anchor":"end", "font-size":10, style:"fill:var(--mute)" }, svg).textContent = y > 0 ? "+" + y : y === 0 ? "0" : "\u2212" + -y; }
+  if (nS > 1) { let ls = null; for (const t of T) if (t.s !== ls) { ls = t.s; if (t.k > 0) mk("line", { x1:X(t.k), x2:X(t.k), y1:m.t, y2:H - m.b, style:"stroke:var(--line)", "stroke-dasharray":"3,3" }, svg);
+      mk("text", { x:X(t.k) + 2, y:H - 6, "font-size":10, style:"fill:var(--mute)" }, svg).textContent = t.s; } }
+  else { let lm = null; for (const t of T) { const mo = t.d.slice(5, 7); if (mo !== lm) { lm = mo; mk("text", { x:X(t.k), y:H - 6, "font-size":10, style:"fill:var(--mute)" }, svg).textContent = MON3[+mo - 1]; } } }
+  const ends = [];
+  for (const L of lines) { L.at = new Map(L.pts.map(p => [p[0], p[1]]));
+    mk("path", { d:L.pts.map((p, k) => (k && p[2] === L.pts[k - 1][2] ? "L" : "M") + X(p[0]).toFixed(1) + "," + Y(p[1]).toFixed(1)).join(""), fill:"none", stroke:L.c, "stroke-width":2, "stroke-linejoin":"round" }, svg);
+    const e = L.pts[L.pts.length - 1]; ends.push({ L, y:Y(e[1]) }); }
+  ends.sort((a, b) => a.y - b.y); for (let k = 1; k < ends.length; k++) ends[k].y = Math.max(ends[k].y, ends[k - 1].y + 12);
+  for (const e of ends) mk("text", { x:W - m.r + 4, y:e.y + 3, "font-size":11, fill:e.L.c }, svg).textContent = lastName(e.L.n);
+  const vl = mk("line", { y1:m.t, y2:H - m.b, style:"stroke:var(--mute);display:none" }, svg), tt = document.createElement("div"); tt.className = "rtt"; box.appendChild(tt);
+  svg.addEventListener("mousemove", ev => { const r = svg.getBoundingClientRect(), x = Math.max(0, Math.min(x1, Math.round((ev.clientX - r.left - m.l) / (W - m.l - m.r) * x1)));
+    vl.setAttribute("x1", X(x)); vl.setAttribute("x2", X(x)); vl.style.display = "";
+    const rows = lines.map(L => L.at.has(x) && { L, y:L.at.get(x) }).filter(Boolean).sort((a, b) => b.y - a.y);
+    tt.innerHTML = `<b>${nS > 1 ? ldate(T[x].d) : sdate(T[x].d)}</b>` + rows.map(o => `<div><i style="background:${o.L.c}"></i>${esc(o.L.n)} ${sg(o.y)}</div>`).join("");
+    tt.style.display = "block"; const tx = X(x) + 12; tt.style.left = (tx + tt.offsetWidth > W ? X(x) - tt.offsetWidth - 12 : tx) + "px"; tt.style.top = "8px"; });
+  svg.addEventListener("mouseleave", () => { vl.style.display = "none"; tt.style.display = "none"; });
+}
 function rowEditor() {
   const on = shown(); let h = "", g = "";
   for (const [k, lab, x] of ROWS) { if (!k) { h += `<div class="gh">${lab}</div>`; continue; }
@@ -237,17 +320,18 @@ function rowEditor() {
   window.VLAB = idx.labels || {};
   for (const v of idx.variants) $("variant").add(new Option(VL(v), v));
   for (let a = 19; a <= 40; a++) $("age").add(new Option(a, a));
-  const ss = idx.seasons.map(s => s.season); for (const s of ss) { $("from").add(new Option(s, s)); $("to").add(new Option(s, s)); }
+  const ss = idx.seasons.map(s => s.season); S.SS = ss; for (const s of ss) { $("from").add(new Option(s, s)); $("to").add(new Option(s, s)); }
   S.from = ss[ss.length - 4]; S.to = ss[ss.length - 1];
   for (const [k, lab] of ROWS) if (k) $("cm").add(new Option(lab === "HAPM" ? "HAPM" : lab, k));
   const H = Object.fromEntries(new URLSearchParams(location.hash.slice(1)));
-  if (H.p) S.p = H.p.split(",").map(Number).filter(p => slugs[p]).slice(0, 4);
+  if (H.p) S.p = H.p.split(",").map(Number).filter(p => slugs[p]).slice(0, 8);
   if (H.v && idx.variants.includes(H.v)) S.variant = H.v;
   if (["career", "best", "latest", "age", "range"].includes(H.s)) S.mode = H.s;
   if (H.age) S.age = +H.age; if (H.f) S.from = H.f; if (H.t) S.to = H.t;
   if (H.col) for (const t of H.col.split(",")) { const [a, b] = t.split(":"); if (b) S.col[a] = b; }
   if (H.rows) S.custom = H.rows.split(",").filter(k => KEYS.includes(k)); else if (PRESET[H.r]) S.rows = H.r;
-  if (["pct", "win", "lose", "none"].includes(H.c)) S.color = H.c; if (H.cm && KEYS.includes(H.cm)) S.cm = H.cm; if (["season", "age", "year"].includes(H.x)) S.x = H.x;
+  if (["pct", "win", "lose", "none"].includes(H.c)) S.color = H.c; if (H.cm && KEYS.includes(H.cm)) S.cm = H.cm; if (["season", "age", "year", "date"].includes(H.x)) S.x = H.x;
+  if (/^\d{4}-\d\d-\d\d$/.test(H.hza || "")) S.hzA = H.hza; if (/^\d{4}-\d\d-\d\d$/.test(H.hzb || "")) S.hzB = H.hzb;
   $("variant").value = S.variant; $("age").value = S.age; $("from").value = S.from; $("to").value = S.to; $("cm").value = S.cm;
   $("variant").onchange = e => { S.variant = e.target.value; render(); };
   $("age").onchange = e => { S.age = +e.target.value; render(); };
@@ -258,8 +342,9 @@ function rowEditor() {
   [...$("preset").children].forEach(b => b.onclick = () => { S.rows = b.dataset.r; S.custom = null; if ($("rowedit").style.display === "block") rowEditor(); render(); });
   [...$("color").children].forEach(b => b.onclick = () => { S.color = b.dataset.c; render(); });
   [...$("xax").children].forEach(b => b.onclick = () => { S.x = b.dataset.x; render(); });
+  $("hzA").onchange = e => { S.hzA = e.target.value || ""; render(); }; $("hzB").onchange = e => { S.hzB = e.target.value || ""; render(); };
   $("editRows").onclick = () => { const o = $("rowedit").style.display === "block"; $("rowedit").style.display = o ? "none" : "block"; if (!o) rowEditor(); };
-  $("add").onchange = () => { const p = byName[$("add").value]; if (p && !S.p.includes(p) && S.p.length < 4) { S.p.push(p); render(); } $("add").value = ""; };
+  $("add").onchange = () => { const p = byName[$("add").value]; if (p && !S.p.includes(p) && S.p.length < 8) { S.p.push(p); render(); } $("add").value = ""; };
   document.querySelectorAll("#pre a").forEach(a => a.onclick = () => { S.p = a.dataset.p.split(",").map(Number).filter(p => slugs[p]); S.col = {}; render(); });
   render();
 })();
