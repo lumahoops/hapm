@@ -26,7 +26,10 @@
 
   // page view
   var qs = location.search.slice(0, 120);
+  // tab and subtab when the page opens from a link (#t=stints&sub=find); tab clicks after that are counted as buttons
+  var hq = (function () { try { return new URLSearchParams(location.hash.slice(1)); } catch (e) { return new URLSearchParams(''); } })();
   send('hapm_page_view', { title: document.title.slice(0, 120), qs: qs || undefined, theme: theme(),
+    tab: (hq.get('t') || '').slice(0, 20) || undefined, sub: (hq.get('sub') || '').slice(0, 20) || undefined,
     entry: refExt ? 'external' : (document.referrer ? 'internal' : 'direct'), vw: window.innerWidth || 0 });
 
   // active time: counts only while the tab is visible; sent when the page is hidden or left (and every 60 s of activity)

@@ -176,9 +176,9 @@
   },
   {
    "season": "2026-27",
-   "players": 380,
+   "players": 384,
    "qualified_poss": 400,
-   "team_poss": 1730
+   "team_poss": 1799
   }
  ],
  "variants": [
@@ -198,7 +198,7 @@
  "current": {
   "season": "2026-27",
   "through_game": 296,
-  "games": 269,
-  "updated": "2026-11-28T03:59Z"
+  "games": 280,
+  "updated": "2026-11-28T08:13Z"
  }
 }
